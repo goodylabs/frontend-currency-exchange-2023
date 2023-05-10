@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css'
 
 class ForeignCurrenciesRates extends Component {
 
@@ -11,7 +12,7 @@ class ForeignCurrenciesRates extends Component {
   }
 
   componentDidMount() {
-    fetch('http://api.nbp.pl/api/exchangerates/tables/A')
+    fetch('http://api.nbp.pl/api/exchangerates/tables/A/')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -38,16 +39,19 @@ class ForeignCurrenciesRates extends Component {
       let currencies = items.rates;
       console.log(currencies);
       return (
-        <div>
-          <ul>
+        <div className='container'>
+          <ul className='list'>
             {currencies.map(item => (
-              <li key={item.code}>
-                Code: {item.code} | Current Worth: {item.mid}
+              <li className='list-item' key={item.code}>
+                <span>{item.code}:</span> {item.mid}
+                <div className='currency-name'>
+                  {item.currency}
+                </div>
               </li>
             ))}
           </ul>
-          <p>
-            Update Data: {items.effectiveDate}
+          <p className='date'>
+            Data from: <span>{items.effectiveDate}</span>
           </p>
         </div>
       );

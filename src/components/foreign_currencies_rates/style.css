@@ -1,0 +1,66 @@
+div {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.container {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.list {
+  margin: 0 auto;
+  padding: 15px;
+  background-color: var(--seasalt);
+  border-radius: 20px;
+  list-style-type: none;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.list-item {
+  padding: 5px 3px 5px 3px;
+  color: var(--black);
+  background-color: var(--seasalt);
+
+  position: relative;
+}
+
+.list-item span {
+  color: var(--mint);
+  background-color: var(--seasalt);
+
+  font-weight: 900;
+}
+
+.currency-name {
+  z-index: 100;
+  color: var(--blue);
+  background-color: var(--seasalt);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  position: absolute;
+  bottom: 1px;
+
+  opacity: 0;
+
+  transition: all 150ms;
+}
+
+.list-item:hover .currency-name {
+  opacity: 1;
+}
+
+.date {
+  color: var(--black);
+  text-align: right;
+
+  font-size: 11px;
+}
+
+.date span {
+  color: var(--blue);
+}
