@@ -30,6 +30,7 @@ div {
 .list-item span {
   color: var(--mint);
   background-color: var(--seasalt);
+  cursor: default;
 
   font-weight: 900;
 }
@@ -38,6 +39,7 @@ div {
   z-index: 100;
   color: var(--blue);
   background-color: var(--seasalt);
+  cursor: default;
 
   font-size: 9px;
   font-weight: 700;
