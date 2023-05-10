@@ -4,7 +4,8 @@
 💱 💰 💸 🤑 💵 🪙 💳 💷 💶 💱 💰 💸 🤑 💵 🪙 💳 💷 💶 💱 💰 💸 🤑 💵 🪙 💳 💷 💶 💱
 
 ## DESCRIPTION
-Create **SPA** (Single Page Application) to present exchange rates.
+**SPA** (Single Page Application) presenting exchange rates.
+
 App features:
 1. Display current table of type A of average exchange rates of foreign currencies (show exchange rate publication date)
 2. Display current and historical gold price (with some charts)
@@ -13,16 +14,13 @@ App features:
 
 If you have an idea for other features, feel free to introduce them.
 
-## REQUIREMENTS
-1. React/Preact ( you can use CRA / VITE if you want to )
-2. Data delivery - REST API => [http://api.nbp.pl/](http://api.nbp.pl/)
+## TECH STACK
+1. React
+2. REST API => [http://api.nbp.pl/](http://api.nbp.pl/)
 
-## REGISTRATION
-1. Share your source code using Github https://github.com/goodylabs/frontend-currency-exchange-2023 :
-   - clone existing empty repository
-   - create your own branch, choose a name that will allow us to match with you
-   - create new **Pull Request**
-2. Build your app and host it with some free cloud host (eg. https://www.netlify.com/, https://firebase.google.com/, https://vercel.com/)
+## AUTHOR
+
+Jakub Matuszak | jaqubm
 
 ---
-# GOOD LUCK :)
+# THANK YOU! :)
