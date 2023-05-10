@@ -1,16 +1,8 @@
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  List,
-  ListItem,
-  ListItemText,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
+import { Box, SelectChangeEvent } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import CurrencySelect from "./CurrencySelect";
+import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 
 type Currency = {
   currency: string;
@@ -21,7 +13,10 @@ type Currency = {
 const CurrencyCard = () => {
   const [currency, setCurrency] = useState<Currency[]>();
   const [tableDate, setTableDate] = useState("");
-  const [leftCurrency, setLeftCurrency] = useState("");
+  const [baseCurrency, setBaseCurrency] = useState("");
+  const [baseCurrencyAmount, setBaseCurrencyAmount] = useState(0);
+  const [targetCurrency, setTargetCurrency] = useState("");
+  const [targetCurrencyAmount, setTargetCurrencyAmount] = useState(0);
 
   useEffect(() => {
     getCurrency();
@@ -37,29 +32,23 @@ const CurrencyCard = () => {
     setTableDate(response.data[0].effectiveDate);
   };
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setLeftCurrency(event.target.value as string);
-  };
-
   return (
-    <Box>
-      <FormControl>
-        <InputLabel id="demo-simple-select-label">Currency</InputLabel>
-        <Select
-          value={leftCurrency}
-          label="currency"
-          onChange={handleChange}
-          labelId="demo-simple-select-label"
-        >
-          {currency?.map((item, index) => (
-            <MenuItem
-              key={index}
-              value={`${item.code} ${item.currency}`}
-            >{`${item.code} ${item.currency}`}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <p>{tableDate}</p>
+    <Box sx={{ display: "flex", gap: "2rem", alignItems: "center" }}>
+      <CurrencySelect
+        currency={currency}
+        actualCurrency={baseCurrency}
+        setActualCurrency={setBaseCurrency}
+        currencyAmount={baseCurrencyAmount}
+        setCurrencyAmount={setBaseCurrencyAmount}
+      />
+      <CurrencyExchangeIcon sx={{ fontSize: "2rem" }} />
+      <CurrencySelect
+        currency={currency}
+        actualCurrency={targetCurrency}
+        setActualCurrency={setTargetCurrency}
+        currencyAmount={targetCurrencyAmount}
+        setCurrencyAmount={setTargetCurrencyAmount}
+      />
     </Box>
   );
 };
