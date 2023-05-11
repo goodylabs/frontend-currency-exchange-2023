@@ -37,17 +37,17 @@ class GoldRates extends Component {
       console.log('Data Loaded Successfully!');
       console.log(items);
       return (
-        <div className='container'>
-        <p className='title'>
-          <span>Gold</span> prices
-        </p>
-          <ul className='list'>
-            {items.map(item => (
-              <li className='list-item' key={item.data}>
-                {item.data} {item.cena}
-              </li>
-            ))}
-          </ul>
+        <div>
+          <p>
+            <span>Gold</span> prices
+          </p>
+            <ul>
+              {items.map(item => (
+                <li key={item.data}>
+                  {item.data} {item.cena}
+                </li>
+              ))}
+            </ul>
         </div>
       );
     }
