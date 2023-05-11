@@ -39,21 +39,21 @@ class ForeignCurrenciesRates extends Component {
       let currencies = items.rates;
       console.log(currencies);
       return (
-        <div className='container'>
-        <p className='title'>
+        <div className='fcr-ontainer'>
+        <p className='fcr-title'>
           <span>Current</span> foreign currencies rate
         </p>
-          <ul className='list'>
+          <ul className='fcr-list'>
             {currencies.map(item => (
-              <li className='list-item' key={item.code}>
+              <li className='fcr-list-item' key={item.code}>
                 <span>{item.code}:</span> {item.mid}
-                <p className='currency-name'>
+                <p className='fcr-currency-name'>
                   {item.currency}
                 </p>
               </li>
             ))}
           </ul>
-          <p className='date'>
+          <p className='fcr-date'>
             Data from: <span>{items.effectiveDate}</span>
           </p>
         </div>
