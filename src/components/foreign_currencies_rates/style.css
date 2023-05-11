@@ -8,28 +8,44 @@ div {
   font-weight: 500;
 }
 
+.title {
+  margin-left: 25px;
+  margin-bottom:18px;
+  color: var(--night);
+
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.title span {
+  color: var(--feldgrau);
+}
+
 .list {
   margin: 0 auto;
-  padding: 15px;
-  background-color: var(--seasalt);
-  border-radius: 20px;
+  padding: 20px;
+  padding-left: 30px;
+  border-radius: 30px;
+  background-color: var(--white);
   list-style-type: none;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .list-item {
-  padding: 5px 3px 5px 3px;
-  color: var(--black);
-  background-color: var(--seasalt);
+  width: 280px;
+  padding: 5px;
+  background-color: var(--white);
+  border-radius: 30px;
+  color: var(--feldgrau);
 
   position: relative;
 }
 
 .list-item span {
-  color: var(--mint);
-  background-color: var(--seasalt);
+  color: var(--light-green);
+  background-color: var(--white);
   cursor: default;
 
   font-weight: 900;
@@ -37,15 +53,16 @@ div {
 
 .currency-name {
   z-index: 100;
-  color: var(--blue);
-  background-color: var(--seasalt);
+  background-color: var(--smoke);
+  color: var(--feldgrau);
+  border-radius: 5px;
   cursor: default;
 
   font-size: 9px;
   font-weight: 700;
 
   position: absolute;
-  bottom: 1px;
+  bottom: 0;
 
   opacity: 0;
 
@@ -57,12 +74,14 @@ div {
 }
 
 .date {
-  color: var(--black);
+  color: var(--night);
   text-align: right;
+  margin-top: 3px;
+  margin-right: 25px;
 
   font-size: 11px;
 }
 
 .date span {
-  color: var(--blue);
+  color: var(--feldgrau);
 }

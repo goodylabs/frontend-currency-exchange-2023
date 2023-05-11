@@ -40,13 +40,16 @@ class ForeignCurrenciesRates extends Component {
       console.log(currencies);
       return (
         <div className='container'>
+        <p className='title'>
+          <span>Current</span> foreign currencies rate
+        </p>
           <ul className='list'>
             {currencies.map(item => (
               <li className='list-item' key={item.code}>
                 <span>{item.code}:</span> {item.mid}
-                <div className='currency-name'>
+                <p className='currency-name'>
                   {item.currency}
-                </div>
+                </p>
               </li>
             ))}
           </ul>
