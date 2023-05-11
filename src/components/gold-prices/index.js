@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css'
 
-class GoldRates extends Component {
+class GoldPrices extends Component {
 
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ class GoldRates extends Component {
   }
 
   componentDidMount() {
-    fetch('http://api.nbp.pl/api/cenyzlota/last/100/')
+    fetch('http://api.nbp.pl/api/cenyzlota/last/30/')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -28,14 +28,13 @@ class GoldRates extends Component {
     if (!isLoaded) {
       console.log('Loading Data!');
       return (
-        <div>
+        <div className='loading'>
           Data is loading!
         </div>
       );
     }
     else {
       console.log('Data Loaded Successfully!');
-      console.log(items);
       return (
         <div>
           <p>
@@ -54,4 +53,4 @@ class GoldRates extends Component {
   }
 }
 
-export default GoldRates;
+export default GoldPrices;

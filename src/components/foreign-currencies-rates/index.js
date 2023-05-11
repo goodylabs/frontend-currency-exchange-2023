@@ -28,34 +28,29 @@ class ForeignCurrenciesRates extends Component {
     if (!isLoaded) {
       console.log('Loading Data!');
       return (
-        <div>
+        <div className='loading'>
           Data is loading!
         </div>
       );
     }
     else {
       console.log('Data Loaded Successfully!');
-      console.log(items);
       let currencies = items.rates;
-      console.log(currencies);
       return (
         <div>
-        <p>
-          Current foreign currencies rate
-        </p>
+          <p>
+            Current foreign currencies rate
+          </p>
+          <p>
+              Data from: <span>{items.effectiveDate}</span>
+          </p>
           <ul>
             {currencies.map(item => (
               <li key={item.code}>
-                <span>{item.code}:</span> {item.mid}
-                <p>
-                  {item.currency}
-                </p>
+                {item.code}: {item.mid}
               </li>
             ))}
           </ul>
-          <p>
-            Data from: <span>{items.effectiveDate}</span>
-          </p>
         </div>
       );
     }
