@@ -1,0 +1,11 @@
+@use '../utils' as *;
+.item{
+  margin: .65em .5em;
+  color: $text-color-primary;
+  text-decoration: none;
+
+  &--active{
+    color: $bright-blue;
+
+  }
+}

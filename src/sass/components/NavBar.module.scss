@@ -1,0 +1,59 @@
+@use '../utils' as *;
+.nav{
+  padding: 1.1em .25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: $vd-desaturated-blue;
+  &__logo{
+    margin-left: 1em;
+    font-weight: $bold;
+  }
+  &__drawer{
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 1.5em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: $vd-desaturated-blue;
+    z-index: 0;
+    @include respond-to('m'){
+      display: none;
+    }
+    &__backdrop{
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0,0,0,.45);
+      z-index: -1;
+    }
+    &__close{
+      padding: .9em;
+      align-self: flex-end;
+      background: none;
+      border: 1px solid transparent;
+      font-size: calc($normal + .2rem);
+    }
+
+  }
+  &__items{
+    display: none;
+  @include respond-to('m'){
+    display: block;
+  }
+  }
+  &__bars{
+    padding: .8em;
+    background: none;
+    border: 1px solid transparent;
+    font-size: calc($normal + .2rem);
+    @include respond-to('m'){
+      display: none;
+    }
+  }
+}

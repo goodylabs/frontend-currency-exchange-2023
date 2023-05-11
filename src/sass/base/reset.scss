@@ -11,6 +11,8 @@ body{
   height: 100vh;
   font-size: $normal;
   font-family: $family;
+  position: relative;
+  z-index: -1;
   background-color: $page-bg;
   color: $text-color-primary;
 
