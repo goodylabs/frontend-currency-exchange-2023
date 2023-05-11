@@ -7,21 +7,15 @@ import {
   SelectChangeEvent,
   TextField,
 } from "@mui/material";
-
-type Currency = {
-  currency: string;
-  code: string;
-  mid: string;
-};
+import { CurrencyContext } from "../home-page/CurrencyContext";
+import { useContext } from "react";
 
 const CurrencySelect = ({
-  currency,
   actualCurrency,
   setActualCurrency,
   currencyAmount,
   setCurrencyAmount,
 }: {
-  currency: Currency[] | undefined;
   actualCurrency: string;
   setActualCurrency: React.Dispatch<React.SetStateAction<string>>;
   currencyAmount: number;
@@ -30,6 +24,9 @@ const CurrencySelect = ({
   const handleCurrencyChange = (event: SelectChangeEvent) => {
     setActualCurrency(event.target.value as string);
   };
+
+  const currencyContext = useContext(CurrencyContext);
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
       <FormControl fullWidth sx={{ maxWidth: "15rem" }}>
@@ -41,7 +38,7 @@ const CurrencySelect = ({
           labelId="currency-label"
           variant="outlined"
         >
-          {currency?.map((item, index) => (
+          {currencyContext.currencyData?.map((item, index) => (
             <MenuItem
               key={index}
               value={`${item.code} ${item.currency}`}
@@ -50,6 +47,7 @@ const CurrencySelect = ({
         </Select>
       </FormControl>
       <TextField
+        inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
         label="Amount"
         variant="outlined"
         value={currencyAmount}
