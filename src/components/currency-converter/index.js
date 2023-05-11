@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import CurrencyChart from '../currency-chart';
 import './style.css'
 
 class CurrenciesConverter extends Component {
 
   constructor(props) {
     let curCurrency = 0;
+    let curCurrencyCode = '';
     super(props);
     this.state = {
       allCurrencies: [],
@@ -34,6 +36,7 @@ class CurrenciesConverter extends Component {
       if(currencies.at(i).code == event.target.value)
       {
         this.curCurrency = currencies.at(i).mid;
+        this.curCurrencyCode = currencies.at(i).code;
         break;
       }
     }
@@ -41,14 +44,19 @@ class CurrenciesConverter extends Component {
     curValue.innerHTML = changeValue * this.curCurrency;
 
     if(event.target.value == '')
+    {
       curValue.innerHTML = '';
+      this.curCurrencyCode = '';
+    }
+
+    //Component refresh to send new prop to CurrencyChart component
+    this.setState({});
   }
 
   render() {
     var { isLoadedAll, allCurrencies } = this.state;
 
     if (!isLoadedAll) {
-      console.log('Loading Data!');
       return (
         <div className='loading'>
           Data is loading!
@@ -56,27 +64,29 @@ class CurrenciesConverter extends Component {
       );
     }
     else {
-      console.log('Data Loaded Successfully!');
       const currencies = allCurrencies.rates;
+
       return (
         <div>
           <p>
             PLN
           </p>
-          <input id='change-value' defaultValue={ 1 } type='text' onChange={this.onOptionChangeHandler}></input>
+          <input id='change-value' defaultValue={ 1 } type='text' onChange={ this.onOptionChangeHandler }></input>
 
           <p>
             Choose currency
           </p>
 
-          <select onChange={this.onOptionChangeHandler}>
+          <select onChange={ this.onOptionChangeHandler }>
             <option></option>
             {currencies.map(item => {
-              return <option key={item.code}>{item.code}</option>
+              return <option key={ item.code }>{ item.code }</option>
             })}
           </select>
 
           <p id='cur-value'></p>
+
+          <CurrencyChart currency={ this.curCurrencyCode }></CurrencyChart>
         </div>
       );
     }

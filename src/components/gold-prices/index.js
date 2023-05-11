@@ -26,7 +26,6 @@ class GoldPrices extends Component {
     var { isLoaded, items } = this.state;
 
     if (!isLoaded) {
-      console.log('Loading Data!');
       return (
         <div className='loading'>
           Data is loading!
@@ -34,7 +33,6 @@ class GoldPrices extends Component {
       );
     }
     else {
-      console.log('Data Loaded Successfully!');
       return (
         <div>
           <p>

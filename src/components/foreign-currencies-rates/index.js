@@ -26,7 +26,6 @@ class ForeignCurrenciesRates extends Component {
     var { isLoaded, items } = this.state;
 
     if (!isLoaded) {
-      console.log('Loading Data!');
       return (
         <div className='loading'>
           Data is loading!
@@ -34,7 +33,6 @@ class ForeignCurrenciesRates extends Component {
       );
     }
     else {
-      console.log('Data Loaded Successfully!');
       let currencies = items.rates;
       return (
         <div>
