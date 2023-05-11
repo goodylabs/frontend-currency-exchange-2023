@@ -24,8 +24,15 @@
         border-bottom: none;
       }
       &__name{
-        font-size: calc($normal - .3rem);
+        font-size: calc($normal - .35rem);
         color: $text-color-secondary;
+      }
+      &__rate{
+        padding: .3em;
+        color: $bright-blue;
+        background-color: $bright-blue-bg;
+        border-radius: 8px;
+        font-weight: $bold;
       }
     }
   }

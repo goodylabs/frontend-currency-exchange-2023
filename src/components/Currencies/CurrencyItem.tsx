@@ -13,7 +13,7 @@ const CurrencyItem = ({currency, code, mid}:CurrencyItemProps) => {
               <p className={classes.currencies__list__item__name}>{currency}</p>
           </div>
           <div>
-              <p>{mid}PLN</p>
+              <p className={classes.currencies__list__item__rate}>{mid} PLN</p>
           </div>
       </li>
   )
