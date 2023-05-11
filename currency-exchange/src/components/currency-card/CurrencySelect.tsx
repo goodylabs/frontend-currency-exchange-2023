@@ -38,12 +38,13 @@ const CurrencySelect = ({
           labelId="currency-label"
           variant="outlined"
         >
-          {currencyContext.currencyData?.map((item, index) => (
-            <MenuItem
-              key={index}
-              value={`${item.code} ${item.currency}`}
-            >{`${item.code} ${item.currency}`}</MenuItem>
-          ))}
+          {currencyContext.currencyData &&
+            currencyContext.currencyData.map((item, index) => (
+              <MenuItem
+                key={index}
+                value={`${item.code} ${item.currency}`}
+              >{`${item.code} ${item.currency}`}</MenuItem>
+            ))}
         </Select>
       </FormControl>
       <TextField
@@ -51,6 +52,7 @@ const CurrencySelect = ({
         label="Amount"
         variant="outlined"
         value={currencyAmount}
+        defaultValue={1}
         onChange={(e) => setCurrencyAmount(Number(e.target.value))}
       />
     </Box>

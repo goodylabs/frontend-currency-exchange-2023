@@ -7,28 +7,39 @@ const HomePage = () => {
   const [currencyData, setCurrencyData] = useState<Currency[] | null>(null);
   const [currencyTableDate, setCurrencyTableDate] = useState("");
   const [currencyGetError, setCurrencyGetError] = useState(false);
+  const [isCurrencyDataLoading, setIsCurrencyDataLoading] = useState(false);
 
   useEffect(() => {
     getCurrency();
   }, []);
 
   const getCurrency = async () => {
-    try {
-      const response = await axios.get(
-        "http://api.nbp.pl/api/exchangerates/tables/a/"
-      );
-      setCurrencyData(response.data[0].rates);
-      setCurrencyTableDate(response.data[0].effectiveDate);
-    } catch (error) {
-      setCurrencyGetError(true);
-      console.log(error);
-    }
+    setIsCurrencyDataLoading(true);
+    axios
+      .get("http://api.nbp.pl/api/exchangerates/tables/a/")
+      .then((response) => {
+        console.log(response.data[0].rates);
+        setCurrencyData(response.data[0].rates);
+        setCurrencyTableDate(response.data[0].effectiveDate);
+      })
+      .catch((error) => {
+        setCurrencyGetError(true);
+        console.log(error);
+      })
+      .finally(() => {
+        setIsCurrencyDataLoading(false);
+      });
   };
 
   return (
     <div>
       <CurrencyContext.Provider
-        value={{ currencyData, currencyTableDate, currencyGetError }}
+        value={{
+          currencyData,
+          currencyTableDate,
+          currencyGetError,
+          isCurrencyDataLoading,
+        }}
       >
         <CurrencyCard />
       </CurrencyContext.Provider>

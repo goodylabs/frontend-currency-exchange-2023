@@ -10,6 +10,7 @@ export interface CurrencyContextInterface {
   currencyData: Currency[] | null;
   currencyTableDate: string;
   currencyGetError: boolean;
+  isCurrencyDataLoading: boolean;
 }
 
 export const CurrencyContext = createContext<CurrencyContextInterface>(
