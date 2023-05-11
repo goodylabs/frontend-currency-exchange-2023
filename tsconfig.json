@@ -23,7 +23,12 @@
     "baseUrl": ".",
     "paths": {
       "@components": ["src/components"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@api": ["src/api"],
+      "@api/*": ["src/api/*"],
+      "@typedefs": ["src/types"],
+      "@typedefs/*": ["src/types/*"],
+      "@utils": ["src/utils"]
     }
   },
   "include": ["src"],
