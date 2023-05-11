@@ -1,4 +1,14 @@
+import {useLoaderData} from "react-router-dom";
+import CurrencyList from "../components/Currencies/CurrencyList";
+import Wrapper from "../components/UI/Wrapper";
+
 const CurrenciesPage = () => {
-  return <p>xD</p>
+
+  //   console.log(loaderData);
+  return (
+      <Wrapper>
+        <CurrencyList/>
+      </Wrapper>
+  )
 }
 export default CurrenciesPage;

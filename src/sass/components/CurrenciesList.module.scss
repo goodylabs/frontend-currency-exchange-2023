@@ -1,0 +1,32 @@
+@use "../utils" as *;
+.currencies{
+  margin: 2em 0;
+  width: 90%;
+  background-color: $vd-desaturated-blue;
+  border-radius: 8px;
+  &__header{
+    padding: 1em;
+  }
+  &__hr{
+    border: 1px solid $currency-border;
+  }
+  &__list{
+    list-style-type: none;
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1em 0;
+      padding: .75em;
+      border-bottom: 1px solid $currency-border;
+      &:last-child{
+        margin-top: .5em;
+        border-bottom: none;
+      }
+      &__name{
+        font-size: calc($normal - .3rem);
+        color: $text-color-secondary;
+      }
+    }
+  }
+}
