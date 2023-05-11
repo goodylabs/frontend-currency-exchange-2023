@@ -50,7 +50,7 @@ class CurrencyChart extends Component {
           </p>
           <ul>
             {curCurrency.map(item => (
-              <li key={item.code}>
+              <li key={item.effectiveDate}>
                 {item.effectiveDate}: {item.mid}
               </li>
             ))}
