@@ -12,9 +12,10 @@ const NavDrawer = ({setDrawerOpen}:NavDrawerProps) => {
           <div className={classes.nav__drawer__backdrop}></div>
           <button onClick={() => setDrawerOpen(false)} className={classes.nav__drawer__close}><FontAwesomeIcon icon={faXmark} inverse/></button>
           <NavItem path={'/'}><FontAwesomeIcon icon={faEuroSign}/> Currencies</NavItem>
-          <NavItem path={'/gold'}><FontAwesomeIcon icon={faCoins}/>  Gold prices</NavItem>
-          <NavItem path={'/converter'}><FontAwesomeIcon icon={faRotate}/>  Converter</NavItem>
+          <NavItem path={'/gold'}><FontAwesomeIcon icon={faCoins}/> Gold prices</NavItem>
+          <NavItem path={'/converter'}><FontAwesomeIcon icon={faRotate}/> Converter</NavItem>
       </div>
   )
 }
+
 export default NavDrawer;

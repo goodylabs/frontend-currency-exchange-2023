@@ -45,6 +45,7 @@
     display: none;
   @include respond-to('m'){
     display: block;
+    margin: 0 .5em;
   }
   }
   &__bars{
