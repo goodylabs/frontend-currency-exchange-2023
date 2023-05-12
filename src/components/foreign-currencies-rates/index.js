@@ -6,24 +6,58 @@ class ForeignCurrenciesRates extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      todaysRates: [],
+      yesterdaysRates: [],
       isLoaded: false,
     }
   }
 
   componentDidMount() {
-    fetch('http://api.nbp.pl/api/exchangerates/tables/A/')
+    fetch('http://api.nbp.pl/api/exchangerates/tables/A/last/2/')
       .then(res => res.json())
       .then(json => {
         this.setState({
-          items: json.at(0),
+          yesterdaysRates: json.at(0),
+          todaysRates: json.at(1),
           isLoaded: true,
         })
       });
   }
 
+  currencyDifference(item) {
+    var { yesterdaysRates } = this.state;
+
+    const oldRates = yesterdaysRates.rates;
+
+    for (let i=0; i<oldRates.length; i++) {
+      if (oldRates.at(i).code == item.code) {
+        if (oldRates.at(i).mid > item.mid) {
+          return (
+            <div className='fcr-value-down'>
+              { item.code }
+            </div>
+          );
+        }
+        else if(oldRates.at(i).mid < item.mid) {
+          return (
+            <div className='fcr-value-up'>
+              { item.code }
+            </div>
+          );
+        }
+        else {
+          return (
+            <div className='fcr-value-same'>
+              { item.code }
+            </div>
+          );
+        }
+      }
+    }
+  }
+
   render() {
-    var { isLoaded, items } = this.state;
+    var { isLoaded, todaysRates } = this.state;
 
     if (!isLoaded) {
       return (
@@ -33,19 +67,23 @@ class ForeignCurrenciesRates extends Component {
       );
     }
     else {
-      let currencies = items.rates;
+      const currentRates = todaysRates.rates;
+
       return (
         <div>
           <p>
             Current foreign currencies rate
           </p>
           <p>
-              Data from: <span>{items.effectiveDate}</span>
+              Data from: <span>{todaysRates.effectiveDate}</span>
           </p>
           <ul>
-            {currencies.map(item => (
-              <li key={item.code}>
-                {item.code}: {item.mid}
+            {currentRates.map(item => (
+              <li key={ item.code }>
+                {this.currencyDifference(item)}
+                <div className='fcr-currency-value'>
+                  { item.mid }
+                </div>
               </li>
             ))}
           </ul>

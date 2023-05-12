@@ -1,0 +1,11 @@
+.fcr-value-up {
+  color: var(--price-up);
+}
+
+.fcr-value-down {
+  color: var(--price-down);
+}
+
+.fcr-value-same {
+  color: var(--text);
+}
