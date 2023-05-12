@@ -1,11 +1,77 @@
-.fcr-value-up {
+.fcr-currency-list {
+  width: 100%;
+  margin-top: 24px;
+  border-radius: 20px;
+
+  font-size: 32px;
+}
+
+.fcr-currency {
+  height: 56px;
+  padding-inline: 24px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid var(--bg2);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+
+  display: flex;
+  align-items: center;
+}
+
+.fcr-currency-code {
+  margin-right: 52px;
+
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+}
+
+.fcr-currency-code img {
+  height: 32px;
+  margin-right: 10px;
+}
+
+.fcr-value {
+  font-weight: 700;
+}
+
+.fcr-currency-value {
+  flex: 1;
+}
+
+.fcr-currency-pln {
+  height: 64px;
+  background-color: var(--interactive);
+  padding-inline: 24px;
+  margin-bottom: 6px;
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+}
+
+.pln {
+  color: var(--bg);
+}
+
+.fcr-up {
   color: var(--price-up);
 }
 
-.fcr-value-down {
+.fcr-down {
   color: var(--price-down);
 }
 
-.fcr-value-same {
+.fcr-same {
   color: var(--text);
+}
+
+.fcr-date {
+  color: var(--text3);
+  margin-top: -8px;
+  margin-bottom: 16px;
+  text-align: center;
+
+  font-size: 10px;
 }

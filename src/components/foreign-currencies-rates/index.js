@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PLN from '../../icons/PLN.svg'
 import './style.css'
 
 class ForeignCurrenciesRates extends Component {
@@ -34,21 +35,21 @@ class ForeignCurrenciesRates extends Component {
       if (oldRates.at(i).code == item.code) {
         if (oldRates.at(i).mid > item.mid) {
           return (
-            <p className='fcr-value-down'>
+            <p className='fcr-value fcr-down'>
               { item.code }
             </p>
           );
         }
         else if(oldRates.at(i).mid < item.mid) {
           return (
-            <p className='fcr-value-up'>
+            <p className='fcr-value fcr-up'>
               { item.code }
             </p>
           );
         }
         else {
           return (
-            <p className='fcr-value-same'>
+            <p className='fcr-value fcr-same'>
               { item.code }
             </p>
           );
@@ -72,15 +73,20 @@ class ForeignCurrenciesRates extends Component {
 
       return (
         <div>
-          <p>
-            Current foreign currencies rate
-          </p>
-          <p>
-              Data from: <span>{todaysRates.effectiveDate}</span>
-          </p>
-          <ul>
+          <ul className='fcr-currency-list'>
+            <li className='fcr-currency-pln'>
+              <div className='fcr-currency-code pln'>
+                <img src={ PLN } alt='PLN' height={ '30px' }></img>
+                <p className='fcr-value pln'>
+                  PLN
+                </p>
+              </div>
+              <div className='fcr-currency-value pln'>
+                1
+              </div>
+            </li>
             {currentRates.map(item => (
-              <li className='fcr-currencies' key={ item.code }>
+              <li className='fcr-currency' key={ item.code }>
                 <div className='fcr-currency-code'>
                   <img src={require(`../../icons/${ item.code }.svg`)} alt={ item.code } height={ '30px' } />
                   {this.currencyDifference(item)}
@@ -91,6 +97,10 @@ class ForeignCurrenciesRates extends Component {
               </li>
             ))}
           </ul>
+
+          <p className='fcr-date'>
+            Updated: {todaysRates.effectiveDate}
+          </p>
         </div>
       );
     }
