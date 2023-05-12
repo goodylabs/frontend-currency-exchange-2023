@@ -85,7 +85,7 @@ class ForeignCurrenciesRates extends Component {
                   {this.currencyDifference(item)}
                 </div>
                 <div className='fcr-currency-value'>
-                  { item.mid }
+                  { Math.round(item.mid * 100000) / 100000 }
                 </div>
               </li>
             ))}

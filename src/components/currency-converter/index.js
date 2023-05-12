@@ -43,7 +43,7 @@ class CurrenciesConverter extends Component {
       }
     }
 
-    curValue.innerHTML = changeValue * this.curCurrency;
+    curValue.innerHTML = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
 
     if(event.target.value == '')
     {
