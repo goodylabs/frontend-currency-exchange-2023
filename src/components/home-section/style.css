@@ -51,7 +51,7 @@
 .home-description span {
   color: var(--gold);
 
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 900;
 }
 
@@ -73,6 +73,6 @@
   }
 
   .home-description span {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
