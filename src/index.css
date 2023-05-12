@@ -10,3 +10,18 @@
 body {
   background-color: #eff1f8;
 }
+
+*::-webkit-scrollbar {
+  width: 14px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-color: #b7b7b7;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}

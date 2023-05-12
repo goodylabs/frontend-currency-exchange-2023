@@ -13,5 +13,8 @@ export const goldPriceChartOptions = {
       display: true,
       text: "Gold Price",
     },
+    legend: {
+      display: false,
+    },
   },
 };

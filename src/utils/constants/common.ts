@@ -1,4 +1,6 @@
-export const currencies = [
+import { Currency } from "@typedefs/common";
+
+export const currencies: Currency[] = [
   {
     id: 1,
     name: "bat (Tajlandia)",
