@@ -4,7 +4,8 @@
   padding: 1em;
   padding-bottom: .5em;
   position: relative;
-  z-index: -10;
+  z-index: 1;
+
   width: 90%;
   background-color: $vd-desaturated-blue;
   border-radius: 8px;
@@ -36,6 +37,7 @@
     list-style-type: none;
     height: 400px;
     overflow-y: scroll;
+    overflow-x: auto;
     &__entry{
       display: flex;
       justify-content: space-around;
