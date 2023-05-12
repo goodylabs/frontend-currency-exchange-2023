@@ -1,6 +1,6 @@
 import { useGetHistoricalLastDaysExchangeRates } from "@api";
 import { Card } from "@components/card";
-import { HistoricalExchangeRateListbox } from "@components/historical-exchange-rates/historical-exchange-rates-listbox/HistoricalExchangeRateListbox";
+import { CurrencyCombobox } from "@components/currency-combobox";
 import { currencies, historicalExchangePricesChartOptions } from "@utils";
 import { useMemo, useState } from "react";
 import { Line } from "react-chartjs-2";
@@ -26,9 +26,9 @@ export const HistoricalExchangeRates = () => {
     <Card className="h-fit gap-4">
       <div className="flex items-center justify-between gap-6">
         <h2 className="text-xl font-bold">Historical Exchange Rate</h2>
-        <HistoricalExchangeRateListbox
-          value={currency}
+        <CurrencyCombobox
           onChange={setCurrency}
+          value={currency}
           options={currencies}
         />
       </div>
