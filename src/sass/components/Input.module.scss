@@ -10,4 +10,7 @@
   font-family: $family;
   color: $text-color-primary;
   font-size: $normal;
+  &::placeholder{
+    font-size: calc($normal - .2rem);
+  }
 }

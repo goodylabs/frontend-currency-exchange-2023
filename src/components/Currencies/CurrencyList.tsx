@@ -1,18 +1,10 @@
 import {useLoaderData, useNavigation} from "react-router-dom";
 import classes from "../../sass/components/CurrenciesList.module.scss";
 import CurrencyItem from "./CurrencyItem";
+import {tableAResponse} from "../../types/types";
 
-type CurrencyObject = {
-    currency: string,
-    code: string,
-    mid: number
-}
-type tableAResponse = {
-    table: string,
-    no: string,
-    effectiveDate: Date,
-    rates: CurrencyObject[]
-}
+
+
 const CurrencyList = () => {
     const loaderData = useLoaderData();
     const navigation = useNavigation();

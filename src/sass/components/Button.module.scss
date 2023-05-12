@@ -1,12 +1,12 @@
 @use "../utils" as *;
 .btn{
-  background-color: $bright-blue;
-  margin: 2.35em 1em;
+  margin: 2.4em 1em;
   padding: 1em 2em;
-  border-radius: 8px;
-  border: 1px solid transparent;
   display: flex;
   align-items: center;
   color: $text-color-primary;
   cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: $bright-blue;
 }

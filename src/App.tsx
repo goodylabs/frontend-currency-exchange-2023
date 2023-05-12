@@ -21,7 +21,11 @@ const router = createBrowserRouter([
                     const data = await res.json();
                     return data;
                 }},
-            {path: 'converter', element: <ConverterPage/>}
+            {path: 'converter', element: <ConverterPage/>, loader: async () =>{
+                    const res = await fetch('http://api.nbp.pl/api/exchangerates/tables/A/');
+                    const data = await res.json();
+                    return data;
+                }}
     ]}
 ])
 
