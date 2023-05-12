@@ -28,7 +28,6 @@ ul {
 
 .main {
   display: flex;
-  align-items: center;
 }
 
 .main-left {
@@ -36,7 +35,6 @@ ul {
 
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .main-right {
@@ -44,6 +42,5 @@ ul {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }

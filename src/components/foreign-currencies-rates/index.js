@@ -33,23 +33,23 @@ class ForeignCurrenciesRates extends Component {
       if (oldRates.at(i).code == item.code) {
         if (oldRates.at(i).mid > item.mid) {
           return (
-            <div className='fcr-value-down'>
+            <p className='fcr-value-down'>
               { item.code }
-            </div>
+            </p>
           );
         }
         else if(oldRates.at(i).mid < item.mid) {
           return (
-            <div className='fcr-value-up'>
+            <p className='fcr-value-up'>
               { item.code }
-            </div>
+            </p>
           );
         }
         else {
           return (
-            <div className='fcr-value-same'>
+            <p className='fcr-value-same'>
               { item.code }
-            </div>
+            </p>
           );
         }
       }
@@ -79,8 +79,11 @@ class ForeignCurrenciesRates extends Component {
           </p>
           <ul>
             {currentRates.map(item => (
-              <li key={ item.code }>
-                {this.currencyDifference(item)}
+              <li className='fcr-currencies' key={ item.code }>
+                <div className='fcr-currency-code'>
+                  <img src={require(`../../icons/${ item.code }.svg`)} alt={ item.code } height={ '30px' } />
+                  {this.currencyDifference(item)}
+                </div>
                 <div className='fcr-currency-value'>
                   { item.mid }
                 </div>

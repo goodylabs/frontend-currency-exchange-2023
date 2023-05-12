@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CurrencyChart from '../currency-chart';
+import PLN from '../../icons/PLN.svg'
 import './style.css'
 
 class CurrenciesConverter extends Component {
@@ -31,6 +32,7 @@ class CurrenciesConverter extends Component {
     const currencies = allCurrencies.rates;
     const changeValue = parseFloat(document.getElementById('change-value').value);
     const curValue = document.getElementById('cur-value');
+    const curCurrencyFlag = document.getElementById('cur-currency-flag');
 
     for(let i=0; i<currencies.length; i++) {
       if(currencies.at(i).code == event.target.value)
@@ -53,6 +55,14 @@ class CurrenciesConverter extends Component {
     this.setState({});
   }
 
+  flagRender() {
+    if(this.curCurrencyCode != undefined) {
+      return(
+        <img src={require(`../../icons/${ this.curCurrencyCode }.svg`)} alt={ this.curCurrencyCode } height={ '30px' } />
+      );
+    }
+  }
+
   render() {
     var { isLoadedAll, allCurrencies } = this.state;
 
@@ -68,6 +78,8 @@ class CurrenciesConverter extends Component {
 
       return (
         <div>
+          <img src={ PLN } alt='PLN' height={ '30px' } />
+
           <p>
             PLN
           </p>
@@ -76,6 +88,8 @@ class CurrenciesConverter extends Component {
           <p>
             Choose currency
           </p>
+
+          { this.flagRender() }
 
           <select onChange={ this.onOptionChangeHandler }>
             <option></option>
