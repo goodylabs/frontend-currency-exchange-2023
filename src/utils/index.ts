@@ -1,2 +1,2 @@
 export * from "./http-client";
-export * from "./gold-price";
+export * from "./constants";
