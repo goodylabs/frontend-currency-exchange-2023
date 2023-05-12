@@ -24,6 +24,7 @@ class ForeignCurrenciesRates extends Component {
       });
   }
 
+  //Function calculating currency difference between two days for it proper styling
   currencyDifference(item) {
     var { yesterdaysRates } = this.state;
 

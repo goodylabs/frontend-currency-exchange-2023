@@ -26,13 +26,13 @@ class CurrenciesConverter extends Component {
       });
   }
 
+  //Function calculating currency value and refreshing CurrencyChart component
   onOptionChangeHandler = (event) => {
     var { allCurrencies } = this.state;
 
     const currencies = allCurrencies.rates;
     const changeValue = parseFloat(document.getElementById('change-value').value);
     const curValue = document.getElementById('cur-value');
-    const curCurrencyFlag = document.getElementById('cur-currency-flag');
 
     for(let i=0; i<currencies.length; i++) {
       if(currencies.at(i).code == event.target.value)
@@ -55,6 +55,7 @@ class CurrenciesConverter extends Component {
     this.setState({});
   }
 
+  //Function rendering flag using curCurrencyCode
   flagRender() {
     if(this.curCurrencyCode != undefined) {
       return(
