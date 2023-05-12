@@ -52,7 +52,7 @@ const GoldList = ({goldEntries}:GoldListProps) => {
               </div>
           <hr className={classes.gold__hr}/>
           <ul className={classes.gold__list}>
-              {entriesWithGrowth.map(entry => <GoldEntry date={entry.data} price={entry.cena} growth={entry.growth}/>)}
+              {entriesWithGrowth.map(entry => <GoldEntry key={entry.data} date={entry.data} price={entry.cena} growth={entry.growth}/>)}
           </ul>
       </div>
   )

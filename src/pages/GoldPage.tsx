@@ -10,7 +10,7 @@ const GoldPage = () => {
   return (
       <Wrapper>
         <GoldList goldEntries={entries}/>
-        <GoldChart/>
+        <GoldChart data={entries}/>
       </Wrapper>
   )
 }

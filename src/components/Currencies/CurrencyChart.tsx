@@ -34,8 +34,8 @@ export function CurrencyChart({data, loading}:ChartProps) {
         maintainAspectRatio: false,
         scales:{
             y:{
-                max: findMinMaxExchange("max") + 0.06,
-                min: findMinMaxExchange("min") - 0.06 < 0 ? 0 : findMinMaxExchange("min") - 0.06
+                max: findMinMaxExchange("max") + 0.001,
+                min: findMinMaxExchange("min") - 0.01 < 0 ? 0 : findMinMaxExchange("min") - 0.01
             }
         }
     } as ChartOptions<"bar">;
