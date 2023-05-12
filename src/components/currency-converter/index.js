@@ -26,13 +26,13 @@ class CurrenciesConverter extends Component {
       });
   }
 
-  //Function calculating currency value and refreshing CurrencyChart component
+  //Function calculating currency value when changing option or PLN value and refreshing CurrencyChart component
   onOptionChangeHandler = (event) => {
     var { allCurrencies } = this.state;
 
     const currencies = allCurrencies.rates;
-    const changeValue = parseFloat(document.getElementById('change-value').value);
-    const curValue = document.getElementById('cur-value');
+    const changeValue = parseFloat(document.getElementById('pln-change-value').value);
+    const curValue = document.getElementById('currency-change-value');
 
     for(let i=0; i<currencies.length; i++) {
       if(currencies.at(i).code == event.target.value)
@@ -43,13 +43,21 @@ class CurrenciesConverter extends Component {
       }
     }
 
-    curValue.innerHTML = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
+    curValue.value = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
 
     if(event.target.value == '')
-      curValue.innerHTML = '';
+      curValue.value = '';
 
     //Component refresh to send new prop to CurrencyChart component
     this.setState({});
+  }
+
+  //Function calculating pln value when changing currency value
+  onInputChangeHandler = () => {
+    const changeValue = parseFloat(document.getElementById('currency-change-value').value);
+    const curValue = document.getElementById('pln-change-value');
+
+    curValue.value = Math.round((changeValue * this.curCurrency) * 100000) / 100000;
   }
 
   //Function rendering flag using curCurrencyCode
@@ -81,7 +89,7 @@ class CurrenciesConverter extends Component {
           <p>
             PLN
           </p>
-          <input id='change-value' defaultValue={ 1 } type='text' onChange={ this.onOptionChangeHandler }></input>
+          <input id='pln-change-value' defaultValue={ 1 } type='text' onChange={ this.onOptionChangeHandler }></input>
 
           <p>
             Choose currency
@@ -96,7 +104,7 @@ class CurrenciesConverter extends Component {
             })}
           </select>
 
-          <p id='cur-value'></p>
+          <input id='currency-change-value' type='text' onChange={ this.onInputChangeHandler }></input>
 
           <CurrencyChart currency={ this.curCurrencyCode }></CurrencyChart>
         </div>
