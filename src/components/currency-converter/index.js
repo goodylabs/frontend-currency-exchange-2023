@@ -43,7 +43,10 @@ class CurrenciesConverter extends Component {
       }
     }
 
-    curValue.value = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
+    if(isNaN(changeValue))
+      curValue.value = '';
+    else
+      curValue.value = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
 
     if(event.target.value == '')
       curValue.value = '';
@@ -57,7 +60,10 @@ class CurrenciesConverter extends Component {
     const changeValue = parseFloat(document.getElementById('currency-change-value').value);
     const curValue = document.getElementById('pln-change-value');
 
-    curValue.value = Math.round((changeValue * this.curCurrency) * 100000) / 100000;
+    if(isNaN(changeValue))
+      curValue.value = '';
+    else
+      curValue.value = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
   }
 
   //Function rendering flag using curCurrencyCode
