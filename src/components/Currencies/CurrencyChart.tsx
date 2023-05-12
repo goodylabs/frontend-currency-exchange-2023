@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -8,7 +8,6 @@ import {
     ChartOptions, ChartData,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import useFetch from "../../hooks/use-fetch";
 import {LastExchangeData} from "./CurrencyView";
 
 ChartJS.register(
@@ -56,6 +55,7 @@ export function CurrencyChart({data, loading}:ChartProps) {
     return (
         <>
             {!loading && <Bar options={options} data={chartData}/>}
+            {loading && <p>Acquiring data...</p>}
         </>
 
     );
