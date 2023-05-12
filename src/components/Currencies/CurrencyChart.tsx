@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -8,6 +8,8 @@ import {
     ChartOptions, ChartData,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import useFetch from "../../hooks/use-fetch";
+import {LastExchangeData} from "./CurrencyView";
 
 ChartJS.register(
     CategoryScale,
@@ -16,27 +18,46 @@ ChartJS.register(
     Tooltip,
 );
 
-export const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-} as ChartOptions<"bar">;
+interface ChartProps {
+    data: LastExchangeData,
+    loading: boolean
+}
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', "sf","bvb","sdfsdf","werwer", "dfgd"];
 
-export const data = {
-    labels,
-    datasets: [
-        {
-            label: 'Rate',
-            data: labels.map((label, idx) => idx),
-            backgroundColor: 'rgb(208, 173, 57)',
-        },
-    ],
-} as ChartData<"bar", number[]>;
+export function CurrencyChart({data, loading}:ChartProps) {
+    const labels = data.rates.map(rate => rate.effectiveDate);
+    const findMinMaxExchange = (type: "min" | "max") => {
+      const allMids = data.rates.map(rate => rate.mid);
+      return type === "min" ? Math.min(...allMids) : Math.max(...allMids);
+    }
+     const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales:{
+            y:{
+                max: findMinMaxExchange("max") + 0.06,
+                min: findMinMaxExchange("min") - 0.06 < 0 ? 0 : findMinMaxExchange("min") - 0.06
+            }
+        }
+    } as ChartOptions<"bar">;
+     const chartData = {
+        labels,
+        datasets: [
+            {
+                label: 'Rate',
+                data: labels.map((label, idx) => data.rates[idx].mid),
+                backgroundColor: 'rgb(208, 173, 57)',
+            },
+        ],
+    } as ChartData<"bar", number[]>;
 
-export function CurrencyChart() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    return <Bar options={options} data={data} />;
+    return (
+        <>
+            {!loading && <Bar options={options} data={chartData}/>}
+        </>
+
+    );
 }
 export default CurrencyChart;
