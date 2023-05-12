@@ -8,7 +8,7 @@ interface SelectableProps {
   label: string,
   fullName: string,
 }
-const CurrencySelectable = ({label, fullName, setSelectedCurrencies}:SelectableProps) => {
+const CurrencySelectable = ({label, fullName}:SelectableProps) => {
     const loaderData = useLoaderData() as tableAResponse[];
     const converterCtx= useContext<ConverterContext>(converterContext);
     // console.log(loaderData)

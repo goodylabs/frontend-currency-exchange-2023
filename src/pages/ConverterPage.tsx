@@ -8,14 +8,11 @@ import {useState} from "react";
 import ConverterProvider from "../context/ConverterProvider";
 
 const ConverterPage = () => {
-  const loaderData = useLoaderData() as tableAResponse[];
-  const [selectedCurrencies, setSelectedCurrencies] = useState<RatesObject[]>([]);
-    // TODO: set up selected currencies context
   return(
       <ConverterProvider>
           <Wrapper>
               <ConvertInput/>
-              <Converter selectedCurrencies={selectedCurrencies}/>
+              <Converter/>
               <CurrencyBox/>
           </Wrapper>
       </ConverterProvider>
