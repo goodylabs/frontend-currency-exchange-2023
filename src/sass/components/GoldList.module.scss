@@ -1,0 +1,31 @@
+@use "../utils" as *;
+.gold{
+  margin-top: 2em;
+  padding: 1em;
+  width: 90%;
+  background-color: $vd-desaturated-blue;
+  border-radius: 8px;
+  &__current{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+    padding: .5em;
+    &__growth{
+      color: $growth-pos;
+      &--neg{
+
+        color: $growth-neg;
+      }
+
+      &__arrow{
+        &--pos{
+          transform: rotateZ(180deg);
+        }
+      }
+    }
+  }
+  &__hr{
+    margin: .4em 0;
+    border: 1px solid $currency-border;
+  }
+}
