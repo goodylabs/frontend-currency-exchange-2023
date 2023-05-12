@@ -46,10 +46,7 @@ class CurrenciesConverter extends Component {
     curValue.innerHTML = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
 
     if(event.target.value == '')
-    {
       curValue.innerHTML = '';
-      this.curCurrencyCode = '';
-    }
 
     //Component refresh to send new prop to CurrencyChart component
     this.setState({});
