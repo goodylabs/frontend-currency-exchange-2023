@@ -26,7 +26,7 @@ const CurrencySelectable = ({label, fullName}:SelectableProps) => {
     }
   return (
       <div className={classes.selectables__selectable}>
-        <input id={label} onChange={changeSelectedCurrencies} ref={checkboxRef} type={"checkbox"} defaultValue={"sdfsdf"}/>
+        <input id={label} disabled={(converterCtx.selectedCurrencies.length === 5 && !checkboxRef.current?.checked)} onChange={changeSelectedCurrencies} ref={checkboxRef} type={"checkbox"} defaultValue={"sdfsdf"}/>
         <label htmlFor={label} className={classes.selectables__selectable__label}>
           <div>
           <p>{label}</p>
