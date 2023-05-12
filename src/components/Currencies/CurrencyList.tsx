@@ -26,7 +26,7 @@ const CurrencyList = () => {
             </div>
             <hr className={classes.currencies__hr}/>
             <ul className={classes.currencies__list}>
-                {responseObj.rates.map(rate => <CurrencyItem currency={rate.currency} code={rate.code} mid={rate.mid}/>) }
+                {responseObj.rates.map(rate => <CurrencyItem key={rate.code} currency={rate.currency} code={rate.code} mid={rate.mid}/>) }
             </ul>
         </div>
 

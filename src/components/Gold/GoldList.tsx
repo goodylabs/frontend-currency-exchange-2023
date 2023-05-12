@@ -46,7 +46,7 @@ const GoldList = ({goldEntries}:GoldListProps) => {
       <div className={classes.gold}>
           <h2>Latest gold prices</h2>
               <div className={classes.gold__current}>
-                  <p>Today</p>
+                  <p>{goldEntries[goldEntries.length - 1].data}</p>
                   <p>{goldEntries[goldEntries.length - 1].cena} PLN</p>
                   <p className={growthClasses}><FontAwesomeIcon icon={faArrowDown} className={growthArrowClasses}/> {calcGrowth.call(this, todayGrowth, yesterdayGrowth)}%</p>
               </div>
