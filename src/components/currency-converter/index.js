@@ -57,7 +57,7 @@ class CurrenciesConverter extends Component {
 
   //Function rendering flag using curCurrencyCode
   flagRender() {
-    if(this.curCurrencyCode != undefined) {
+    if(this.curCurrencyCode != undefined && this.curCurrencyCode != '') {
       return(
         <img src={require(`../../icons/${ this.curCurrencyCode }.svg`)} alt={ this.curCurrencyCode } height={ '30px' } />
       );
