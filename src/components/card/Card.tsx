@@ -9,7 +9,7 @@ export const Card = ({ children, className }: PropsWithChildren<CardProps>) => {
   return (
     <div
       className={clsx(
-        "flex w-full flex-col rounded-2xl bg-bg-light-100 px-5 py-3 shadow-card-light",
+        "flex flex-col rounded-2xl bg-bg-light-100 px-5 py-3 shadow-card-light",
         className
       )}
     >
