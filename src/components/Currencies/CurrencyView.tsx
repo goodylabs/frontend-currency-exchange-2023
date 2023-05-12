@@ -1,6 +1,7 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXmark} from "@fortawesome/free-solid-svg-icons";
 import classes from "../../sass/components/CurrencyView.module.scss";
+import CurrencyChart from "./CurrencyChart";
 interface CurrencyViewProps {
     currency: string,
     code: string,
@@ -30,9 +31,9 @@ const CurrencyView = ({currency,code,mid, closeModalFn}:CurrencyViewProps) => {
 
           </div>
           <hr className={classes.view__hr}/>
-          <div>
+          <div className={classes.view__chart}>
               <h3>Exchange rate history (last 14 days)</h3>
-              {/*//TODO:wykres*/}
+              <CurrencyChart/>
           </div>
       </div>
   )
