@@ -1,0 +1,13 @@
+@use "../utils" as *;
+.input{
+  margin: 2em 0;
+  padding: 1em 2em;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  background-color: $vd-desaturated-blue;
+  border: 1px solid transparent;
+  font-family: $family;
+  color: $text-color-primary;
+  font-size: $normal;
+}
