@@ -2,6 +2,7 @@
 .gold{
   margin-top: 2em;
   padding: 1em;
+  padding-bottom: .5em;
   width: 90%;
   background-color: $vd-desaturated-blue;
   border-radius: 8px;
@@ -27,5 +28,19 @@
   &__hr{
     margin: .4em 0;
     border: 1px solid $currency-border;
+  }
+  &__list{
+    list-style-type: none;
+    height: 400px;
+    overflow-y: scroll;
+    &__entry{
+      display: flex;
+      justify-content: space-around;
+      padding: .5em 0;
+      border-bottom: 1px solid $currency-border;
+      &:last-child{
+        border: none;
+      }
+    }
   }
 }
