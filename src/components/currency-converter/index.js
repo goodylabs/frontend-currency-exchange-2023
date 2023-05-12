@@ -34,8 +34,8 @@ class CurrenciesConverter extends Component {
     const changeValue = parseFloat(document.getElementById('pln-change-value').value);
     const curValue = document.getElementById('currency-change-value');
 
-    for(let i=0; i<currencies.length; i++) {
-      if(currencies.at(i).code === event.target.value)
+    for (let i=0; i<currencies.length; i++) {
+      if (currencies.at(i).code === event.target.value)
       {
         this.curCurrency = currencies.at(i).mid;
         this.curCurrencyCode = currencies.at(i).code;
@@ -43,13 +43,16 @@ class CurrenciesConverter extends Component {
       }
     }
 
-    if(isNaN(changeValue))
+    if (isNaN(changeValue))
       curValue.value = '';
-    else
-      curValue.value = Math.round((changeValue / this.curCurrency) * 100000) / 100000;
-
-    if(event.target.value === '')
+    else if (event.target.value === '')
+    {
       curValue.value = '';
+      this.curCurrency = 0;
+      this.curCurrencyCode = '';
+    }
+    else if (this.curCurrencyCode !== '' && this.curCurrency !== 0)
+      curValue.value = Math.round((changeValue / this.curCurrency) * 100) / 100;
 
     //Component refresh to send new prop to CurrencyChart component
     this.setState({});
@@ -60,15 +63,15 @@ class CurrenciesConverter extends Component {
     const changeValue = parseFloat(document.getElementById('currency-change-value').value);
     const curValue = document.getElementById('pln-change-value');
 
-    if(isNaN(changeValue))
+    if (isNaN(changeValue))
       curValue.value = '';
     else
-      curValue.value = Math.round((changeValue * this.curCurrency) * 100000) / 100000;
+      curValue.value = Math.round((changeValue * this.curCurrency) * 100) / 100;
   }
 
   //Function rendering flag using curCurrencyCode
   flagRender() {
-    if(this.curCurrencyCode !== undefined && this.curCurrencyCode !== '') {
+    if (this.curCurrencyCode !== undefined && this.curCurrencyCode !== '') {
       return(
         <img src={require(`../../icons/${ this.curCurrencyCode }.svg`)} alt={ this.curCurrencyCode } height={ '30px' } />
       );
