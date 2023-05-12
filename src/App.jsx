@@ -10,21 +10,35 @@ const getTableData = async () => {
   }
 };
 
+const getCurrentGoldPrice = async () => {
+  try {
+    const res = await api.get("/cenyzlota");
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 function App() {
   const [tableData, setTableData] = useState();
+  const [currentGoldData, setCurrentGoldData] = useState();
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getTableData();
-      setTableData(data[0]);
+      const tData = await getTableData();
+      const gData = await getCurrentGoldPrice();
+
+      setTableData(tData[0]);
+      setCurrentGoldData(gData[0]);
     };
     getData();
   }, []);
 
-  if (!tableData) return <p>Loading</p>;
+  if (!tableData || !currentGoldData) return <p>Loading</p>;
 
   return (
     <div>
+      {/* tabela A */}
       <p>Effective date: {tableData.effectiveDate}</p>
       <p>No: {tableData.no}</p>
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
@@ -59,6 +73,9 @@ function App() {
           ))}
         </tbody>
       </table>
+
+      {/* Aktualna cena złota */}
+      <p>Aktualna cena złota {currentGoldData.cena}</p>
     </div>
   );
 }
