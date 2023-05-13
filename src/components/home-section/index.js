@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className='home-section'>
       <div className='home-left-section'>
-        <a href="http://www.freepik.com">
+        <a href='http://www.freepik.com' target='_blank' rel='noreferrer'>
           <img src={ HomeImage } alt='' width={ '500px' }></img>
         </a>
       </div>
