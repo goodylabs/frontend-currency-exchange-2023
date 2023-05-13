@@ -51,5 +51,6 @@
   },
   "resolutions": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
-  }
+  },
+  "homepage": "./"
 }
