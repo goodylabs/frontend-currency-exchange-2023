@@ -41,9 +41,9 @@
     &__items{
       display: flex;
       height: 100%;
-      margin: 7em 0;
+      margin: 7em 0 10em;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       font-size: calc($normal + .5rem);
       a{

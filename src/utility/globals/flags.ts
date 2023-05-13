@@ -28,11 +28,11 @@ export const flags:FlagsObject = [
         code: "NZD",
     },
     {
-        filename: './sinagpore.png' ,
+        filename: './singapore.png' ,
         code: "SGD",
     },
     {
-        filename: './eruopean-union.png' ,
+        filename: './european-union.png' ,
         code: "EUR",
     },
     {
@@ -134,5 +134,9 @@ export const flags:FlagsObject = [
     {
         filename: './world.png' ,
         code: "XDR",
+    },
+    {
+        filename: './poland.png',
+        code: 'PLN'
     }
 ]

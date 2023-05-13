@@ -10,10 +10,11 @@ interface CurrencyViewProps {
     currency: string,
     code: string,
     mid: number,
+    flag: string,
     closeModalFn: (value: (((prevState: boolean) => boolean) | boolean)) => void
 }
 
-const CurrencyView = ({currency,code,mid, closeModalFn}:CurrencyViewProps) => {
+const CurrencyView = ({currency,code,mid,flag, closeModalFn}:CurrencyViewProps) => {
     const {loading, error, fetchData} = useFetch();
     const [fetchedData, setFetchedData] = useState<LastExchangeData>({table: "", currency, code, rates:[] });
 
@@ -34,7 +35,11 @@ const CurrencyView = ({currency,code,mid, closeModalFn}:CurrencyViewProps) => {
               {error && <p>{error}</p>}
               <div className={classes.view__info}>
                   <h3>Currency name:</h3>
-                  <p>{currency}</p>
+                  <div className={classes.view__info__name}>
+                      <p>{currency}</p>
+                      <img src={flag}/>
+                  </div>
+
               </div>
               <div className={classes.view__info}>
                   <h3>Currency code:</h3>

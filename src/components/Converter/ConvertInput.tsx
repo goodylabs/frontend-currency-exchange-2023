@@ -1,5 +1,5 @@
 import Input from "../UI/Input";
-import {useContext, useRef, useState} from "react";
+import {useContext, useRef} from "react";
 import classes from "../../sass/components/ConverterInput.module.scss";
 import Button from "../UI/Button";
 import {faRotate} from "@fortawesome/free-solid-svg-icons";
