@@ -11,7 +11,6 @@ const ConverterPage = () => {
   return(
       <ConverterProvider>
           <Wrapper>
-              <ConvertInput/>
               <Converter/>
               <CurrencyBox/>
           </Wrapper>

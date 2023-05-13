@@ -3,12 +3,17 @@ import React, {ReactNode, useState} from "react";
 
 export type ConverterContext = {
     selectedCurrencies: RatesObject[],
-    setSelectedCurrencies: (value: (((prevState: RatesObject[]) => RatesObject[]) | RatesObject[])) => void
+    plnValue: number,
+    setSelectedCurrencies: (value: (((prevState: RatesObject[]) => RatesObject[]) | RatesObject[])) => void,
+    convertValue: (value: number, mid: number) => void
 }
 export const converterContext = React.createContext<ConverterContext>({
     selectedCurrencies: [],
+    plnValue: 1.0,
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    setSelectedCurrencies: () => {}
+    setSelectedCurrencies: () => {},
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    convertValue: () => {}
 })
 
 interface ProviderProps {
@@ -16,10 +21,17 @@ interface ProviderProps {
 }
 const ConverterProvider = ({children}:ProviderProps) => {
     const [selectedCurrencies, setSelectedCurrencies] = useState<RatesObject[]>([]);
+    const [plnValue , setPlnValue] = useState<number>(1.0);
+    const convertValue = (value: number, mid:number) => {
+        const newPlnValue = value / mid;
+        setPlnValue(newPlnValue);
+    }
 
     const value:ConverterContext = {
         selectedCurrencies,
-        setSelectedCurrencies
+        plnValue,
+        setSelectedCurrencies,
+        convertValue
     }
     return <converterContext.Provider value={value}>{children}</converterContext.Provider>
 }

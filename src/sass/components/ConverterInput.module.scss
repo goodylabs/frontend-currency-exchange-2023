@@ -1,8 +1,12 @@
+@use "../utils" as *;
 .converter-container{
-  margin: 2em;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   width: 90%;
   max-width: 550px;
+  @include respond-to("s"){
+    flex-direction: row;
+  }
 }

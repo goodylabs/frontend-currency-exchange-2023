@@ -25,9 +25,11 @@
     flex-grow: 0;
     background-color: $vd-desaturated-blue;
     border-radius: 8px;
+    cursor: pointer;
     &__label{
       margin-left: 1em;
       flex-grow: 1;
+      cursor: pointer;
     }
 }
 }
