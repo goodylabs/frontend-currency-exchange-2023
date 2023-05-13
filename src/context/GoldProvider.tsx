@@ -5,6 +5,7 @@ import {goldEntries} from "../pages/GoldPage";
 
 type ProviderProps = {
     children: React.ReactNode;
+    data: goldEntries
 };
 
 export type GoldContext = {
@@ -17,10 +18,9 @@ export const goldContext = React.createContext<GoldContext>({
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     calcGrowth: (todayValue, yesterdayValue) => {}
 } as GoldContext);
-const GoldProvider = ({ children}: ProviderProps) => {
+const GoldProvider = ({children, data}: ProviderProps) => {
     const loaderData = useLoaderData() as goldEntries;
-    const [entriesWithGrowth, setEntriesWithGrowth] = useState<GoldsWithGrowth[]>([]);
-    console.log(loaderData);
+    const [entriesWithGrowth, setEntriesWithGrowth] = useState<GoldsWithGrowth[]>(data as  GoldsWithGrowth[]);
     const calcGrowth = (todayValue: number, yesterdayValue: number): string => {
         const result = (todayValue * 100) / yesterdayValue;
         return (result - 100).toFixed(2);
@@ -29,10 +29,10 @@ const GoldProvider = ({ children}: ProviderProps) => {
         let updatedEntries:GoldsWithGrowth[] = [];
         for (let i = 0; i < loaderData.length; i++) {
             if(i > 0){
-                updatedEntries.push({...loaderData[i], growth: calcGrowth(loaderData[i].cena,loaderData[i-1].cena)})
+                updatedEntries.push({...data[i], growth: calcGrowth(data[i].cena,data[i-1].cena)})
             }
             else{
-                updatedEntries.push({...loaderData[i], growth: "0.00"})
+                updatedEntries.push({...data[i], growth: "0.00"})
             }
         }
         updatedEntries = updatedEntries.reverse();

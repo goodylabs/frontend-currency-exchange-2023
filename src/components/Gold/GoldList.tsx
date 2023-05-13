@@ -12,6 +12,8 @@ interface GoldListProps {
 
 const GoldList = ({goldEntries}:GoldListProps) => {
     const goldCtx=useContext<GoldContext>(goldContext);
+    console.log(goldCtx.goldWithGrowth);
+    console.log(goldEntries);
 
     const daysWithoutCurrent = goldCtx.goldWithGrowth.filter(entry => entry.data !== goldCtx.goldWithGrowth[0].data);
 

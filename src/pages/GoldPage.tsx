@@ -9,9 +9,9 @@ const GoldPage = () => {
     const entries = loaderData as goldEntries;
   return (
       <Wrapper>
-          <GoldProvider>
+          <GoldProvider data={entries}>
               <GoldList goldEntries={entries}/>
-              <GoldChart data={entries}/>
+              <GoldChart/>
           </GoldProvider>
       </Wrapper>
   )

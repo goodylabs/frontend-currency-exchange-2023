@@ -7,10 +7,11 @@ import {
   ChartOptions, ChartData,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useContext, useEffect, useState} from "react";
 import classes from "../../sass/components/GoldChart.module.scss";
 import {goldEntries} from "../../pages/GoldPage";
 import {filterLength} from "../../utility/globals/numbers";
+import {GoldContext, goldContext} from "../../context/GoldProvider";
 
 ChartJS.register(
     CategoryScale,
@@ -25,18 +26,19 @@ interface ChartProps {
 }
 
 const GoldChart = ({data}:ChartProps) => {
+  const goldCtx = useContext<GoldContext>(goldContext);
   const[filterType, setFilterType] = useState<"week" | "month" | "all">("week");
-  const[filteredData, setFilteredData] = useState<goldEntries>(data);
+  const[filteredData, setFilteredData] = useState<goldEntries>(goldCtx.goldWithGrowth);
   const filterData = useCallback(() =>{
     switch (filterType){
       case "week":
-        setFilteredData(data.slice(data.length - filterLength.week));
+        setFilteredData(goldCtx.goldWithGrowth.slice(goldCtx.goldWithGrowth.length - filterLength.week));
         break;
       case "month":
-        setFilteredData(data.slice(data.length - filterLength.month));
+        setFilteredData(goldCtx.goldWithGrowth.slice(goldCtx.goldWithGrowth.length - filterLength.month));
         break;
       case "all":
-        setFilteredData(data);
+        setFilteredData(goldCtx.goldWithGrowth);
     }
   }, [data, filterType])
   // const filterData = () => {
