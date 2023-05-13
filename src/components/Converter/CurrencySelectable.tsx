@@ -4,25 +4,24 @@ import {useContext, useRef} from "react";
 import {useLoaderData} from "react-router-dom";
 import {converterContext} from "../../context/ConverterProvider";
 import {ConverterContext} from '../../types/types'
-import useLocalStorage from "../../hooks/use-local-storage";
 
 interface SelectableProps {
   label: string,
   fullName: string,
-    addItem: <TData>(item: TData) => void ,
-    removeItem: <TData>(callback: (item:TData) => void ) => void
+    addItem: (item: RatesObject) => void ,
+    removeItem: (callback: (item:RatesObject) => boolean ) => void
 }
 const CurrencySelectable = ({label, fullName, addItem, removeItem}:SelectableProps) => {
     const loaderData = useLoaderData() as tableAResponse[];
     const converterCtx= useContext<ConverterContext>(converterContext);
     const checkboxRef = useRef<HTMLInputElement | null>(null);
-    const savedCurrencies = JSON.parse(localStorage.getItem('currencies'));
+    const savedCurrencies = JSON.parse(localStorage.getItem('currencies')!) as RatesObject[];
     const inSavedCurrencies = savedCurrencies.some(savedItem => savedItem.code === label);
     const changeSelectedCurrencies = () => {
         if(checkboxRef.current?.checked){
-            const desiredCurrency = loaderData[0].rates.find(currency => currency.code === label);
-            // @ts-expect-error type comes from linter
+            const desiredCurrency = loaderData[0].rates.find(currency => currency.code === label)!;
             addItem(desiredCurrency);
+
             converterCtx.setSelectedCurrencies(prevState => [...prevState, desiredCurrency])
         }
         else{
