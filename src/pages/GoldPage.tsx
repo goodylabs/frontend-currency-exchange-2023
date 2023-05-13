@@ -11,7 +11,8 @@ const GoldPage = () => {
       <Wrapper>
           <GoldProvider data={entries}>
               <GoldList goldEntries={entries}/>
-              <GoldChart/>
+              <GoldChart chartType={"bar"}/>
+              <GoldChart chartType={"line"}/>
           </GoldProvider>
       </Wrapper>
   )
