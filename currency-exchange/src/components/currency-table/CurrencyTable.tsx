@@ -25,7 +25,7 @@ const CurrencyTable = () => {
             <TableCell />
             <TableCell>Code</TableCell>
             <TableCell align="center">Currency</TableCell>
-            <TableCell align="center">Mid Value</TableCell>
+            <TableCell align="center">{`Mid Value (${currencyContext.currencyTableDate})`}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

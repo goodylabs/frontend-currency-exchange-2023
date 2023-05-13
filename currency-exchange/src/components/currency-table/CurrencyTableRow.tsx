@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import { useState } from "react";
 import { CurrencyDayData } from "../home-page/CurrencyContext";
+import CurrencyChart from "./CurrencyChart";
 
 const CurrencyTableRow = ({
   currency,
@@ -52,43 +53,42 @@ const CurrencyTableRow = ({
       });
   };
 
-  if (isCurrencyDataLoading) {
-    return <div>loading...</div>;
-  }
-
   return (
     <>
-      {currencyIsError ? (
-        <Alert variant="outlined" severity="error">
-          Something went wrong. Please try again later.
-        </Alert>
-      ) : (
-        <>
-          <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-            <TableCell>
-              <IconButton size="small" onClick={handleOpenRow}>
-                {isOpenRow ? (
-                  <KeyboardArrowUpIcon />
-                ) : (
-                  <KeyboardArrowDownIcon />
-                )}
-              </IconButton>
-            </TableCell>
-            <TableCell component="th" scope="row">
-              {code}
-            </TableCell>
-            <TableCell align="center">{currency}</TableCell>
-            <TableCell align="center">{mid}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-              <Collapse in={isOpenRow} timeout="auto" unmountOnExit>
-                <Box sx={{ margin: 1 }}></Box>
-              </Collapse>
-            </TableCell>
-          </TableRow>
-        </>
-      )}
+      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
+        <TableCell>
+          <IconButton size="small" onClick={handleOpenRow}>
+            {isOpenRow ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+        <TableCell component="th" scope="row">
+          {code}
+        </TableCell>
+        <TableCell align="center">{currency}</TableCell>
+        <TableCell align="center">{mid}</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={isOpenRow} timeout="auto" unmountOnExit>
+            {currencyIsError && (
+              <Box sx={{ width: "100%" }}>
+                <Alert severity="error">Error while fetching data</Alert>
+              </Box>
+            )}
+            {isCurrencyDataLoading && (
+              <Box sx={{ width: "100%" }}>
+                <Alert severity="info">Loading</Alert>
+              </Box>
+            )}
+            {currencyData && (
+              <CurrencyChart
+                currencyDaysData={currencyData}
+                currencyCode={code}
+              ></CurrencyChart>
+            )}
+          </Collapse>
+        </TableCell>
+      </TableRow>
     </>
   );
 };

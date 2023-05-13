@@ -19,7 +19,6 @@ const HomePage = () => {
     axios
       .get("http://api.nbp.pl/api/exchangerates/tables/a/")
       .then((response) => {
-        console.log(response.data[0].rates);
         setCurrencyData(response.data[0].rates);
         setCurrencyTableDate(response.data[0].effectiveDate);
       })
