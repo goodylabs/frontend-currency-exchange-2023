@@ -55,21 +55,28 @@ class CurrencyChart extends Component {
       this.lastCurrency = this.props.currency;
     }
 
-    if (isLoaded && this.props.currency !== 'PLN') {
+    if (isLoaded || this.props.currency === 'PLN') {
       const curCurrency = Currency.rates;
 
       let curCurrencyDay = [];
       let curCurrencyValue = [];
 
-      for (let i=0; i<curCurrency.length; i++) {
-        curCurrencyDay.push(`Day ${i+1}`);
-        curCurrencyValue.push(curCurrency.at(i).mid);
+      if (this.props.currency !== 'PLN') {
+        for (let i=0; i<curCurrency.length; i++) {
+          curCurrencyDay.push(`Day ${i+1}`);
+          curCurrencyValue.push(curCurrency.at(i).mid);
+        }
+      }
+      else {
+        for (let i=0; i<14; i++) {
+          curCurrencyDay.push(`Day ${i+1}`);
+          curCurrencyValue.push(1);
+        }
       }
 
       const data = {
         labels: curCurrencyDay,
         datasets: [{
-          label: this.props.currency,
           data: curCurrencyValue,
           backgroundColor: 'transparent',
           borderColor: '#7E89FDff',
