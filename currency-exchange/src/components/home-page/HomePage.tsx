@@ -3,6 +3,7 @@ import CurrencyConverter from "../currency-converter/CurrencyConverter";
 import axios from "axios";
 import { Currency, CurrencyContext } from "./CurrencyContext";
 import CurrencyTable from "../currency-table/CurrencyTable";
+import GoldSection from "../gold-section/GoldSection";
 
 const HomePage = () => {
   const [currencyData, setCurrencyData] = useState<Currency[] | null>(null);
@@ -43,6 +44,7 @@ const HomePage = () => {
       >
         <CurrencyConverter />
         <CurrencyTable />
+        <GoldSection />
       </CurrencyContext.Provider>
     </div>
   );
