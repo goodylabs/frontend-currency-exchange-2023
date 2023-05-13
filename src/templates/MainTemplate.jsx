@@ -2,9 +2,9 @@ import Navbar from '../components/Navbar';
 
 const MainTemplate = ({ children }) => {
   return (
-    <div className="bg-slate-300">
+    <div className="flex h-full">
       <Navbar />
-      <div className="max-w-7xl">{children}</div>
+      <div>{children}</div>
     </div>
   );
 };

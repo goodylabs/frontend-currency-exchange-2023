@@ -1,6 +1,6 @@
 const routes = {
   currencies: '/',
-  currency: '/:code',
+  currency: '/currencies/:code',
   gold: '/gold',
   converter: '/converter',
 };

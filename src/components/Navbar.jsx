@@ -1,24 +1,23 @@
-import { Link } from 'react-router-dom';
+import { ArrowsRightLeftIcon, BanknotesIcon, TrophyIcon } from '@heroicons/react/24/outline';
 import routes from '../common/routes';
+import NavbarItem from './NavbarItem';
+
+const items = [
+  { name: 'Currencies', link: routes.currencies, icon: BanknotesIcon },
+  { name: 'Gold', link: routes.gold, icon: TrophyIcon },
+  { name: 'Converter', link: routes.converter, icon: ArrowsRightLeftIcon },
+];
 
 const Navbar = () => {
   return (
-    <nav className=" border-gray-200 bg-white shadow-md">
-      <div className="mx-auto flex max-w-screen-xl items-center justify-center gap-10">
-        <Link to={routes.currencies} className="p-4 hover:bg-slate-300">
-          Currencies
-        </Link>
-        <Link to={routes.currency} className="p-4 hover:bg-slate-300">
-          Currency
-        </Link>
-        <Link to={routes.gold} className="p-4 hover:bg-slate-300">
-          Gold
-        </Link>
-        <Link to={routes.converter} className="p-4 hover:bg-slate-300">
-          Converter
-        </Link>
-      </div>
-    </nav>
+    <div className="flex w-full max-w-xs flex-col gap-12 border-r-2 bg-zinc-100 p-8">
+      <span className="px-2.5 text-lg font-semibold">Currency Exchange</span>
+      <nav className="flex flex-col gap-6">
+        {items.map((item) => (
+          <NavbarItem key={item.name} name={item.name} link={item.link} Icon={item.icon} />
+        ))}
+      </nav>
+    </div>
   );
 };
 

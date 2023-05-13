@@ -11,7 +11,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "axios": "^1.4.0",
+    "clsx": "^1.2.1",
     "dayjs": "^1.11.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
