@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { GoldPriceResponse } from "@typedefs/api/gold-price";
-import { request } from "@utils";
+import { apiUrls, request } from "@utils";
 
 export function useGetLastGoldPrices(lastDays: number) {
   return useQuery({
     queryKey: ["lastGoldPrices", lastDays],
     queryFn: () =>
-      request<GoldPriceResponse>({ url: `/cenyzlota/last/${lastDays}` }),
+      request<GoldPriceResponse>({
+        url: `${apiUrls.getLastGoldPrices}/${lastDays}`,
+      }),
   });
 }

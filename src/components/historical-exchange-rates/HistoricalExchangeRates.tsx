@@ -1,4 +1,4 @@
-import { useGetHistoricalLastDaysExchangeRates } from "@api";
+import { useGetHistoricalExchangeRates } from "@api";
 import { Card } from "@components/card";
 import { CurrencyCombobox } from "@components/currency-combobox";
 import { currencies, historicalExchangePricesChartOptions } from "@utils";
@@ -8,9 +8,10 @@ import { Line } from "react-chartjs-2";
 export const HistoricalExchangeRates = () => {
   const [currency, setCurrency] = useState(currencies[1]);
 
-  const { data: exchangeRatesData } = useGetHistoricalLastDaysExchangeRates(
+  const { data: exchangeRatesData } = useGetHistoricalExchangeRates(
     14,
-    currency.code
+    currency.code,
+    "C"
   );
 
   const [labels, askValues, bidValues] = useMemo(
