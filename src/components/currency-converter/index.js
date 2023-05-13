@@ -43,7 +43,7 @@ class CurrenciesConverter extends Component {
       }
     }
 
-    if (isNaN(changeValue))
+    if (isNaN(changeValue) || this.curCurrencyCode === undefined)
       curValue.value = '';
     else if (event.target.value === '')
     {
@@ -63,7 +63,7 @@ class CurrenciesConverter extends Component {
     const changeValue = parseFloat(document.getElementById('currency-change-value').value);
     const curValue = document.getElementById('pln-change-value');
 
-    if (isNaN(changeValue))
+    if (isNaN(changeValue) || this.curCurrencyCode === undefined)
       curValue.value = '';
     else
       curValue.value = Math.round((changeValue * this.curCurrency) * 100) / 100;
@@ -92,31 +92,33 @@ class CurrenciesConverter extends Component {
       const currencies = allCurrencies.rates;
 
       return (
-        <div>
-          <img src={ PLN } alt='PLN' height={ '30px' } />
+        <>
+          <div className='cc-container'>
+            <div className='cc-pln'>
+              <img src={PLN} alt='PLN' height={'30px'} />
+              <p>PLN</p>
+              <input className='cc-input' id='pln-change-value' defaultValue={1} type='text' onChange={this.onOptionChangeHandler}></input>
+            </div>
+            
+            <div className='cc-equal-sign'>
+              <div></div>
+              <div></div>
+            </div>
 
-          <p>
-            PLN
-          </p>
-          <input id='pln-change-value' defaultValue={ 1 } type='text' onChange={ this.onOptionChangeHandler }></input>
-
-          <p>
-            Choose currency
-          </p>
-
-          { this.flagRender() }
-
-          <select onChange={ this.onOptionChangeHandler }>
-            <option></option>
-            {currencies.map(item => {
-              return <option key={ item.code }>{ item.code }</option>
-            })}
-          </select>
-
-          <input id='currency-change-value' type='text' onChange={ this.onInputChangeHandler }></input>
-
-          <CurrencyChart currency={ this.curCurrencyCode }></CurrencyChart>
-        </div>
+            <div className='cc-currency'>
+              <input className='cc-input' id='currency-change-value' type='text' onChange={this.onInputChangeHandler}></input>
+              <select onChange={this.onOptionChangeHandler}>
+                <option></option>
+                {currencies.map(item => {
+                  return <option key={item.code}>{item.code}</option>;
+                })}
+              </select>
+              {this.flagRender()}
+            </div>
+          </div>
+          
+          <CurrencyChart currency={this.curCurrencyCode}></CurrencyChart>
+        </>
       );
     }
   }
