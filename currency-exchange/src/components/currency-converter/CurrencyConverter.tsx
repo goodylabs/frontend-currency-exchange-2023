@@ -3,17 +3,39 @@ import { useContext, useEffect, useState } from "react";
 import CurrencySelect from "./CurrencySelect";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import { CurrencyContext } from "../home-page/CurrencyContext";
+import { CurrencyContextInterface } from "../home-page/CurrencyContext";
 
-const CurrencyCard = () => {
+const CurrencyConverter = () => {
   const [baseCurrency, setBaseCurrency] = useState("");
   const [baseCurrencyAmount, setBaseCurrencyAmount] = useState<number>(0);
   const [targetCurrency, setTargetCurrency] = useState("");
   const [targetCurrencyAmount, setTargetCurrencyAmount] = useState<number>(0);
-  const currencyContext = useContext(CurrencyContext);
+  const currencyContext = useContext<CurrencyContextInterface>(CurrencyContext);
+
+  useEffect(() => {
+    setTargetCurrencyValue();
+  }, [baseCurrencyAmount]);
 
   if (currencyContext.isCurrencyDataLoading) {
     return <div>loading...</div>;
   }
+
+  const setTargetCurrencyValue = () => {
+    if (currencyContext) {
+      const baseCurrencyRate = currencyContext.currencyData?.find(
+        (item) => item.code === baseCurrency
+      )?.mid;
+      const targetCurrencyRate = currencyContext.currencyData?.find(
+        (item) => item.code === targetCurrency
+      )?.mid;
+      if (baseCurrencyRate && targetCurrencyRate) {
+        setTargetCurrencyAmount(
+          (parseFloat(baseCurrencyRate) / parseFloat(targetCurrencyRate)) *
+            baseCurrencyAmount
+        );
+      }
+    }
+  };
 
   return (
     <Box sx={{ padding: "2rem" }}>
@@ -44,4 +66,4 @@ const CurrencyCard = () => {
   );
 };
 
-export default CurrencyCard;
+export default CurrencyConverter;
