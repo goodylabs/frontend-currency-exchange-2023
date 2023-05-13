@@ -3,8 +3,9 @@ import './style.css'
 
 class CurrencyChart extends Component {
 
+  lastCurrency = '';
+
   constructor(props) {
-    let lastCurrency = '';
     super(props);
     this.state = {
       Currency: [],
@@ -13,7 +14,7 @@ class CurrencyChart extends Component {
   }
 
   updateCurrency() {
-    if (this.props.currency != undefined && this.props.currency != '') {
+    if (this.props.currency !== undefined && this.props.currency !== '' && this.props.currency !== 'PLN') {
       fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${this.props.currency}/last/14`)
       .then(res => res.json())
       .then(json => {
@@ -28,7 +29,7 @@ class CurrencyChart extends Component {
   render() {
     var { isLoaded, Currency } = this.state;
 
-    if (this.lastCurrency != this.props.currency) {
+    if (this.lastCurrency !== this.props.currency) {
       this.updateCurrency();
       this.lastCurrency = this.props.currency;
     }

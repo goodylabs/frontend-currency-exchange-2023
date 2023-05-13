@@ -5,8 +5,8 @@ import './style.css'
 
 class CurrenciesConverter extends Component {
 
-  curCurrency = 0;
-  curCurrencyCode = '';
+  curCurrency = 1;
+  curCurrencyCode = 'PLN';
 
   constructor(props) {
     super(props);
@@ -98,7 +98,7 @@ class CurrenciesConverter extends Component {
             <div className='cc-pln'>
               <img src={PLN} alt='PLN' height={'30px'} />
               <p>PLN</p>
-              <input className='cc-input' id='pln-change-value' defaultValue={1} type='text' onChange={this.onOptionChangeHandler}></input>
+              <input className='cc-input' id='pln-change-value' defaultValue={ 1 } type='text' maxLength={ '7' } onChange={this.onOptionChangeHandler}></input>
             </div>
             
             <div className='cc-equal-sign'>
@@ -107,9 +107,9 @@ class CurrenciesConverter extends Component {
             </div>
 
             <div className='cc-currency'>
-              <input className='cc-input' id='currency-change-value' type='text' onChange={this.onInputChangeHandler}></input>
+              <input className='cc-input' id='currency-change-value' defaultValue={ 1 } type='text' maxLength={ '7' } onChange={this.onInputChangeHandler}></input>
               <select onChange={this.onOptionChangeHandler}>
-                <option></option>
+                <option>PLN</option>
                 {currencies.map(item => {
                   return <option key={item.code}>{item.code}</option>;
                 })}

@@ -1,6 +1,48 @@
+.cc-container {
+  width: fit-content;
+  padding: 12px 32px 12px 32px;
+  margin-top: 32px;
+  border-bottom: 2px solid var(--bg2);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+
+  font-size: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cc-container img {
+  height: 32px;
+  box-shadow: 0 0 5px rgb(227, 232, 254);
+}
+
+.cc-pln {
+  display: flex;
+  align-items: center;
+}
+
+.cc-pln img {
+  margin-right: 10px;
+}
+
+.cc-pln p {
+  margin-right: 16px;
+
+  font-weight: 700;
+}
+
+.cc-pln input {
+  margin-right: 18px;
+}
+
 .cc-equal-sign {
+  height: 60%;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .cc-equal-sign div {
@@ -8,5 +50,62 @@
   width: 36px;
   border-radius: 18px;
 
-  background-color: var(--interactive);
+  background-color: var(--price-up);
+}
+
+.cc-currency {
+  display: flex;
+  align-items: center;
+}
+
+.cc-currency input {
+  margin-left: 18px;
+}
+
+.cc-currency select {
+  height: 44px;
+  padding-inline: 8px;
+  margin-left: 16px;
+  border-radius: 22px;
+  border: 2px solid var(--bg2);
+  text-align: center;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  appearance: none;
+  padding-right: 15px;
+  background-image: url(../../icons/down-arrow.png);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 3px) center;
+  background-size: 16px;
+}
+
+.cc-currency select:focus {
+  outline: none !important;
+  border: 2px solid var(--text2);
+}
+
+.cc-currency select:active {
+  font-size: 14px;
+}
+
+.cc-currency img {
+  margin-left: 14px;
+}
+
+.cc-input {
+  height: 36px;
+  width: 144px;
+  border-radius: 18px;
+  border: 2px solid var(--bg2);
+
+  text-align: center;
+
+  font-size: 21px;
+}
+
+.cc-input:focus {
+  outline: none !important;
+  border: 2px solid var(--text2);
 }
