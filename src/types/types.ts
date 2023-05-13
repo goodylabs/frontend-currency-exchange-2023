@@ -9,3 +9,8 @@ export type RatesObject = {
     code: string,
     mid: number
 }
+export type GoldsWithGrowth = {
+    data: Date,
+    cena: number,
+    growth: string
+}
