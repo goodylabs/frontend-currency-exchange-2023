@@ -8,11 +8,11 @@ const GoldPage = () => {
     const loaderData = useLoaderData();
     const entries = loaderData as goldEntries;
   return (
-      <Wrapper>
+      <Wrapper gridMode={true}>
           <GoldProvider data={entries}>
               <GoldList goldEntries={entries}/>
-              <GoldChart chartType={"bar"}/>
-              <GoldChart chartType={"line"}/>
+                  <GoldChart chartType={"bar"}/>
+                  <GoldChart chartType={"line"}/>
           </GoldProvider>
       </Wrapper>
   )

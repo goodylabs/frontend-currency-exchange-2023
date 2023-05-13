@@ -16,7 +16,7 @@ const Navbar = () => {
       <nav className={classes.nav}>
           <div className={classes.nav__logo}><p>CurrencyHub</p></div>
           <div className={classes.nav__items}>
-            <NavItem path={'/'}><FontAwesomeIcon icon={faEuroSign}/> Currencies</NavItem>
+            <NavItem path={'/'}><FontAwesomeIcon icon={faEuroSign}/> Exchanges</NavItem>
             <NavItem path={'/gold'}><FontAwesomeIcon icon={faCoins}/> Gold prices</NavItem>
             <NavItem path={'/converter'}><FontAwesomeIcon icon={faRotate}/>  Converter</NavItem>
           </div>

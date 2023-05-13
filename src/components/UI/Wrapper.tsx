@@ -2,11 +2,13 @@ import {ReactNode} from "react";
 import classes from "../../sass/components/Wrapper.module.scss";
 
 interface WrapperProps {
-    children: ReactNode
+    children: ReactNode,
+    gridMode: boolean
 }
-const Wrapper = ({children}:WrapperProps) => {
+const Wrapper = ({children, gridMode = false}:WrapperProps) => {
+    const wrapperClasses = gridMode ? classes.grid : classes.wrapper;
   return (
-      <div className={classes.wrapper}>
+      <div className={wrapperClasses}>
           {children}
       </div>
   )

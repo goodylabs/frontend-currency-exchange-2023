@@ -10,6 +10,9 @@
   & > p{
     color: $text-color-secondary;
   }
+  @include respond-to('l'){
+    width: 50%;
+  }
 }
 .selectables{
   width: 100%;
@@ -19,12 +22,13 @@
   justify-content: space-around;
   @include respond-to('l'){
     padding: 1em;
-    height: 400px;
+    height: 750px;
     overflow-y: scroll;
+    justify-content: space-evenly;
   }
   &__selectable{
     margin: 1em 0;
-    padding: 1em;
+    padding: .75em;
     width: 250px;
     display: flex;
     align-items: center;
@@ -32,6 +36,9 @@
     background-color: $vd-desaturated-blue;
     border-radius: 8px;
     cursor: pointer;
+    @include respond-to('l'){
+      margin: 1em .5em;
+    }
     &__checkbox{
       margin: 0;
       width: 20px;

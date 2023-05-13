@@ -23,7 +23,7 @@ const GoldProvider = ({children, data}: ProviderProps) => {
     const [entriesWithGrowth, setEntriesWithGrowth] = useState<GoldsWithGrowth[]>(data as  GoldsWithGrowth[]);
     const calcGrowth = (todayValue: number, yesterdayValue: number): string => {
         const result = (todayValue * 100) / yesterdayValue;
-        return (result - 100).toFixed(2);
+        return (result - 100).toFixed(3);
     };
     const entriesPreprocessing = () =>{
         let updatedEntries:GoldsWithGrowth[] = [];

@@ -8,4 +8,7 @@
   justify-content: center;
   background-color: $vd-desaturated-blue;
   border-radius: 8px;
+  @include respond-to('l'){
+    width: 50%;
+  }
 }
