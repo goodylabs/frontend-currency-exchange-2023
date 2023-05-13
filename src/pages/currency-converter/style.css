@@ -1,5 +1,5 @@
 .cc-title {
-  margin-top: 18px;
+  margin-top: 24px;
   margin-bottom: 5px;
   color: var(--text);
   text-align: center;
@@ -122,6 +122,7 @@
 @media only screen and (max-width: 1100px) {
   .cc-title {
     font-size: 32px;
+    margin-top: 16px;
     margin-bottom: 0;
   }
 
