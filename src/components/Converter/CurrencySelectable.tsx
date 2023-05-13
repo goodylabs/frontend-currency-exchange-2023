@@ -16,7 +16,7 @@ const CurrencySelectable = ({label, fullName, addItem, removeItem}:SelectablePro
     const converterCtx= useContext<ConverterContext>(converterContext);
     const checkboxRef = useRef<HTMLInputElement | null>(null);
     const savedCurrencies = JSON.parse(localStorage.getItem('currencies')!) as RatesObject[];
-    const inSavedCurrencies = savedCurrencies.some(savedItem => savedItem.code === label);
+    const inSavedCurrencies = converterCtx.selectedCurrencies.some(savedItem => savedItem.code === label);
     const changeSelectedCurrencies = () => {
         if(checkboxRef.current?.checked){
             const desiredCurrency = loaderData[0].rates.find(currency => currency.code === label)!;
