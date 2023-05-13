@@ -60,8 +60,8 @@ class GoldPrices extends Component {
         datasets: [{
           data: goldPrice,
           backgroundColor: 'transparent',
-          borderColor: '#7E89FDff',
-          pointBorderColor: '#7E89FDff',
+          borderColor: '#FFD600ff',
+          pointBorderColor: '#FFD600ff',
           pointBorderWidth: 4,
           tension: 0.3,
         }]
