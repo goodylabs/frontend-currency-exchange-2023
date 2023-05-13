@@ -47,8 +47,6 @@ class GoldPrices extends Component {
     var { isLoaded, gold } = this.state;
 
     if (isLoaded) {
-      console.log(gold);
-
       let goldDay = [];
       let goldPrice = [];
 
@@ -56,9 +54,6 @@ class GoldPrices extends Component {
         goldDay.push(`Day ${i+1}`);
         goldPrice.push(gold.at(i).cena);
       }
-
-      console.log(goldDay);
-      console.log(goldPrice);
 
       const data = {
         labels: goldDay,
