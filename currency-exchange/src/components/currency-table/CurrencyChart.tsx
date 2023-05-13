@@ -45,6 +45,16 @@ const CurrencyChart = ({
   const options = {
     responsive: true,
     maintainAspectRatio: true,
+
+    scales: {
+      x: {
+        ticks: {
+          maxTicksLimit: 7,
+        },
+        display: true,
+      },
+    },
+
     plugins: {
       title: {
         display: true,

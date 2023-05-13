@@ -20,13 +20,24 @@ Chart.register(
   Title
 );
 
-const GoldChart = ({ goldData }: { goldData: GoldDataType[] }) => {
+const GoldChart = ({
+  goldData,
+  arrayDaysAmount,
+}: {
+  goldData: GoldDataType[];
+  arrayDaysAmount: number;
+}) => {
+  const END_INDEX = 90;
   const chartData = {
-    labels: goldData.map((day) => day.data),
+    labels: goldData
+      .slice(END_INDEX - arrayDaysAmount, END_INDEX)
+      .map((day) => day.data),
     datasets: [
       {
         label: `Gold price`,
-        data: goldData.map((day) => day.cena),
+        data: goldData
+          .slice(END_INDEX - arrayDaysAmount, END_INDEX)
+          .map((day) => day.cena),
         fill: false,
         backgroundColor: "rgb(255, 99, 132)",
         borderColor: "rgba(255, 99, 132, 0.2)",
@@ -39,10 +50,20 @@ const GoldChart = ({ goldData }: { goldData: GoldDataType[] }) => {
   const options = {
     responsive: true,
     maintainAspectRatio: true,
+
+    scales: {
+      x: {
+        ticks: {
+          maxTicksLimit: 7,
+        },
+        display: true,
+      },
+    },
+
     plugins: {
       title: {
         display: true,
-        text: `Gold prices of last 90 days`,
+        text: `Gold prices of last ${arrayDaysAmount} days`,
         font: {
           size: 20,
         },
