@@ -1,0 +1,12 @@
+@use '../utils' as *;
+.converter{
+  &__heading{
+    padding: .65em;
+    border-bottom: 1px solid $currency-border;
+  }
+  &__message{
+    padding: 2em;
+    text-align: center;
+    color: $text-color-secondary;
+  }
+}
