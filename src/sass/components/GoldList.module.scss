@@ -5,11 +5,13 @@
   padding-bottom: .5em;
   position: relative;
   z-index: 1;
-
   width: 90%;
   max-width: 900px;
   background-color: $vd-desaturated-blue;
   border-radius: 8px;
+  @include respond-to('l'){
+    max-width: 500px;
+  }
   &__current{
     display: flex;
     justify-content: space-around;

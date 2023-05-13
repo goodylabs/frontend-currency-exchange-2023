@@ -1,7 +1,12 @@
+@use "../utils" as *;
 .wrapper{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //height: 100vmin;
+  @include respond-to('l'){
+    padding: 1em;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

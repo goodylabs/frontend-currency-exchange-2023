@@ -10,6 +10,10 @@
   background-color: $vd-desaturated-blue;
   border-radius: 8px;
   height: 450px;
+  @include respond-to('l'){
+    margin-top: 0;
+    max-width: 500px;
+  }
   &__header{
     display: flex;
     justify-content: space-between;

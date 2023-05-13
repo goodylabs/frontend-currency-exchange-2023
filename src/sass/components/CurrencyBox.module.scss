@@ -17,6 +17,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  @include respond-to('l'){
+    padding: 1em;
+    height: 400px;
+    overflow-y: scroll;
+  }
   &__selectable{
     margin: 1em 0;
     padding: 1em;
