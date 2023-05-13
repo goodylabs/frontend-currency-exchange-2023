@@ -35,3 +35,7 @@ export type LastExchangeData = {
     }[]
 }
 export type goldEntries = {data: Date, cena: number}[]
+export type ErrorObject = {
+    isError: boolean,
+    message: string
+}

@@ -17,7 +17,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      //margin: 1em 0;
       padding: 1em .75em;
       border-bottom: 1px solid $currency-border;
       cursor: pointer;
@@ -27,9 +26,15 @@
       &:last-child{
         border-bottom: none;
       }
+      &__ellipsis{
+        overflow: hidden;
+      }
       &__name{
         font-size: calc($normal - .35rem);
         color: $text-color-secondary;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
       &__rate{
         padding: .3em;

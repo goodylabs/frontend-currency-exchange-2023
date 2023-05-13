@@ -8,7 +8,6 @@ const CurrencyList = () => {
     const loaderData = useLoaderData() as tableAResponse[];
     const navigation = useNavigation();
     const responseObj = loaderData[0] as tableAResponse;
-    console.log(responseObj)
   return (
         <div className={classes.currencies}>
             <div className={classes.currencies__header}>

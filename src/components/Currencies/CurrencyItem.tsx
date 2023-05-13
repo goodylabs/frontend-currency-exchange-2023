@@ -5,7 +5,7 @@ import CurrencyView from "./CurrencyView";
 import ConverterView from "../Converter/ConverterView";
 import {converterContext} from "../../context/ConverterProvider";
 import {ConverterContext} from '../../types/types'
-
+import european from '../../assets/european-union.png'
 interface CurrencyItemProps {
     currency: string,
     code: string,
@@ -18,12 +18,14 @@ const CurrencyItem = ({currency, code, mid, converterItem = false}:CurrencyItemP
   return (
       <>
           <li onClick={() => setModalOpen(true)} className={classes.currencies__list__item}>
-              <div>
+
+              <div className={classes.currencies__list__item__ellipsis}>
+                  <img src={european}/>
                   <p>{code}</p>
                   <p className={classes.currencies__list__item__name}>{currency}</p>
               </div>
               <div>
-                  <p className={classes.currencies__list__item__rate}>{converterItem ? (converterCtx.plnValue * mid) .toFixed(5): mid} {converterItem ? code : 'PLN'}</p>
+                  <p className={classes.currencies__list__item__rate}>{converterItem ? (converterCtx.plnValue * mid).toFixed(5): mid} {converterItem ? code : 'PLN'}</p>
               </div>
           </li>
           {(modalOpen && !converterItem) && <Modal><CurrencyView currency={currency} code={code} mid={mid} closeModalFn={setModalOpen}/></Modal>}

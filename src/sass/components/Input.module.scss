@@ -13,4 +13,7 @@
   &::placeholder{
     font-size: calc($normal - .2rem);
   }
+  &--err{
+    border-color: $growth-neg;
+  }
 }
