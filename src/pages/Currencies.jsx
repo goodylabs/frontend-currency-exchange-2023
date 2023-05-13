@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import api from "../services/api";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import api from '../services/api';
 
 const getTableData = async () => {
   try {
-    const res = await api.get("/exchangerates/tables/A");
+    const res = await api.get('/exchangerates/tables/A');
     return res.data;
   } catch (error) {
     console.error(error);
@@ -44,10 +44,7 @@ const Currencies = () => {
         </thead>
         <tbody>
           {tableData.rates.map((rate) => (
-            <tr
-              key={rate.code}
-              className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
-            >
+            <tr key={rate.code} className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
               <Link to={`/${rate.code}`}>
                 <th
                   scope="row"

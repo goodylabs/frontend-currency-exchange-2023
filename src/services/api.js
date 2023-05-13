@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "http://api.nbp.pl/api/",
+  baseURL: 'http://api.nbp.pl/api/',
   timeout: 5000,
-  headers: { Accept: "application/json" },
+  headers: { Accept: 'application/json' },
 });
 
 export default api;

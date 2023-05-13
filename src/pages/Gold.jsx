@@ -1,10 +1,10 @@
-import dayjs from "dayjs";
-import { useEffect, useState } from "react";
-import api from "../services/api";
+import dayjs from 'dayjs';
+import { useEffect, useState } from 'react';
+import api from '../services/api';
 
 const getCurrentGoldPrice = async () => {
   try {
-    const res = await api.get("/cenyzlota");
+    const res = await api.get('/cenyzlota');
     return res.data;
   } catch (error) {
     console.error(error);
@@ -12,14 +12,12 @@ const getCurrentGoldPrice = async () => {
 };
 
 const getHistoricalGoldPrice = async (endDate) => {
-  const startDate = dayjs(endDate).subtract(2, "week");
-  const formattedStartDate = dayjs(startDate).format("YYYY-MM-DD");
-  const formattedEndDate = dayjs(endDate).format("YYYY-MM-DD");
+  const startDate = dayjs(endDate).subtract(2, 'week');
+  const formattedStartDate = dayjs(startDate).format('YYYY-MM-DD');
+  const formattedEndDate = dayjs(endDate).format('YYYY-MM-DD');
 
   try {
-    const res = await api.get(
-      `/cenyzlota/${formattedStartDate}/${formattedEndDate}`
-    );
+    const res = await api.get(`/cenyzlota/${formattedStartDate}/${formattedEndDate}`);
     return res.data;
   } catch (error) {
     console.error(error);

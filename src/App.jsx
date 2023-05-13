@@ -1,11 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import routes from "./common/routes";
-import Converter from "./pages/Converter";
-import Currencies from "./pages/Currencies";
-import Currency from "./pages/Currency";
-import Gold from "./pages/Gold";
-import MainTemplate from "./templates/MainTemplate";
+import routes from './common/routes';
+import Converter from './pages/Converter';
+import Currencies from './pages/Currencies';
+import Currency from './pages/Currency';
+import Gold from './pages/Gold';
+import MainTemplate from './templates/MainTemplate';
 
 export const App = () => {
   return (
