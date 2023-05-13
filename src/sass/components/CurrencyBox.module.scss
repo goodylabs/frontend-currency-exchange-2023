@@ -1,6 +1,7 @@
 @use '../utils' as *;
 .box{
   width: 100%;
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +23,7 @@
   justify-content: space-around;
   @include respond-to('l'){
     padding: 1em;
-    height: 750px;
+    height: 550px;
     overflow-y: scroll;
     justify-content: space-evenly;
   }

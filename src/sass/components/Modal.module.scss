@@ -19,4 +19,15 @@
   transform: translate(-50%,-50%);
   background-color: $vd-desaturated-blue;
   border-radius: 15px;
+  animation: slide-in-up .3s ease-out forwards;
+}
+@keyframes slide-in-up {
+  from{
+    transform: translate(-50%,-75%);
+    opacity: 0;
+  }
+  to{
+    transform: translate(-50%,-50%);
+    opacity: 1;
+  }
 }
