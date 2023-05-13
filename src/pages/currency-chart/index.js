@@ -62,7 +62,7 @@ class CurrencyChart extends Component {
       let curCurrencyValue = new Array();
 
       for (let i=0; i<curCurrency.length; i++) {
-        curCurrencyDay.push('Day ' + (i+1));
+        curCurrencyDay.push(`Day ${i+1}`);
         curCurrencyValue.push(curCurrency.at(i).mid);
       }
 

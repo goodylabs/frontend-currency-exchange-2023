@@ -86,10 +86,6 @@
   border: 2px solid var(--text2);
 }
 
-.cc-currency select:active {
-  font-size: 14px;
-}
-
 .cc-currency img {
   margin-left: 14px;
 }

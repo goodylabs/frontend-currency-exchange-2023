@@ -46,13 +46,13 @@ class CurrenciesConverter extends Component {
 
     if (isNaN(changeValue) || this.curCurrencyCode === undefined)
       curValue.value = '';
-    else if (event.target.value === '')
+    else if (event.target.value === 'PLN')
     {
-      curValue.value = '';
-      this.curCurrency = 0;
-      this.curCurrencyCode = '';
+      curValue.value = changeValue;
+      this.curCurrency = 1;
+      this.curCurrencyCode = 'PLN';
     }
-    else if (this.curCurrencyCode !== '' && this.curCurrency !== 0)
+    else
       curValue.value = Math.round((changeValue / this.curCurrency) * 100) / 100;
 
     //Component refresh to send new prop to CurrencyChart component
