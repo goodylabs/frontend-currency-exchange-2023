@@ -1,11 +1,25 @@
-function App() {
-  return (
-    <div>
-      {/* tabela A */}
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-      {/* Aktualna cena złota */}
-    </div>
+import routes from "./common/routes";
+import Converter from "./pages/Converter";
+import Currencies from "./pages/Currencies";
+import Currency from "./pages/Currency";
+import Gold from "./pages/Gold";
+import MainTemplate from "./templates/MainTemplate";
+
+export const App = () => {
+  return (
+    <MainTemplate>
+      <BrowserRouter>
+        <Routes>
+          <Route path={routes.currencies} element={<Currencies />} />
+          <Route path={routes.currency} element={<Currency />} />
+          <Route path={routes.gold} element={<Gold />} />
+          <Route path={routes.converter} element={<Converter />} />
+        </Routes>
+      </BrowserRouter>
+    </MainTemplate>
   );
-}
+};
 
 export default App;
