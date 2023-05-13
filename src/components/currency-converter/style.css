@@ -1,0 +1,12 @@
+.cc-equal-sign {
+  display: flex;
+  flex-direction: column;
+}
+
+.cc-equal-sign div {
+  height: 9px;
+  width: 36px;
+  border-radius: 18px;
+
+  background-color: var(--interactive);
+}
