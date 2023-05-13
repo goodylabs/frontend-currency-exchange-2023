@@ -7,9 +7,10 @@ import {
   ChartOptions, ChartData,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import classes from "../../sass/components/GoldChart.module.scss";
 import {goldEntries} from "../../pages/GoldPage";
+import {filterLength} from "../../utility/globals/numbers";
 
 ChartJS.register(
     CategoryScale,
@@ -26,21 +27,23 @@ interface ChartProps {
 const GoldChart = ({data}:ChartProps) => {
   const[filterType, setFilterType] = useState<"week" | "month" | "all">("week");
   const[filteredData, setFilteredData] = useState<goldEntries>(data);
-  const filterData = () => {
+  const filterData = useCallback(() =>{
     switch (filterType){
       case "week":
-        setFilteredData(data.slice(data.length - 7));
+        setFilteredData(data.slice(data.length - filterLength.week));
         break;
       case "month":
-        setFilteredData(data.slice(data.length - 30));
+        setFilteredData(data.slice(data.length - filterLength.month));
         break;
       case "all":
         setFilteredData(data);
     }
-  }
+  }, [data, filterType])
+  // const filterData = () => {
+  // }
   useEffect(() =>{
     filterData();
-  },[filterType])
+  },[filterType, filterData])
 
 
   const labels = filteredData.map(entry => entry.data);
