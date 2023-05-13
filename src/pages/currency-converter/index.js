@@ -87,6 +87,10 @@ class CurrenciesConverter extends Component {
 
       return (
         <>
+          <p className='cc-title'>
+            <span>Currency</span> converter
+          </p>
+
           <div className='cc-container'>
             <div className='cc-pln'>
               <img src={PLN} alt='PLN' height={'30px'} />

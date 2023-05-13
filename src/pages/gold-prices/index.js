@@ -83,8 +83,8 @@ class GoldPrices extends Component {
 
       return (
         <div className='gp-chart-container'>
-          <p>
-            <span>Gold</span> prices
+          <p className='gp-chart-title'>
+            <span className='gold'>Gold</span> prices from last <span>30</span> days
           </p>
           <Line className='gp-chart' data={ data } options={ options }></Line>
         </div>

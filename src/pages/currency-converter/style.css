@@ -1,7 +1,20 @@
+.cc-title {
+  margin-top: 18px;
+  margin-bottom: 5px;
+  color: var(--text);
+  text-align: center;
+
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.cc-title span {
+  color: var(--interactive);
+}
+
 .cc-container {
   width: fit-content;
   padding: 12px 32px 12px 32px;
-  margin-top: 26px;
   border-bottom: 2px solid var(--bg2);
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -107,9 +120,12 @@
 }
 
 @media only screen and (max-width: 1100px) {
-  .cc-container {
-    margin-top: 16px;
+  .cc-title {
+    font-size: 32px;
+    margin-bottom: 0;
+  }
 
+  .cc-container {
     transform: scale(0.9);
 
     flex-direction: column;

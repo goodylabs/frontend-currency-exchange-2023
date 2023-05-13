@@ -102,8 +102,8 @@ class CurrencyChart extends Component {
 
       return (
         <div className='cc-chart-container'>
-          <p>
-            Currency 14 days history
+          <p className='cc-chart-title'>
+            <span>{ this.props.currency }</span> prices from last <span>14</span> days
           </p>
 
           <Line className='cc-chart' data={ data } options={ options }></Line>

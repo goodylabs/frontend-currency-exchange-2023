@@ -1,9 +1,36 @@
+.gp-chart-title {
+  margin-bottom: 7px;
+  color: var(--text);
+  text-align: center;
+
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.gp-chart-title .gold {
+  color: var(--gold);
+
+  font-weight: 900;
+}
+
+.gp-chart-title span {
+  color: var(--interactive);
+
+  font-weight: 900;
+}
+
 .gp-chart-container {
   width: 80%;
+  margin-block: 44px;
 }
 
 @media only screen and (max-width: 720px) {
+  .gp-chart-title {
+    font-size: 24px;
+  }
+
   .gp-chart-container {
     width: 85%;
+    margin-block: 0;
   }
 }
