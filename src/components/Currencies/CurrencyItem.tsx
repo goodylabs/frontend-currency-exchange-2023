@@ -14,7 +14,7 @@ interface CurrencyItemProps {
 }
 const CurrencyItem = ({currency, code, mid, converterItem = false}:CurrencyItemProps) => {
     const converterCtx = useContext<ConverterContext>(converterContext);
-    const flagFile = flags.find(flag => flag.code === code)!.filename;
+    const flagFile = flags.find(flag => flag.code === code)?.filename;
     const[modalOpen, setModalOpen] = useState<boolean>(false);
   return (
       <>

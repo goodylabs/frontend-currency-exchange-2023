@@ -14,9 +14,10 @@ interface SelectableProps {
 }
 const CurrencySelectable = ({label, fullName, addItem, removeItem}:SelectableProps) => {
     const loaderData = useLoaderData() as tableAResponse[];
-
     const converterCtx= useContext<ConverterContext>(converterContext);
     const checkboxRef = useRef<HTMLInputElement | null>(null);
+    const savedCurrencies = JSON.parse(localStorage.getItem('currencies'));
+    const inSavedCurrencies = savedCurrencies.some(savedItem => savedItem.code === label);
     const changeSelectedCurrencies = () => {
         if(checkboxRef.current?.checked){
             const desiredCurrency = loaderData[0].rates.find(currency => currency.code === label);
@@ -32,7 +33,7 @@ const CurrencySelectable = ({label, fullName, addItem, removeItem}:SelectablePro
     }
   return (
       <div className={classes.selectables__selectable}>
-        <input id={label} disabled={(converterCtx.selectedCurrencies.length === 5 && !checkboxRef.current?.checked)} onChange={changeSelectedCurrencies} ref={checkboxRef} type={"checkbox"} className={classes.selectables__selectable__checkbox}/>
+        <input id={label} disabled={(converterCtx.selectedCurrencies.length === 5 && !checkboxRef.current?.checked)} defaultChecked={inSavedCurrencies} onChange={changeSelectedCurrencies} ref={checkboxRef} type={"checkbox"} className={classes.selectables__selectable__checkbox}/>
         <label htmlFor={label} className={classes.selectables__selectable__label}>
           <div className={classes.selectables__selectable__label__box}>
           <p>{label}</p>
