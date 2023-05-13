@@ -25,7 +25,7 @@ const GoldList = () => {
               </div>
           <hr className={classes.gold__hr}/>
           <ul className={classes.gold__list}>
-              {daysWithoutCurrent.map(entry => <GoldEntry key={entry.data as string} date={entry.data} price={entry.cena} growth={entry.growth}/>)}
+              {daysWithoutCurrent.map(entry => <GoldEntry key={entry.data.toString()} date={entry.data} price={entry.cena} growth={entry.growth}/>)}
           </ul>
       </div>
   )
