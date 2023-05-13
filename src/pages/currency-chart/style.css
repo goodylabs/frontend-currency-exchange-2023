@@ -1,0 +1,9 @@
+.cc-chart-container {
+  width: 80%;
+}
+
+@media only screen and (max-width: 720px) {
+  .cc-chart-container {
+    width: 85%;
+  }
+}
