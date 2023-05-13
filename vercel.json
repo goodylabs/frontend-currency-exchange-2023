@@ -1,0 +1,6 @@
+{
+  "rewrites":  [
+    {"source": "/gold", "destination": "/"},
+    {"source": "/converter", "destination": "/"}
+  ]
+}
