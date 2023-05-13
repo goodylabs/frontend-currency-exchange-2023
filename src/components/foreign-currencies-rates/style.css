@@ -29,6 +29,7 @@
 .fcr-currency-code img {
   height: 32px;
   margin-right: 10px;
+  box-shadow: 0 0 5px rgb(227, 232, 254);
 }
 
 .fcr-value {
@@ -52,6 +53,10 @@
 
 .pln {
   color: var(--bg);
+}
+
+.pln img {
+  box-shadow: none;
 }
 
 .fcr-up {
