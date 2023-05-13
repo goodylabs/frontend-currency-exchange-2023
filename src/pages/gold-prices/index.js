@@ -75,7 +75,7 @@ class GoldPrices extends Component {
         scales: {
           y: {
             ticks: {
-              stepSize: 0.5,
+              stepSize: 1,
             }
           }
         }
