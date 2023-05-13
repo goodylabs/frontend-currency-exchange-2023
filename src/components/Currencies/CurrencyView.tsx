@@ -20,7 +20,7 @@ const CurrencyView = ({currency,code,mid,flag, closeModalFn}:CurrencyViewProps) 
 
     useEffect(() =>{
         const getData = async () => {
-            const data = await fetchData(`http://api.nbp.pl/api/exchangerates/rates/A/${code}/last/14`);
+            const data = await fetchData(`https://api.nbp.pl/api/exchangerates/rates/A/${code}/last/14`);
             setFetchedData(data);
         }
         getData()
