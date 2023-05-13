@@ -8,15 +8,16 @@ import {ConverterContext} from '../../types/types'
 interface SelectableProps {
   label: string,
   fullName: string,
+    savedCurrencies: RatesObject[]
     addItem: (item: RatesObject) => void ,
     removeItem: (callback: (item:RatesObject) => boolean ) => void
 }
-const CurrencySelectable = ({label, fullName, addItem, removeItem}:SelectableProps) => {
+const CurrencySelectable = ({label, fullName, savedCurrencies, addItem, removeItem}:SelectableProps) => {
     const loaderData = useLoaderData() as tableAResponse[];
     const converterCtx= useContext<ConverterContext>(converterContext);
     const checkboxRef = useRef<HTMLInputElement | null>(null);
     // const savedCurrencies = JSON.parse(localStorage.getItem('currencies')!) as RatesObject[];
-    const inSavedCurrencies = converterCtx.selectedCurrencies.some(savedItem => savedItem.code === label);
+    const inSavedCurrencies = savedCurrencies.some(savedItem => savedItem.code === label);
     const changeSelectedCurrencies = () => {
         if(checkboxRef.current?.checked){
             const desiredCurrency = loaderData[0].rates.find(currency => currency.code === label)!;

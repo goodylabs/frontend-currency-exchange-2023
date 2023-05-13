@@ -17,7 +17,7 @@ const CurrencyBox = () => {
         <h2>Available currencies</h2>
         <p>Select up to 5 currencies</p>
       <div className={classes.selectables}>
-          {currencyObj.map((currency => <CurrencySelectable key={currency.code} label={currency.code} fullName={currency.currency} addItem={addItem} removeItem={removeItem}/>))}
+          {currencyObj.map((currency => <CurrencySelectable key={currency.code} label={currency.code} fullName={currency.currency} savedCurrencies={savedCurrencies} addItem={addItem} removeItem={removeItem}/>))}
       </div>
       </div>
   )
