@@ -9,7 +9,21 @@ import { ThemeProvider as SCThemeProvider } from "styled-components";
 interface Props {
   children: React.ReactNode;
 }
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#7373cb",
+    },
+    secondary: {
+      main: "#f50057",
+    },
+    background: {
+      paper: "#2a2a3b",
+      default: "#282a36",
+    },
+  },
+});
 
 declare module "styled-components" {
   export interface DefaultTheme extends Theme {}

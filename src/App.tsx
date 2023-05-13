@@ -1,21 +1,41 @@
-import React from "react";
 import { styled } from "styled-components";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
 import "./App.css";
 import { CurrencyConverter } from "./components/CurrencyConverter";
-import { GoldPrice } from "./components/GoldPrice";
+import { GoldPrices } from "./components/GoldPrices";
 import { ExchangeRates } from "./components/ExchangeRates";
 import { Providers } from "providers";
 
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 const AppComponent = styled.div`
   width: 100%;
+  min-height: 100vh;
   height: auto;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   margin: auto;
-
-  @media (max-width: 1023px) {
+  background: ${({ theme }) => theme.palette.background.default};
+  ${({ theme }) => theme.breakpoints.down("lg")} {
     flex-direction: column;
   }
 `;
@@ -23,15 +43,21 @@ const AppComponent = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
+  max-width: 100%;
+  height: fit-content;
+  ${({ theme }) => theme.breakpoints.up("lg")} {
+    position: sticky;
+    top: 0;
+  }
 `;
+
 export const App = () => {
   return (
     <Providers>
       <AppComponent>
         <Wrapper>
           <CurrencyConverter />
-          <GoldPrice />
+          <GoldPrices />
         </Wrapper>
         <ExchangeRates />
       </AppComponent>

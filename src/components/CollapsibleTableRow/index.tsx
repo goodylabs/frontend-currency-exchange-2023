@@ -5,13 +5,17 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableHead,
   TableRow,
-  Typography,
+  useTheme,
 } from "@mui/material";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import { useState } from "react";
-import { Rate } from "api/models";
+import { CurrencyExchangeRate, Rate } from "api/models";
+import { ChartHolder } from "components/ChartHolder";
+import { Line } from "react-chartjs-2";
+import { useQuery } from "@tanstack/react-query";
+import { getCodeExchangeRatesForLast5Days } from "api";
+import { AxiosError } from "axios";
 
 interface Props {
   rate: Rate;
@@ -19,7 +23,39 @@ interface Props {
 
 export const CollapsibleTableRow = ({ rate }: Props) => {
   const [open, setOpen] = useState(false);
+  const theme = useTheme();
 
+  const { data } = useQuery<CurrencyExchangeRate, AxiosError>({
+    queryKey: ["rate", { day: "last5days", code: rate.code }],
+    queryFn: () => getCodeExchangeRatesForLast5Days(rate.code),
+    enabled: open,
+  });
+
+  //
+  const option5days = {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    color: theme.palette.text.primary,
+  };
+
+  const data5days = {
+    datasets: [
+      {
+        data: data?.rates.map((value) => {
+          return { x: value.effectiveDate, y: value.mid };
+        }),
+
+        borderColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.primary.main,
+      },
+    ],
+  };
+  //
   return (
     <>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
@@ -42,31 +78,11 @@ export const CollapsibleTableRow = ({ rate }: Props) => {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                History
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
-                  </TableRow>
-                </TableHead>
+              <Table size="small">
                 <TableBody>
-                  {/* {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.date}
-                      </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        {Math.round(historyRow.amount * row.price * 100) / 100}
-                      </TableCell>
-                    </TableRow>
-                  ))} */}
+                  <ChartHolder>
+                    <Line options={option5days} data={data5days} />
+                  </ChartHolder>
                 </TableBody>
               </Table>
             </Box>
