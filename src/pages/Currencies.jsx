@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../services/api";
 
-import MainTemplate from "../templates/MainTemplate";
-
 const getTableData = async () => {
   try {
     const res = await api.get("/exchangerates/tables/A");
@@ -27,7 +25,7 @@ const Currencies = () => {
   if (!tableData) return <p>Loading</p>;
 
   return (
-    <MainTemplate>
+    <>
       <p>Effective date: {tableData.effectiveDate}</p>
       <p>No: {tableData.no}</p>
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
@@ -64,7 +62,7 @@ const Currencies = () => {
           ))}
         </tbody>
       </table>
-    </MainTemplate>
+    </>
   );
 };
 

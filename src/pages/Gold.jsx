@@ -2,8 +2,6 @@ import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
-import MainTemplate from "../templates/MainTemplate";
-
 const getCurrentGoldPrice = async () => {
   try {
     const res = await api.get("/cenyzlota");
@@ -46,10 +44,10 @@ const Gold = () => {
   if (!currentGoldData) return <p>Loading</p>;
 
   return (
-    <MainTemplate>
+    <>
       <h1>Hello Gold</h1>
       <p>Aktualna cena złota {currentGoldData.cena}</p>
-    </MainTemplate>
+    </>
   );
 };
 
