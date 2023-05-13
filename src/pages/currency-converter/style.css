@@ -109,3 +109,37 @@
   outline: none !important;
   border: 2px solid var(--text2);
 }
+
+@media only screen and (max-width: 720px) {
+  .cc-container {
+    margin-top: 16px;
+
+    transform: scale(0.9);
+
+    flex-direction: column;
+  }
+
+  .cc-pln {
+    margin-bottom: 7px;
+  }
+
+  .cc-pln input {
+    margin: 0;
+  }
+
+  .cc-equal-sign {
+    display: none;
+  }
+
+  .cc-currency {
+    margin-top: 7px;
+  }
+
+  .cc-currency input {
+    margin: 0;
+  }
+
+  .cc-currency select:active {
+    font-size: 32px;
+  }
+}
