@@ -35,7 +35,6 @@ const GoldProvider = ({ children}: ProviderProps) => {
                 updatedEntries.push({...loaderData[i], growth: "0.00"})
             }
         }
-        updatedEntries = updatedEntries.filter(entry => entry.data !== loaderData[loaderData.length - 1].data);
         updatedEntries = updatedEntries.reverse();
         setEntriesWithGrowth(updatedEntries);
     }
