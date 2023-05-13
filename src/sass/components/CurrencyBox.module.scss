@@ -22,14 +22,50 @@
     padding: 1em;
     width: 250px;
     display: flex;
+    align-items: center;
     flex-grow: 0;
     background-color: $vd-desaturated-blue;
     border-radius: 8px;
     cursor: pointer;
+    &__checkbox{
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-content: center;
+      border: 1px solid $currency-border;
+      border-radius: 50%;
+      appearance: none;
+      background-color: $vd-desaturated-blue;
+      cursor: pointer;
+      &::before{
+        content: url("../../assets/icon-check.svg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-image: $checkbox-bg;
+        transform: scale(0);
+        transition: transform .15s;
+      }
+      &:checked::before{
+        transform: scale(1);
+      }
+      &:disabled + .selectables__selectable__label{
+        color: $text-color-secondary;
+      }
+    }
     &__label{
       margin-left: 1em;
       flex-grow: 1;
       cursor: pointer;
+      &__box{
+        p:first-child{
+          font-size: calc($normal - .4rem);
+        }
+      }
     }
 }
 }
