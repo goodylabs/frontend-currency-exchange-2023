@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Tooltip,
-    ChartOptions, ChartData,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import {BarElement, CategoryScale, Chart as ChartJS, ChartData, ChartOptions, LinearScale, Tooltip,} from 'chart.js';
+import {Bar} from 'react-chartjs-2';
 import {LastExchangeData} from "./CurrencyView";
 
 ChartJS.register(

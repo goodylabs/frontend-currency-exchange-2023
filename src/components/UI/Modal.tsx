@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import classes from "../../sass/components/Modal.module.scss";
 import {ReactNode} from "react";
+
 interface ModalProps {
     children: ReactNode,
     closeModalFn: (value: (((prevState: boolean) => boolean) | boolean)) => void

@@ -1,10 +1,13 @@
 import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
   BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  ChartData,
+  ChartOptions,
+  LinearScale,
+  LineElement,
+  PointElement,
   Tooltip,
-  ChartOptions, ChartData, PointElement, LineElement, Title, Legend,
 } from 'chart.js';
 import {Bar, Line} from 'react-chartjs-2';
 import React, {useCallback, useContext, useEffect, useState} from "react";

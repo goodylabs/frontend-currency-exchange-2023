@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {GoldsWithGrowth} from "../types/types";
 import {useLoaderData} from "react-router-dom";
 import {goldEntries} from "../pages/GoldPage";

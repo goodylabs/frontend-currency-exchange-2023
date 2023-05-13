@@ -4,7 +4,6 @@ import CurrencyItem from "./CurrencyItem";
 import {tableAResponse} from "../../types/types";
 
 
-
 const CurrencyList = () => {
     const loaderData = useLoaderData();
     const navigation = useNavigation();

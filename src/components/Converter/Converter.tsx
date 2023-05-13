@@ -1,7 +1,6 @@
 import Card from "../UI/Card";
 import CurrencyItem from "../Currencies/CurrencyItem";
-import {RatesObject} from "../../types/types";
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {converterContext, ConverterContext} from "../../context/ConverterProvider";
 import classes from "../../sass/components/Converter.module.scss";
 

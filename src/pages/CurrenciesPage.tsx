@@ -1,4 +1,3 @@
-import {useLoaderData} from "react-router-dom";
 import CurrencyList from "../components/Currencies/CurrencyList";
 import Wrapper from "../components/UI/Wrapper";
 

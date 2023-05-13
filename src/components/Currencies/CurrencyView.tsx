@@ -4,6 +4,7 @@ import classes from "../../sass/components/CurrencyView.module.scss";
 import CurrencyChart from "./CurrencyChart";
 import useFetch from "../../hooks/use-fetch";
 import {useEffect, useState} from "react";
+
 interface CurrencyViewProps {
     currency: string,
     code: string,

@@ -1,6 +1,7 @@
 import classes from "../../sass/components/GoldList.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown} from "@fortawesome/free-solid-svg-icons";
+
 interface GoldEntryProps {
     date: Date,
     price: number,

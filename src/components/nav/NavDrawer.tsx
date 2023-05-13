@@ -2,6 +2,7 @@ import classes from "../../sass/components/NavBar.module.scss";
 import NavItem from "./NavItem";
 import {faCoins, faEuroSign, faRotate, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+
 interface NavDrawerProps {
     drawerOpen: boolean,
     setDrawerOpen: (value: (((prevState: boolean) => boolean) | boolean)) => void

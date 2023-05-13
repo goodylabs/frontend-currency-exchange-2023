@@ -2,6 +2,7 @@ import classes from "../../sass/components/CurrencyView.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXmark} from "@fortawesome/free-solid-svg-icons";
 import ConvertInput from "./ConvertInput";
+
 interface ConverterViewProps {
     code: string,
     mid: number,

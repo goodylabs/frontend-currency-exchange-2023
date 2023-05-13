@@ -1,5 +1,5 @@
 import classes from "../../sass/components/CurrencyBox.module.scss";
-import {RatesObject, tableAResponse} from "../../types/types";
+import {tableAResponse} from "../../types/types";
 import {useContext, useRef} from "react";
 import {useLoaderData} from "react-router-dom";
 import {ConverterContext, converterContext} from "../../context/ConverterProvider";
