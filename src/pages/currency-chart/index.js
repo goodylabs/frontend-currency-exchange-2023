@@ -85,11 +85,6 @@ class CurrencyChart extends Component {
           legend: false
         },
         scales: {
-          x: {
-            /*grid: {
-              display: false,
-            }*/
-          },
           y: {
             ticks: {
               stepSize: 0.01,
