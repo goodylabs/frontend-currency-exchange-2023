@@ -1,7 +1,7 @@
 .cc-container {
   width: fit-content;
   padding: 12px 32px 12px 32px;
-  margin-top: 32px;
+  margin-top: 26px;
   border-bottom: 2px solid var(--bg2);
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -110,7 +110,7 @@
   border: 2px solid var(--text2);
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 1100px) {
   .cc-container {
     margin-top: 16px;
 
