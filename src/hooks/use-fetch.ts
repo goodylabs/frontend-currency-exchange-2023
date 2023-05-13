@@ -13,7 +13,7 @@ const useFetch = () => {
           return data;
       }
       catch (err) {
-          setError(err.message || "An error occured while fetching data!")
+          setError("An error occured while fetching data!")
       }
       finally {
           setLoading(false);

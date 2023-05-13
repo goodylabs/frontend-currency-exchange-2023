@@ -1,7 +1,6 @@
-import React from 'react';
 import {BarElement, CategoryScale, Chart as ChartJS, ChartData, ChartOptions, LinearScale, Tooltip,} from 'chart.js';
 import {Bar} from 'react-chartjs-2';
-import {LastExchangeData} from "./CurrencyView";
+import {LastExchangeData} from "../../types/types";
 
 ChartJS.register(
     CategoryScale,
@@ -37,6 +36,7 @@ export function CurrencyChart({data, loading}:ChartProps) {
         datasets: [
             {
                 label: 'Rate',
+                // @ts-expect-error label is not used here
                 data: labels.map((label, idx) => data.rates[idx].mid),
                 backgroundColor: 'rgb(208, 173, 57)',
             },

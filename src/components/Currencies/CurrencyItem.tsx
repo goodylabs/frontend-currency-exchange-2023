@@ -3,7 +3,8 @@ import {useContext, useState} from "react";
 import Modal from "../UI/Modal";
 import CurrencyView from "./CurrencyView";
 import ConverterView from "../Converter/ConverterView";
-import {converterContext, ConverterContext} from "../../context/ConverterProvider";
+import {converterContext} from "../../context/ConverterProvider";
+import {ConverterContext} from '../../types/types'
 
 interface CurrencyItemProps {
     currency: string,
@@ -25,8 +26,8 @@ const CurrencyItem = ({currency, code, mid, converterItem = false}:CurrencyItemP
                   <p className={classes.currencies__list__item__rate}>{converterItem ? (converterCtx.plnValue * mid) .toFixed(5): mid} {converterItem ? code : 'PLN'}</p>
               </div>
           </li>
-          {(modalOpen && !converterItem) && <Modal closeModalFn={setModalOpen}><CurrencyView currency={currency} code={code} mid={mid} closeModalFn={setModalOpen}/></Modal>}
-          {(modalOpen && converterItem) && <Modal closeModalFn={setModalOpen}><ConverterView closeModalFn={setModalOpen} code={code} mid={mid}/></Modal>}
+          {(modalOpen && !converterItem) && <Modal><CurrencyView currency={currency} code={code} mid={mid} closeModalFn={setModalOpen}/></Modal>}
+          {(modalOpen && converterItem) && <Modal><ConverterView closeModalFn={setModalOpen} code={code} mid={mid}/></Modal>}
       </>
 
   )

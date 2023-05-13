@@ -2,7 +2,8 @@ import classes from "../../sass/components/CurrencyBox.module.scss";
 import {tableAResponse} from "../../types/types";
 import {useContext, useRef} from "react";
 import {useLoaderData} from "react-router-dom";
-import {ConverterContext, converterContext} from "../../context/ConverterProvider";
+import {converterContext} from "../../context/ConverterProvider";
+import {ConverterContext} from '../../types/types'
 
 interface SelectableProps {
   label: string,
@@ -15,6 +16,7 @@ const CurrencySelectable = ({label, fullName}:SelectableProps) => {
     const changeSelectedCurrencies = () => {
         if(checkboxRef.current?.checked){
             const desiredCurrency = loaderData[0].rates.find(currency => currency.code === label);
+            // @ts-expect-error type comes from linter
             converterCtx.setSelectedCurrencies(prevState => [...prevState, desiredCurrency])
         }
         else{

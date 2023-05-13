@@ -1,22 +1,16 @@
 import React, {useEffect, useState} from "react";
-import {GoldsWithGrowth} from "../types/types";
+import {GoldContext, goldEntries, GoldsWithGrowth} from "../types/types";
 import {useLoaderData} from "react-router-dom";
-import {goldEntries} from "../pages/GoldPage";
 
-type ProviderProps = {
+
+interface ProviderProps {
     children: React.ReactNode;
     data: goldEntries
-};
-
-export type GoldContext = {
-    goldWithGrowth: GoldsWithGrowth[];
-    calcGrowth: (todayValue: number, yesterdayValue: number) => string;
-};
-
+}
 export const goldContext = React.createContext<GoldContext>({
     goldWithGrowth: [],
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    calcGrowth: (todayValue, yesterdayValue) => {}
+    calcGrowth: () => {}
 } as GoldContext);
 const GoldProvider = ({children, data}: ProviderProps) => {
     const loaderData = useLoaderData() as goldEntries;

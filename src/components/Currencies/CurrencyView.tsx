@@ -4,6 +4,7 @@ import classes from "../../sass/components/CurrencyView.module.scss";
 import CurrencyChart from "./CurrencyChart";
 import useFetch from "../../hooks/use-fetch";
 import {useEffect, useState} from "react";
+import {LastExchangeData} from "../../types/types";
 
 interface CurrencyViewProps {
     currency: string,
@@ -11,16 +12,7 @@ interface CurrencyViewProps {
     mid: number,
     closeModalFn: (value: (((prevState: boolean) => boolean) | boolean)) => void
 }
-export type LastExchangeData = {
-    table: string,
-    currency: string,
-    code: string,
-    rates: {
-        no: string,
-        effectiveDate: Date,
-        mid: number
-    }[]
-}
+
 const CurrencyView = ({currency,code,mid, closeModalFn}:CurrencyViewProps) => {
     const {loading, error, fetchData} = useFetch();
     const [fetchedData, setFetchedData] = useState<LastExchangeData>({table: "", currency, code, rates:[] });

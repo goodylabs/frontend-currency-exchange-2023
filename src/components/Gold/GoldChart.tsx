@@ -10,11 +10,11 @@ import {
   Tooltip,
 } from 'chart.js';
 import {Bar, Line} from 'react-chartjs-2';
-import React, {useCallback, useContext, useEffect, useState} from "react";
+import {useCallback, useContext, useEffect, useState} from "react";
 import classes from "../../sass/components/GoldChart.module.scss";
 import {filterLength} from "../../utility/globals/numbers";
-import {GoldContext, goldContext} from "../../context/GoldProvider";
-import {GoldsWithGrowth} from "../../types/types";
+import {goldContext} from "../../context/GoldProvider";
+import {GoldContext, GoldsWithGrowth} from "../../types/types";
 
 ChartJS.register(
     CategoryScale,
@@ -52,7 +52,7 @@ const GoldChart = ({chartType}:ChartProps) => {
 
   const labels = filteredData.map(entry => entry.data);
   const findMinMaxExchange = (type: "min" | "max") => {
-    const allPrices = chartType === "bar" ? filteredData.map(entry => entry.cena) : filteredData.map(entry => entry.growth);
+    const allPrices = chartType === "bar" ? filteredData.map(entry => entry.cena) : filteredData.map(entry => entry.growth) as unknown as number[];
     return type === "min" ? Math.round(Math.min(...allPrices)) : Math.round(Math.max(...allPrices));
   }
 
@@ -72,6 +72,7 @@ const GoldChart = ({chartType}:ChartProps) => {
     datasets: [
       {
         label: chartType === "bar" ? 'Price' : 'Growth',
+        // @ts-expect-error label is not used here
         data: chartType ==="bar" ? labels.map((label, idx) => filteredData[idx].cena) : labels.map((label, idx) => filteredData[idx].growth) ,
         borderColor: chartType === "bar" ? '' : 'rgb(20, 48, 102)',
         backgroundColor: chartType ==="bar" ? 'rgb(208, 173, 57)' : 'rgb(50, 104, 205)',
@@ -90,6 +91,7 @@ const GoldChart = ({chartType}:ChartProps) => {
             <button onClick={() => setFilterType("all")} className={filterType === "all" ? `${classes['gold-chart__header__actions__action']} ${classes['gold-chart__header__actions__action--active']}` : classes['gold-chart__header__actions__action']}>All</button>
           </div>
         </div>
+        {/*@ts-expect-error chart lib had a strange issues while typing this data*/}
         {chartType === "bar" ? <Bar options={options} data={chartData}/> : <Line options={options} data={chartData} />}
 
       </div>

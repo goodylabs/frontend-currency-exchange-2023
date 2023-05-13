@@ -3,7 +3,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown} from "@fortawesome/free-solid-svg-icons";
 import GoldEntry from "./GoldEntry";
 import {useContext} from "react";
-import {goldContext, GoldContext} from "../../context/GoldProvider";
+import {goldContext} from "../../context/GoldProvider";
+import {GoldContext} from "../../types/types";
 
 const GoldList = () => {
     const goldCtx=useContext<GoldContext>(goldContext);
@@ -12,15 +13,15 @@ const GoldList = () => {
 
     const todayGrowth = goldCtx.goldWithGrowth[0].cena;
     const yesterdayGrowth = goldCtx.goldWithGrowth[1].cena
-    const growthClasses = goldCtx.calcGrowth(todayGrowth, yesterdayGrowth) > 0 ? classes.gold__current__growth : classes['gold__current__growth--neg'];
-    const growthArrowClasses = goldCtx.calcGrowth(todayGrowth,yesterdayGrowth) > 0 ? classes['gold__current__growth__arrow--pos'] : classes.gold__current__growth__arrow
+    const growthClasses = parseFloat(goldCtx.calcGrowth(todayGrowth, yesterdayGrowth) as string) > 0 ? classes.gold__current__growth : classes['gold__current__growth--neg'];
+    const growthArrowClasses = parseFloat(goldCtx.calcGrowth(todayGrowth,yesterdayGrowth) as string) > 0 ? classes['gold__current__growth__arrow--pos'] : classes.gold__current__growth__arrow
   return (
       <div className={classes.gold}>
           <h2>Latest gold prices</h2>
               <div className={classes.gold__current}>
-                  <p>{goldCtx.goldWithGrowth[0].data}</p>
+                  <p>{goldCtx.goldWithGrowth[0].data.toString()}</p>
                   <p>{goldCtx.goldWithGrowth[0].cena} PLN</p>
-                  <p className={growthClasses}><FontAwesomeIcon icon={faArrowDown} className={growthArrowClasses}/> {goldCtx.calcGrowth(todayGrowth, yesterdayGrowth)}%</p>
+                  <p className={growthClasses}><FontAwesomeIcon icon={faArrowDown} className={growthArrowClasses}/> {goldCtx.calcGrowth(todayGrowth, yesterdayGrowth) as string}%</p>
               </div>
           <hr className={classes.gold__hr}/>
           <ul className={classes.gold__list}>

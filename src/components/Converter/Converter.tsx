@@ -1,7 +1,8 @@
 import Card from "../UI/Card";
 import CurrencyItem from "../Currencies/CurrencyItem";
 import {useContext} from "react";
-import {converterContext, ConverterContext} from "../../context/ConverterProvider";
+import {converterContext} from "../../context/ConverterProvider";
+import {ConverterContext} from '../../types/types'
 import classes from "../../sass/components/Converter.module.scss";
 
 const Converter = () => {

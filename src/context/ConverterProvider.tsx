@@ -1,12 +1,7 @@
-import {RatesObject} from "../types/types";
+import {ConverterContext, RatesObject} from "../types/types";
 import React, {ReactNode, useState} from "react";
 
-export type ConverterContext = {
-    selectedCurrencies: RatesObject[],
-    plnValue: number,
-    setSelectedCurrencies: (value: (((prevState: RatesObject[]) => RatesObject[]) | RatesObject[])) => void,
-    convertValue: (value: number, mid: number) => void
-}
+
 export const converterContext = React.createContext<ConverterContext>({
     selectedCurrencies: [],
     plnValue: 1.0,

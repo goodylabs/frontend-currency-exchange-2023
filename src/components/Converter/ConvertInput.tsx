@@ -4,7 +4,8 @@ import classes from "../../sass/components/ConverterInput.module.scss";
 import Button from "../UI/Button";
 import {faRotate} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {converterContext, ConverterContext} from "../../context/ConverterProvider";
+import {converterContext} from "../../context/ConverterProvider";
+import {ConverterContext} from '../../types/types'
 
 interface ConverterInputProps {
     closeModalFn: (value: (((prevState: boolean) => boolean) | boolean)) => void,

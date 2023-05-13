@@ -9,11 +9,11 @@ interface GoldEntryProps {
 
 }
 const GoldEntry = ({date,price, growth}:GoldEntryProps) => {
-    const growthClasses = growth >= 0 ? classes.gold__current__growth : classes['gold__current__growth--neg'];
-    const growthArrowClasses = growth >= 0 ? classes['gold__current__growth__arrow--pos'] : classes.gold__current__growth__arrow
+    const growthClasses = parseFloat(growth) >= 0 ? classes.gold__current__growth : classes['gold__current__growth--neg'];
+    const growthArrowClasses = parseFloat(growth) >= 0 ? classes['gold__current__growth__arrow--pos'] : classes.gold__current__growth__arrow
   return (
       <li className={classes.gold__list__entry}>
-          <p>{date}</p>
+          <p>{date.toString()}</p>
           <p>{price} PLN</p>
           <p className={growthClasses}><FontAwesomeIcon icon={faArrowDown} className={growthArrowClasses}/> {growth}%</p>
       </li>

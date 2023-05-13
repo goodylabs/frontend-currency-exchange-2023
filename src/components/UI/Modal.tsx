@@ -17,8 +17,8 @@ const ModalContent = ({children}:ModalProps) => {
 const Modal = ({children}:ModalProps) => {
     return(
         <>
-            {ReactDOM.createPortal(<Overlay/>, document.getElementById('modal'))}
-            {ReactDOM.createPortal(<ModalContent>{children}</ModalContent>, document.getElementById('modal'))}
+            {ReactDOM.createPortal(<Overlay/>, (document.getElementById('modal') as unknown) as DocumentFragment)}
+            {ReactDOM.createPortal(<ModalContent>{children}</ModalContent>, (document.getElementById('modal') as unknown) as DocumentFragment)}
         </>
     );
 }
