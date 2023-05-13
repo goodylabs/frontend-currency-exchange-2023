@@ -48,6 +48,18 @@ ul {
   align-items: center;
 }
 
+.footer {
+  margin-bottom: 5px;
+  color: var(--text);
+  text-align: center;
+
+  font-size: 9px;
+}
+
+.footer span {
+  color: var(--text2);
+}
+
 @media only screen and (max-width: 720px) {
   .main {
     flex-direction: column-reverse;

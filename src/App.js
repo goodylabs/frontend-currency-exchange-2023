@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <Home></Home>
+
       <div className='main'>
         <div className='main-left'>
           <ForeignCurrenciesRates></ForeignCurrenciesRates>
@@ -17,6 +18,10 @@ function App() {
           <GoldPrices></GoldPrices>
         </div>
       </div>
+
+      <footer class="footer">
+        Created <span>by</span> Jakub Matuszak<span> &#169;2023</span>
+      </footer>
     </>
   );
 }
