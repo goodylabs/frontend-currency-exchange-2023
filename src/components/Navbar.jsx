@@ -3,12 +3,22 @@ import routes from "../common/routes";
 
 const Navbar = () => {
   return (
-    <div className="z-0 flex justify-center gap-10 bg-white shadow-md">
-      <Link to={routes.currencies}>Currencies</Link>
-      <Link to={routes.currency}>Currency</Link>
-      <Link to={routes.gold}>Gold</Link>
-      <Link to={routes.converter}>Converter</Link>
-    </div>
+    <nav className=" border-gray-200 bg-white shadow-md">
+      <div className="mx-auto flex max-w-screen-xl items-center justify-center gap-10">
+        <Link to={routes.currencies} className="p-4 hover:bg-slate-300">
+          Currencies
+        </Link>
+        <Link to={routes.currency} className="p-4 hover:bg-slate-300">
+          Currency
+        </Link>
+        <Link to={routes.gold} className="p-4 hover:bg-slate-300">
+          Gold
+        </Link>
+        <Link to={routes.converter} className="p-4 hover:bg-slate-300">
+          Converter
+        </Link>
+      </div>
+    </nav>
   );
 };
 
