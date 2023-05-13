@@ -1,8 +1,10 @@
+import MainTemplate from "../templates/MainTemplate";
+
 const Converter = () => {
   return (
-    <div>
+    <MainTemplate>
       <h1>Hello Converter</h1>
-    </div>
+    </MainTemplate>
   );
 };
 

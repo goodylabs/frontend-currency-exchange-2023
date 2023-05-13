@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../services/api";
+
+import MainTemplate from "../templates/MainTemplate";
 
 const getTableData = async () => {
   try {
@@ -24,7 +27,7 @@ const Currencies = () => {
   if (!tableData) return <p>Loading</p>;
 
   return (
-    <div>
+    <MainTemplate>
       <p>Effective date: {tableData.effectiveDate}</p>
       <p>No: {tableData.no}</p>
       <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
@@ -47,19 +50,21 @@ const Currencies = () => {
               key={rate.code}
               className="border-b bg-white dark:border-gray-700 dark:bg-gray-800"
             >
-              <th
-                scope="row"
-                className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-              >
-                {rate.currency}
-              </th>
+              <Link to={`/${rate.code}`}>
+                <th
+                  scope="row"
+                  className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
+                >
+                  {rate.currency}
+                </th>
+              </Link>
               <td className="px-6 py-4">{rate.code}</td>
               <td className="px-6 py-4">{rate.mid}</td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </MainTemplate>
   );
 };
 

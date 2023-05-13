@@ -1,5 +1,12 @@
+import Navbar from "../components/Navbar";
+
 const MainTemplate = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Navbar />
+      {children}
+    </div>
+  );
 };
 
 export default MainTemplate;

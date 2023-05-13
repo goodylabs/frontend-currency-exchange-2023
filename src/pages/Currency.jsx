@@ -1,8 +1,10 @@
+import MainTemplate from "../templates/MainTemplate";
+
 const Currency = () => {
   return (
-    <div>
+    <MainTemplate>
       <h1>Hello Currency</h1>
-    </div>
+    </MainTemplate>
   );
 };
 
