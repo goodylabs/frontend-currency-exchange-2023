@@ -82,14 +82,7 @@ class CurrenciesConverter extends Component {
   render() {
     var { isLoadedAll, allCurrencies } = this.state;
 
-    if (!isLoadedAll) {
-      return (
-        <div className='loading'>
-          Data is loading!
-        </div>
-      );
-    }
-    else {
+    if (isLoadedAll) {
       const currencies = allCurrencies.rates;
 
       return (

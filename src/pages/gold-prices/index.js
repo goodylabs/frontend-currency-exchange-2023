@@ -25,14 +25,7 @@ class GoldPrices extends Component {
   render() {
     var { isLoaded, items } = this.state;
 
-    if (!isLoaded) {
-      return (
-        <div className='loading'>
-          Data is loading!
-        </div>
-      );
-    }
-    else {
+    if (isLoaded) {
       return (
         <div>
           <p>

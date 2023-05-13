@@ -61,14 +61,7 @@ class ForeignCurrenciesRates extends Component {
   render() {
     var { isLoaded, todaysRates } = this.state;
 
-    if (!isLoaded) {
-      return (
-        <div className='loading'>
-          Data is loading!
-        </div>
-      );
-    }
-    else {
+    if (isLoaded) {
       const currentRates = todaysRates.rates;
 
       return (

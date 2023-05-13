@@ -24,7 +24,7 @@ ChartJS.register(
 
 class CurrencyChart extends Component {
 
-  lastCurrency = '';
+  lastCurrency = 'PLN';
 
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ class CurrencyChart extends Component {
   }
 
   updateCurrency() {
-    if (this.props.currency !== undefined && this.props.currency !== '' && this.props.currency !== 'PLN') {
+    if (this.props.currency !== undefined && this.props.currency !== 'PLN') {
       fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${this.props.currency}/last/14`)
       .then(res => res.json())
       .then(json => {
@@ -55,7 +55,7 @@ class CurrencyChart extends Component {
       this.lastCurrency = this.props.currency;
     }
 
-    if (isLoaded) {
+    if (isLoaded && this.props.currency !== 'PLN') {
       const curCurrency = Currency.rates;
 
       let curCurrencyDay = new Array();
