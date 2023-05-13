@@ -43,16 +43,16 @@ export const GoldPrice = () => {
   }, [lastDays.value]);
 
   return (
-    <Card className="h-fit grow gap-4">
+    <Card className="h-fit grow gap-5">
       <h2 className="text-xl font-bold">Gold Price</h2>
-      <div className="flex justify-between">
+      <div className="flex flex-wrap justify-between gap-3">
         <div className="flex items-end gap-5 text-sm font-semibold text-text-light-100">
           <div className="flex flex-col">
             <h3 className="text-base font-bold text-text-light-900">Current</h3>
             <p>{data && data[0].data}</p>
           </div>
           <p className="h-fit">
-            <span className="mr-1 text-base font-bold text-text-light-900">
+            <span className="mr-1 text-lg font-bold leading-5 text-text-light-900">
               {data && data[0].cena}
             </span>
             PLN/G

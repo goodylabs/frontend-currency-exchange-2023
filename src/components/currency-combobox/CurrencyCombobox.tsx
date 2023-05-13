@@ -36,14 +36,14 @@ export const CurrencyCombobox: FC<CurrencyComboboxProps<Currency>> = ({
       value={value}
       onChange={onChange}
       as={"div"}
-      className="relative text-sm text-text-light-100 ui-disabled:text-bg-light-400"
+      className="relative text-sm text-text-light-200 ui-disabled:text-bg-light-400"
       disabled={disabled}
     >
       <div className="flex h-fit w-fit items-center rounded-lg bg-bg-light-200 font-semibold transition-colors ui-disabled:border ui-disabled:border-bg-light-200 ui-disabled:bg-bg-light-100">
         <Combobox.Input
           onChange={(e) => setSearchQuery(e.target.value)}
           displayValue={(selected: Currency) => selected.code}
-          className="bg-transparent px-3 py-2 outline-none"
+          className="bg-transparent px-3 py-2 outline-none focus-visible:text-text-light-900"
         />
         <Combobox.Button className="py-2 pl-2 pr-1 ui-open:text-text-light-900">
           <ChevronUpDownIcon className="w-5" />

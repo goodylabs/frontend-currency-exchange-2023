@@ -19,7 +19,7 @@ export const GoldPriceListbox: FC<GoldPriceListboxProps> = ({
       value={value}
       onChange={onChange}
       as={"div"}
-      className="relative text-sm text-text-light-100"
+      className="relative text-sm text-text-light-200"
     >
       <Listbox.Button className="flex h-fit w-fit items-center gap-1 rounded-lg bg-bg-light-200 py-2 pl-3 pr-1 font-semibold transition-colors hover:bg-bg-light-300 hover:text-text-light-900 ui-open:bg-bg-light-300 ui-open:text-text-light-900">
         {value.name}

@@ -8,11 +8,11 @@ export const ExchangeRates = () => {
 
   return (
     <Card>
-      <div className="flex items-center justify-between">
+      <div className="flex justify-between">
         <div>
-          <h2 className="text-lg font-bold">Currency Exchange Rate</h2>
+          <h2 className="text-xl font-bold">Currency Exchange Rate</h2>
           <p className="font-semibold text-text-light-100">
-            {data && data[0].effectiveDate}
+            as of {data && data[0].effectiveDate}
           </p>
         </div>
         <Button onClick={() => refetch()}>
@@ -37,7 +37,7 @@ export const ExchangeRates = () => {
               >
                 <td className="py-4 pr-5 font-semibold">{currency}</td>
                 <td className="py-4 pr-5">{code}</td>
-                <td className="py-4">{mid}</td>
+                <td className="py-4">{mid.toFixed(5)}</td>
               </tr>
             ))
           ) : (
