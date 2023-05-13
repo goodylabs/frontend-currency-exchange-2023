@@ -32,7 +32,7 @@ class ForeignCurrenciesRates extends Component {
     const oldRates = yesterdaysRates.rates;
 
     for (let i=0; i<oldRates.length; i++) {
-      if (oldRates.at(i).code == item.code) {
+      if (oldRates.at(i).code === item.code) {
         if (oldRates.at(i).mid > item.mid) {
           return (
             <p className='fcr-value fcr-down'>
