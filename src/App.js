@@ -1,8 +1,8 @@
 import './App.css';
-import Home from './components/home-section'
-import ForeignCurrenciesRates from './components/foreign-currencies-rates'
-import CurrenciesConverter from './components/currency-converter';
-import GoldPrices from './components/gold-prices';
+import Home from './pages/home-section'
+import ForeignCurrenciesRates from './pages/foreign-currencies-rates'
+import CurrenciesConverter from './pages/currency-converter';
+import GoldPrices from './pages/gold-prices';
 
 function App() {
   return (
