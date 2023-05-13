@@ -5,9 +5,10 @@ import './style.css'
 
 class CurrenciesConverter extends Component {
 
+  curCurrency = 0;
+  curCurrencyCode = '';
+
   constructor(props) {
-    let curCurrency = 0;
-    let curCurrencyCode = '';
     super(props);
     this.state = {
       allCurrencies: [],
