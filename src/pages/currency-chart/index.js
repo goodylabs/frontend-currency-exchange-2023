@@ -38,7 +38,7 @@ class CurrencyChart extends Component {
   updateCurrency() {
     if (this.props.currency !== undefined && this.props.currency !== "PLN") {
       fetch(
-        `http://api.nbp.pl/api/exchangerates/rates/A/${this.props.currency}/last/14`
+        `https://api.nbp.pl/api/exchangerates/rates/A/${this.props.currency}/last/14`
       )
         .then((res) => res.json())
         .then((json) => {

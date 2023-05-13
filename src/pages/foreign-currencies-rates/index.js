@@ -15,7 +15,7 @@ class ForeignCurrenciesRates extends Component {
   }
 
   componentDidMount() {
-    fetch("http://api.nbp.pl/api/exchangerates/tables/A/last/2/")
+    fetch("https://api.nbp.pl/api/exchangerates/tables/A/last/2/")
       .then((res) => res.json())
       .then((json) => {
         this.setState({

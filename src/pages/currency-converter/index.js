@@ -18,7 +18,7 @@ class CurrenciesConverter extends Component {
   }
 
   componentDidMount() {
-    fetch("http://api.nbp.pl/api/exchangerates/tables/A/")
+    fetch("https://api.nbp.pl/api/exchangerates/tables/A/")
       .then((res) => res.json())
       .then((json) => {
         this.setState({

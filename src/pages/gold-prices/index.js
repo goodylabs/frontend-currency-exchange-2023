@@ -34,7 +34,7 @@ class GoldPrices extends Component {
   }
 
   componentDidMount() {
-    fetch("http://api.nbp.pl/api/cenyzlota/last/30/")
+    fetch("https://api.nbp.pl/api/cenyzlota/last/30/")
       .then((res) => res.json())
       .then((json) => {
         this.setState({
