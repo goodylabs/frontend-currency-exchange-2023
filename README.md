@@ -7,12 +7,9 @@
 **SPA** (Single Page Application) presenting exchange rates.
 
 App features:
-1. Display current table of type A of average exchange rates of foreign currencies (show exchange rate publication date)
-2. Display current and historical gold price (with some charts)
-3. Historical (last 14 days) exchange rates of selected currency presented on a chart
-4. Currency converter
-
-If you have an idea for other features, feel free to introduce them.
+1. Displaying current table of type A of average exchange rates of foreign currencies with changing currency code color depending on its last 2 values + exchange rate publication date on the bottom
+2. Currency converter with ability to calculate values both sides + historical (last 14 days) exchange rates of selected currency presented on a chart
+3. Displaying current and historical gold price on chart containing its value from last 30 days
 
 ## TECH STACK
 1. React
@@ -23,4 +20,4 @@ If you have an idea for other features, feel free to introduce them.
 Jakub Matuszak | jaqubm
 
 ---
-# THANK YOU! :)
+# HAVE A NICE DAY! :)
