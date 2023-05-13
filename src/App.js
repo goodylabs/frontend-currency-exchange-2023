@@ -19,7 +19,7 @@ function App() {
         </div>
       </div>
 
-      <footer class="footer">
+      <footer className="footer">
         Created <span>by</span> Jakub Matuszak<span> &#169;2023</span>
       </footer>
     </>
