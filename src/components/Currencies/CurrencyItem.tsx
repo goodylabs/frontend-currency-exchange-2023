@@ -9,7 +9,7 @@ interface CurrencyItemProps {
     currency: string,
     code: string,
     mid: number,
-    converterItem: boolean
+    converterItem?: boolean
 }
 const CurrencyItem = ({currency, code, mid, converterItem = false}:CurrencyItemProps) => {
     const converterCtx = useContext<ConverterContext>(converterContext);

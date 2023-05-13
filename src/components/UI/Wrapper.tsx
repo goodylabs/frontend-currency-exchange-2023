@@ -3,7 +3,7 @@ import classes from "../../sass/components/Wrapper.module.scss";
 
 interface WrapperProps {
     children: ReactNode,
-    gridMode: boolean
+    gridMode?: boolean
 }
 const Wrapper = ({children, gridMode = false}:WrapperProps) => {
     const wrapperClasses = gridMode ? classes.grid : classes.wrapper;

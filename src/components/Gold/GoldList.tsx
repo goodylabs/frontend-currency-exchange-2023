@@ -1,4 +1,3 @@
-import {goldEntries} from "../../pages/GoldPage";
 import classes from "../../sass/components/GoldList.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowDown} from "@fortawesome/free-solid-svg-icons";
@@ -6,11 +5,7 @@ import GoldEntry from "./GoldEntry";
 import {useContext} from "react";
 import {goldContext, GoldContext} from "../../context/GoldProvider";
 
-interface GoldListProps {
-    goldEntries: goldEntries
-}
-
-const GoldList = ({goldEntries}:GoldListProps) => {
+const GoldList = () => {
     const goldCtx=useContext<GoldContext>(goldContext);
 
     const daysWithoutCurrent = goldCtx.goldWithGrowth.filter(entry => entry.data !== goldCtx.goldWithGrowth[0].data);

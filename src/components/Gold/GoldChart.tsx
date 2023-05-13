@@ -12,7 +12,6 @@ import {
 import {Bar, Line} from 'react-chartjs-2';
 import React, {useCallback, useContext, useEffect, useState} from "react";
 import classes from "../../sass/components/GoldChart.module.scss";
-import {goldEntries} from "../../pages/GoldPage";
 import {filterLength} from "../../utility/globals/numbers";
 import {GoldContext, goldContext} from "../../context/GoldProvider";
 import {GoldsWithGrowth} from "../../types/types";
@@ -27,12 +26,10 @@ ChartJS.register(
 );
 
 interface ChartProps {
-  data: goldEntries,
-  loading: boolean,
   chartType: "bar" | "line"
 }
 
-const GoldChart = ({data, chartType}:ChartProps) => {
+const GoldChart = ({chartType}:ChartProps) => {
   const goldCtx = useContext<GoldContext>(goldContext);
   const[filterType, setFilterType] = useState<"week" | "month" | "all">("week");
   const[filteredData, setFilteredData] = useState<GoldsWithGrowth[]>(goldCtx.goldWithGrowth);
@@ -48,8 +45,6 @@ const GoldChart = ({data, chartType}:ChartProps) => {
         setFilteredData(goldCtx.goldWithGrowth);
     }
   }, [goldCtx, filterType])
-  // const filterData = () => {
-  // }
   useEffect(() =>{
     filterData();
   },[filterType, filterData])

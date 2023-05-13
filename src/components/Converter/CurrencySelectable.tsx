@@ -11,7 +11,6 @@ interface SelectableProps {
 const CurrencySelectable = ({label, fullName}:SelectableProps) => {
     const loaderData = useLoaderData() as tableAResponse[];
     const converterCtx= useContext<ConverterContext>(converterContext);
-    // console.log(loaderData)
     const checkboxRef = useRef<HTMLInputElement | null>(null);
     const changeSelectedCurrencies = () => {
         if(checkboxRef.current?.checked){

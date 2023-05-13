@@ -4,7 +4,6 @@ import {ReactNode} from "react";
 
 interface ModalProps {
     children: ReactNode,
-    closeModalFn: (value: (((prevState: boolean) => boolean) | boolean)) => void
 }
 const Overlay = () => {
     return <div className={classes.overlay}></div>

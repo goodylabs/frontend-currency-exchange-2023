@@ -4,7 +4,6 @@ import {faCoins, faEuroSign, faRotate, faXmark} from "@fortawesome/free-solid-sv
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface NavDrawerProps {
-    drawerOpen: boolean,
     setDrawerOpen: (value: (((prevState: boolean) => boolean) | boolean)) => void
 }
 const NavDrawer = ({setDrawerOpen}:NavDrawerProps) => {

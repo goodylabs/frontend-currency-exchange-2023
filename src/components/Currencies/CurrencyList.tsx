@@ -16,6 +16,7 @@ const CurrencyList = () => {
                 <p>Last update: {responseObj.effectiveDate}</p>
             </div>
             <hr className={classes.currencies__hr}/>
+            {navigation.state === "loading" && <p>Loading exchanges rates</p>}
             <ul className={classes.currencies__list}>
                 {responseObj.rates.map(rate => <CurrencyItem key={rate.code} currency={rate.currency} code={rate.code} mid={rate.mid}/>) }
             </ul>

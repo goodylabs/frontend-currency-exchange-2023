@@ -39,6 +39,7 @@ const CurrencyView = ({currency,code,mid, closeModalFn}:CurrencyViewProps) => {
               <button onClick={()=> closeModalFn(false)} className={classes.view__close}><FontAwesomeIcon icon={faXmark} inverse/></button>
           </div>
           <div>
+              {error && <p>{error}</p>}
               <div className={classes.view__info}>
                   <h3>Currency name:</h3>
                   <p>{currency}</p>
