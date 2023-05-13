@@ -9,11 +9,11 @@ export const getCurrentExchangeRates = async (): Promise<[ExchangeRate]> => {
   return result?.data;
 };
 
-export const getCodeExchangeRatesForLast5Days = async (
+export const getCodeExchangeRatesForLast14Days = async (
   code: string
 ): Promise<CurrencyExchangeRate> => {
   const result = await axios.get(
-    `http://api.nbp.pl/api/exchangerates/rates/a/${code}/last/5/?format=json`
+    `http://api.nbp.pl/api/exchangerates/rates/a/${code}/last/14/?format=json`
   );
   return result?.data;
 };

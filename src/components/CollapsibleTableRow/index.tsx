@@ -14,7 +14,7 @@ import { CurrencyExchangeRate, Rate } from "api/models";
 import { ChartHolder } from "components/ChartHolder";
 import { Line } from "react-chartjs-2";
 import { useQuery } from "@tanstack/react-query";
-import { getCodeExchangeRatesForLast5Days } from "api";
+import { getCodeExchangeRatesForLast14Days } from "api";
 import { AxiosError } from "axios";
 
 interface Props {
@@ -26,13 +26,13 @@ export const CollapsibleTableRow = ({ rate }: Props) => {
   const theme = useTheme();
 
   const { data } = useQuery<CurrencyExchangeRate, AxiosError>({
-    queryKey: ["rate", { day: "last5days", code: rate.code }],
-    queryFn: () => getCodeExchangeRatesForLast5Days(rate.code),
+    queryKey: ["rate", { day: "last14days", code: rate.code }],
+    queryFn: () => getCodeExchangeRatesForLast14Days(rate.code),
     enabled: open,
   });
 
   //
-  const option5days = {
+  const option14days = {
     maintainAspectRatio: false,
     responsive: true,
     plugins: {
@@ -43,7 +43,7 @@ export const CollapsibleTableRow = ({ rate }: Props) => {
     color: theme.palette.text.primary,
   };
 
-  const data5days = {
+  const data14days = {
     datasets: [
       {
         data: data?.rates.map((value) => {
@@ -81,7 +81,7 @@ export const CollapsibleTableRow = ({ rate }: Props) => {
               <Table size="small">
                 <TableBody>
                   <ChartHolder>
-                    <Line options={option5days} data={data5days} />
+                    <Line options={option14days} data={data14days} />
                   </ChartHolder>
                 </TableBody>
               </Table>
