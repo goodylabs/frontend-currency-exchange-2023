@@ -1,9 +1,13 @@
 import { useGetCurrentGoldPrice, useGetLastGoldPrices } from "@api";
 import { Card } from "@components/card";
 import { GoldPriceListbox } from "@components/gold-price/gold-price-listbox";
-import { goldPriceChartOptions, goldPriceOptions } from "@utils";
+import {
+  goldPriceChangeChartOptions,
+  goldPriceChartOptions,
+  goldPriceOptions,
+} from "@utils";
 import { useMemo, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 
 export const GoldPrice = () => {
   const [lastDays, setLastDays] = useState(goldPriceOptions[2]);
@@ -11,17 +15,30 @@ export const GoldPrice = () => {
   const { data } = useGetCurrentGoldPrice();
   const { data: lastDaysData } = useGetLastGoldPrices(lastDays.value);
 
-  const [labels, values] = useMemo(
-    () => [
-      lastDaysData?.map(({ data }) => data),
+  const [labels, values, diffLabels, diffValues] = useMemo(() => {
+    const labelsGoldPrice = lastDaysData?.map(({ data }) => data);
+    const labelsGoldPriceChange = labelsGoldPrice?.slice(1);
+    return [
+      labelsGoldPrice,
       lastDaysData?.map(({ cena }) => cena),
-    ],
-    [lastDaysData]
-  );
+      labelsGoldPriceChange,
+      lastDaysData
+        ?.map(({ cena }, idx, arr) => {
+          if (idx !== 0) return arr[idx - 1].cena - cena;
+        })
+        .slice(1),
+    ];
+  }, [lastDaysData]);
 
   const chartOptions = useMemo(() => {
     const opts = { ...goldPriceChartOptions };
-    opts.plugins.title.text = `Gold price for last ${lastDays.value} days`;
+    opts.plugins.title.text = `Last ${lastDays.value} gold price quotes`;
+    return opts;
+  }, [lastDays.value]);
+
+  const changeChartOptions = useMemo(() => {
+    const opts = { ...goldPriceChangeChartOptions };
+    opts.plugins.title.text = `Last ${lastDays.value} gold price change quotes`;
     return opts;
   }, [lastDays.value]);
 
@@ -58,6 +75,19 @@ export const GoldPrice = () => {
             },
           ],
           labels,
+        }}
+      />
+      <Bar
+        options={changeChartOptions}
+        data={{
+          datasets: [
+            {
+              data: diffValues,
+              borderColor: "#1dcf4c",
+              backgroundColor: "#1dcf4c",
+            },
+          ],
+          labels: diffLabels,
         }}
       />
     </Card>
