@@ -1,5 +1,11 @@
 import { createContext } from "react";
 
+export type CurrencyDayData = {
+  no: string;
+  effectiveDate: string;
+  mid: number;
+};
+
 export type Currency = {
   currency: string;
   code: string;

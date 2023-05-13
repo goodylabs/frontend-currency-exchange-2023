@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CurrencyCard from "../currency-card/CurrencyCard";
 import axios from "axios";
 import { Currency, CurrencyContext } from "./CurrencyContext";
+import CurrencyTable from "../currency-table/CurrencyTable";
 
 const HomePage = () => {
   const [currencyData, setCurrencyData] = useState<Currency[] | null>(null);
@@ -42,6 +43,7 @@ const HomePage = () => {
         }}
       >
         <CurrencyCard />
+        <CurrencyTable />
       </CurrencyContext.Provider>
     </div>
   );
