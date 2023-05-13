@@ -58,8 +58,8 @@ class CurrencyChart extends Component {
     if (isLoaded && this.props.currency !== 'PLN') {
       const curCurrency = Currency.rates;
 
-      let curCurrencyDay = new Array();
-      let curCurrencyValue = new Array();
+      let curCurrencyDay = [];
+      let curCurrencyValue = [];
 
       for (let i=0; i<curCurrency.length; i++) {
         curCurrencyDay.push(`Day ${i+1}`);
