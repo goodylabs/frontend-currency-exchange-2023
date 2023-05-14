@@ -30,6 +30,25 @@ const useHistoricalGoldPrice = () => {
   });
 };
 
+const useTopGoldPrice = (topCount) => {
+  return useQuery({
+    queryKey: ['topGoldPrice'],
+    queryFn: async () => {
+      const { data } = await api.get(`/cenyzlota/last/${topCount}`);
+      return data;
+    },
+  });
+};
+
+const getChartData = (items) => {
+  const data = items?.map(({ data, cena }) => ({
+    primary: dayjs(data).toDate(),
+    secondary: cena,
+  }));
+
+  return data ? [{ data }] : undefined;
+};
+
 const Gold = () => {
   const {
     isLoading: isCurrentLoading,
@@ -41,17 +60,17 @@ const Gold = () => {
     error: historicalError,
     data: historicalData,
   } = useHistoricalGoldPrice();
+  const { isLoading: isTopLoading, error: topError, data: topData } = useTopGoldPrice(50);
 
-  const rates = historicalData?.map(({ data, cena }) => ({
-    primary: dayjs(data).toDate(),
-    secondary: cena,
-  }));
+  const chartsData = useMemo(() => {
+    const historical = getChartData(historicalData);
+    const top = getChartData(topData);
+    return [historical, top];
+  }, [historicalData, topData]);
 
-  const chartData = useMemo(() => (rates ? [{ data: rates }] : undefined), [rates]);
+  if (isCurrentLoading || isHistoricalLoading || isTopLoading) return 'Ładowanie...';
 
-  if (isCurrentLoading || isHistoricalLoading) return 'Ładowanie...';
-
-  if (currentError || historicalError) return 'Wystąpił błąd.';
+  if (currentError || historicalError || topError) return 'Wystąpił błąd.';
 
   return (
     <>
@@ -59,12 +78,19 @@ const Gold = () => {
       <span className="mt-12 text-xl font-semibold text-zinc-900">Aktualna cena złota</span>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-yellow-500">
         {priceFormatter.format(currentData.cena)}
-      </h2>
-      <div className="mt-12 rounded-2xl bg-zinc-100 p-8">
-        {!!chartData && (
+      </h2>{' '}
+      <div className="mt-12 flex flex-col gap-8 rounded-2xl bg-zinc-100 p-8">
+        {!!chartsData[0] && (
           <Chart
             title="Kurs złota w ciągu ostatnich dwóch tygodni"
-            data={chartData}
+            data={chartsData[0]}
+            color={colors.yellow[500]}
+          />
+        )}
+        {!!chartsData[1] && (
+          <Chart
+            title="Ostatnie pięćdziesiąt notowań cen złota"
+            data={chartsData[1]}
             color={colors.yellow[500]}
           />
         )}
