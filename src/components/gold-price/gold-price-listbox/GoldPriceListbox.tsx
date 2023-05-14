@@ -25,7 +25,7 @@ export const GoldPriceListbox: FC<GoldPriceListboxProps> = ({
         {value.name}
         <ChevronDownIcon className="w-5 transition-transform ui-open:rotate-180" />
       </Listbox.Button>
-      <Listbox.Options className="absolute right-0 w-40 translate-y-2 rounded-lg border border-bg-light-300 bg-bg-light-200 px-3 py-2 font-medium">
+      <Listbox.Options className="absolute right-0 z-10 w-40 translate-y-2 rounded-lg border border-bg-light-300 bg-bg-light-200 px-3 py-2 font-medium">
         {options.map((opt) => (
           <Listbox.Option
             value={opt}

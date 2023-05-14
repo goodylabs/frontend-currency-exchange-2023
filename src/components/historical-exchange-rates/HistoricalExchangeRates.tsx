@@ -1,27 +1,11 @@
-import { useGetHistoricalExchangeRates } from "@api";
 import { Card } from "@components/card";
 import { CurrencyCombobox } from "@components/currency-combobox";
-import { currencies, historicalExchangePricesChartOptions } from "@utils";
-import { useMemo, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { TableAChart, TableBChart } from "./charts";
+import { currencies } from "@utils";
+import { useState } from "react";
 
 export const HistoricalExchangeRates = () => {
   const [currency, setCurrency] = useState(currencies[1]);
-
-  const { data: exchangeRatesData } = useGetHistoricalExchangeRates(
-    14,
-    currency.code,
-    "C"
-  );
-
-  const [labels, askValues, bidValues] = useMemo(
-    () => [
-      exchangeRatesData?.rates?.map(({ effectiveDate }) => effectiveDate),
-      exchangeRatesData?.rates?.map(({ ask }) => ask),
-      exchangeRatesData?.rates?.map(({ bid }) => bid),
-    ],
-    [exchangeRatesData]
-  );
 
   return (
     <Card className="h-fit gap-4">
@@ -33,29 +17,8 @@ export const HistoricalExchangeRates = () => {
           options={currencies}
         />
       </div>
-      <div className="relative aspect-[2/1] h-auto w-full">
-        <Line
-          className="!w-full"
-          options={historicalExchangePricesChartOptions}
-          data={{
-            datasets: [
-              {
-                data: askValues,
-                borderColor: "#1dcf4c",
-                backgroundColor: "#1dcf4c",
-                label: "ASK",
-              },
-              {
-                data: bidValues,
-                borderColor: "#cf1d1d",
-                backgroundColor: "#cf1d1d",
-                label: "BID",
-              },
-            ],
-            labels,
-          }}
-        />
-      </div>
+      <TableAChart code={currency.code} />
+      <TableBChart code={currency.code} />
     </Card>
   );
 };

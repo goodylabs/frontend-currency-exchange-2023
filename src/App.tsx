@@ -36,7 +36,7 @@ function App() {
         <h1 className="text-4xl font-bold">Front-End Currency Exchange 2023</h1>
         <div className="flex flex-col gap-9 lg:flex-row">
           <CurrencyExchangeRates />
-          <div className="flex h-fit grow flex-col gap-9 bg-red-200">
+          <div className="flex h-fit grow flex-col gap-9">
             <GoldPrice />
             <HistoricalExchangeRates />
             <CurrencyConverter />

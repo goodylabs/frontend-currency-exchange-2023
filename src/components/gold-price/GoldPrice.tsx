@@ -1,46 +1,15 @@
 import { useGetCurrentGoldPrice, useGetLastGoldPrices } from "@api";
 import { Card } from "@components/card";
+import { GoldLineChart, GoldChangeBarChart } from "./charts";
 import { GoldPriceListbox } from "@components/gold-price/gold-price-listbox";
-import {
-  goldPriceChangeChartOptions,
-  goldPriceChartOptions,
-  goldPriceOptions,
-} from "@utils";
-import { useMemo, useState } from "react";
-import { Bar, Line } from "react-chartjs-2";
+import { goldPriceOptions } from "@utils";
+import { useState } from "react";
 
 export const GoldPrice = () => {
   const [lastDays, setLastDays] = useState(goldPriceOptions[2]);
 
   const { data } = useGetCurrentGoldPrice();
   const { data: lastDaysData } = useGetLastGoldPrices(lastDays.value);
-
-  const [labels, values, diffLabels, diffValues] = useMemo(() => {
-    const labelsGoldPrice = lastDaysData?.map(({ data }) => data);
-    const labelsGoldPriceChange = labelsGoldPrice?.slice(1);
-    return [
-      labelsGoldPrice,
-      lastDaysData?.map(({ cena }) => cena),
-      labelsGoldPriceChange,
-      lastDaysData
-        ?.map(({ cena }, idx, arr) => {
-          if (idx !== 0) return arr[idx - 1].cena - cena;
-        })
-        .slice(1),
-    ];
-  }, [lastDaysData]);
-
-  const chartOptions = useMemo(() => {
-    const opts = { ...goldPriceChartOptions };
-    opts.plugins.title.text = `Last ${lastDays.value} gold price quotes`;
-    return opts;
-  }, [lastDays.value]);
-
-  const changeChartOptions = useMemo(() => {
-    const opts = { ...goldPriceChangeChartOptions };
-    opts.plugins.title.text = `Last ${lastDays.value} gold price change quotes`;
-    return opts;
-  }, [lastDays.value]);
 
   return (
     <Card className="h-fit gap-5">
@@ -63,38 +32,8 @@ export const GoldPrice = () => {
           options={goldPriceOptions}
           value={lastDays}
         />
-      </div>
-      <div className="relative aspect-[2/1] h-auto w-full">
-        <Line
-          className="!w-full"
-          options={chartOptions}
-          data={{
-            datasets: [
-              {
-                data: values,
-                borderColor: "#1dcf4c",
-                backgroundColor: "#1dcf4c",
-              },
-            ],
-            labels,
-          }}
-        />
-      </div>
-      <div className="relative aspect-[2/1] h-auto w-full">
-        <Bar
-          className="!w-full"
-          options={changeChartOptions}
-          data={{
-            datasets: [
-              {
-                data: diffValues,
-                borderColor: "#1dcf4c",
-                backgroundColor: "#1dcf4c",
-              },
-            ],
-            labels: diffLabels,
-          }}
-        />
+        <GoldLineChart days={lastDays.value} data={lastDaysData} />
+        <GoldChangeBarChart days={lastDays.value} data={lastDaysData} />
       </div>
     </Card>
   );

@@ -59,7 +59,7 @@ export const CurrencyCombobox: FC<CurrencyComboboxProps<Currency>> = ({
         enterTo="opacity-100"
         enter="transition ease-out duration-100"
       >
-        <Combobox.Options className="absolute max-h-80 translate-y-2 overflow-y-scroll rounded-lg border border-bg-light-300 bg-bg-light-200 px-3 py-2 font-medium">
+        <Combobox.Options className="absolute z-10 max-h-80 translate-y-2 overflow-y-scroll rounded-lg border border-bg-light-300 bg-bg-light-200 px-3 py-2 font-medium">
           {opts.map((option) => (
             <Combobox.Option
               value={option}

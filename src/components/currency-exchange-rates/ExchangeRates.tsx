@@ -8,7 +8,7 @@ export const CurrencyExchangeRates = () => {
     useGetExchangeRates();
 
   return (
-    <Card>
+    <Card className="h-fit">
       <div className="flex justify-between">
         <div>
           <h2 className="text-xl font-bold">Currency Exchange Rate</h2>

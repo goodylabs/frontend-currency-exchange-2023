@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 export function useGetHistoricalExchangeRates(
   lastDays: number,
   currencyCode: string,
-  table: "A" | "B" | "C"
+  table: "A" | "C"
 ) {
   const endDate = dayjs();
   const startDate = endDate.subtract(lastDays, "days");
@@ -14,7 +14,7 @@ export function useGetHistoricalExchangeRates(
   return useQuery({
     queryKey: ["historicalExchangeRates", lastDays, currencyCode, table],
     queryFn: () =>
-      request<GetHistoricalExchangeRatesResponse>({
+      request<GetHistoricalExchangeRatesResponse<typeof table>>({
         url: `${
           apiUrls.getHistoricalExchangeRates
         }/${table}/${currencyCode}/${startDate.format(
