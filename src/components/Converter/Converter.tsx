@@ -11,9 +11,9 @@ const Converter = () => {
   return (
       <Card>
           <h2 className={classes.converter__heading}>Active currencies</h2>
-        <ul>
+        <ul className={classes.converter__list}>
             <CurrencyItem currency={"Polski złoty"} code={"PLN"} mid={1.0} converterItem/>
-            {converterCtx.selectedCurrencies.length === 0 && <p className={classes.converter__message}>Selected currencies will show up here</p>}
+            {converterCtx.selectedCurrencies.length === 0 && <li className={classes.converter__list__message}>Selected currencies will show up here</li>}
             {converterCtx.selectedCurrencies.map(currency => <CurrencyItem key={currency.code} currency={currency.currency} code={currency.code} mid={currency.mid} converterItem/>)}
         </ul>
       </Card>
