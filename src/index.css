@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  background: linear-gradient(183deg, rgba(30,0,50,1) 17%, rgba(5,9,50,1) 53%, rgba(2,0,36,1) 100%);
+  min-height: 100vh; /* Ensures the gradient covers the full height of the viewport */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* p {
+  font-size: 0.8em;
+} */
+
+h4 {
+  margin: auto 10px;
+  font-size: 1.2em;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.scroll {
+  overflow-y: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+.scrollbox-content,
+.scrollbox:hover,
+.scrollbox:focus {
+  visibility: hidden;
+}
+
+select {
+  background-color: #343744;
+  color: #ffffff; 
+  padding: 8px; 
+  border: none; 
+  border-radius: 4px; 
+}
+
+select::-ms-expand {
+  display: none; 
+}
+
+select::after {
+  content: '\25BC'; /* Unicode character for down arrow */
+  color: #ffffff; 
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+select option {
+  background-color: #2b2e39; 
+  color: #ffffff; 
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #343744; 
+  padding: 8px 20px;
+  border-radius: 4px; 
+  margin-bottom: 20px;
+}
+
+.container select {
+  flex: 1; 
+  color: #ffffff;
+  border: none; 
+  background-color: transparent; 
+  
+}
+
+.container input[type="text"] {
+  flex: 1; 
+  color: #ffffff; 
+  border: none; 
+  background-color: transparent; 
+}
+
+.container select option {
+  background-color: #2b2e39; 
+  color: #ffffff; 
+}
+
+canvas {
+  padding: 50px;
+  border-radius: 20px; 
+}
+
+.currency-converter-container {
+  max-width: 700px;
+  height: 660px;
+  margin: 40px auto;
+  padding: 60px;
+  border-radius: 5px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size:25px;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100px;
+}
+
+.currency-converter-container h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+ 
+}
+
+.input-group label {
+  color: #ffffff;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px; 
+}
+.input-group select,
+.input-group input[type="number"] {
+  width: 100%;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  border-bottom: 2px solid #bb00ff;
+  padding: 8px;
+  margin-bottom: 40px;
+  font-size:20px;
+  cursor: pointer;
+}
+.input-group select:focus,
+.input-group input[type="number"]:focus {
+  outline: none;
+  border-color: #777777;
+  cursor: pointer;
+}
+.button-group {
+  text-align: center;
+}
+.button-group button {
+  background-color: #aa00ee;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  
+}
+.button-group button:hover {
+  background-color: #ff11ff;
+}
+.result-group {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+.result-group p {
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
+.chartContainer {
+  margin: 0 auto;
+  text-align: center;
+  
+}
