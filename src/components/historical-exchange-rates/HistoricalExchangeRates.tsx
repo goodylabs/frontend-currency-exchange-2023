@@ -33,26 +33,29 @@ export const HistoricalExchangeRates = () => {
           options={currencies}
         />
       </div>
-      <Line
-        options={historicalExchangePricesChartOptions}
-        data={{
-          datasets: [
-            {
-              data: askValues,
-              borderColor: "#1dcf4c",
-              backgroundColor: "#1dcf4c",
-              label: "ASK",
-            },
-            {
-              data: bidValues,
-              borderColor: "#cf1d1d",
-              backgroundColor: "#cf1d1d",
-              label: "BID",
-            },
-          ],
-          labels,
-        }}
-      />
+      <div className="relative aspect-[2/1] h-auto w-full">
+        <Line
+          className="!w-full"
+          options={historicalExchangePricesChartOptions}
+          data={{
+            datasets: [
+              {
+                data: askValues,
+                borderColor: "#1dcf4c",
+                backgroundColor: "#1dcf4c",
+                label: "ASK",
+              },
+              {
+                data: bidValues,
+                borderColor: "#cf1d1d",
+                backgroundColor: "#cf1d1d",
+                label: "BID",
+              },
+            ],
+            labels,
+          }}
+        />
+      </div>
     </Card>
   );
 };

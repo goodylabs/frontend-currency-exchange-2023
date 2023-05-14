@@ -43,7 +43,7 @@ export const GoldPrice = () => {
   }, [lastDays.value]);
 
   return (
-    <Card className="h-fit grow gap-5">
+    <Card className="h-fit gap-5">
       <h2 className="text-xl font-bold">Gold Price</h2>
       <div className="flex flex-wrap justify-between gap-3">
         <div className="flex items-end gap-5 text-sm font-semibold text-text-light-100">
@@ -64,32 +64,38 @@ export const GoldPrice = () => {
           value={lastDays}
         />
       </div>
-      <Line
-        options={chartOptions}
-        data={{
-          datasets: [
-            {
-              data: values,
-              borderColor: "#1dcf4c",
-              backgroundColor: "#1dcf4c",
-            },
-          ],
-          labels,
-        }}
-      />
-      <Bar
-        options={changeChartOptions}
-        data={{
-          datasets: [
-            {
-              data: diffValues,
-              borderColor: "#1dcf4c",
-              backgroundColor: "#1dcf4c",
-            },
-          ],
-          labels: diffLabels,
-        }}
-      />
+      <div className="relative aspect-[2/1] h-auto w-full">
+        <Line
+          className="!w-full"
+          options={chartOptions}
+          data={{
+            datasets: [
+              {
+                data: values,
+                borderColor: "#1dcf4c",
+                backgroundColor: "#1dcf4c",
+              },
+            ],
+            labels,
+          }}
+        />
+      </div>
+      <div className="relative aspect-[2/1] h-auto w-full">
+        <Bar
+          className="!w-full"
+          options={changeChartOptions}
+          data={{
+            datasets: [
+              {
+                data: diffValues,
+                borderColor: "#1dcf4c",
+                backgroundColor: "#1dcf4c",
+              },
+            ],
+            labels: diffLabels,
+          }}
+        />
+      </div>
     </Card>
   );
 };

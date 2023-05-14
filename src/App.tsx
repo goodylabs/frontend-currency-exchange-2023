@@ -32,13 +32,11 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen w-screen flex-col gap-9 px-6 py-8 text-text-light-900 lg:items-center">
-        <h1 className="text-4xl font-bold lg:w-4/5">
-          Front-End Currency Exchange 2023
-        </h1>
-        <div className="flex flex-col gap-9 lg:w-4/5 lg:flex-row">
+      <div className="mx-auto flex min-h-screen max-w-[1200px] flex-col gap-9 px-4 py-8 text-text-light-900">
+        <h1 className="text-4xl font-bold">Front-End Currency Exchange 2023</h1>
+        <div className="flex flex-col gap-9 lg:flex-row">
           <CurrencyExchangeRates />
-          <div className="flex h-fit w-full flex-col gap-9">
+          <div className="flex h-fit grow flex-col gap-9 bg-red-200">
             <GoldPrice />
             <HistoricalExchangeRates />
             <CurrencyConverter />

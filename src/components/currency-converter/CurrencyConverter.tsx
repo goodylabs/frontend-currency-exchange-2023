@@ -17,12 +17,12 @@ export const CurrencyConverter = () => {
     useCurrencyConverter(currencyData?.rates[0].mid);
 
   return (
-    <Card className="h-fit w-fit gap-4">
+    <Card className="h-fit gap-4">
       <h2 className="text-xl font-bold">Currency Converter</h2>
-      <div className="flex w-fit flex-col gap-5 2xl:flex-row">
+      <div className="flex flex-col gap-5 ">
         <div className="flex gap-3">
           <input
-            className="rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
+            className="grow rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
             type="number"
             min={0}
             value={valuePLN}
@@ -40,11 +40,11 @@ export const CurrencyConverter = () => {
           />
         </div>
         <div className="self-center">
-          <ArrowsUpDownIcon className="w-5 text-text-light-200 2xl:rotate-90" />
+          <ArrowsUpDownIcon className="w-5 text-text-light-200" />
         </div>
         <div className="flex gap-3">
           <input
-            className="rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
+            className="grow rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
             type="number"
             min={0}
             value={value}
