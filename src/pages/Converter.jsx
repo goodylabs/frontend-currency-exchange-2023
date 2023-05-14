@@ -13,8 +13,12 @@ const Converter = () => {
   const [rightValue, setRightValue] = useState('');
 
   useEffect(() => {
+    if (leftValue === '') setRightValue('');
+
     if (!leftCurrency || !rightCurrency || !leftValue) return;
+
     const newRightValue = (leftCurrency.mid / rightCurrency.mid) * leftValue;
+
     setRightValue(newRightValue);
   }, [leftCurrency, leftValue, rightCurrency]);
 
@@ -26,20 +30,25 @@ const Converter = () => {
     <>
       <h1 className="text-5xl font-semibold tracking-wide text-zinc-900">Konwerter</h1>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-indigo-500"></h2>
-      <div className="mt-12 flex gap-8 rounded-2xl bg-zinc-100 p-8">
-        <div className="flex grow flex-col gap-2">
+      <div className="mt-12 flex gap-8 self-start rounded-2xl bg-zinc-100 p-8">
+        <div className="flex w-80 flex-col gap-4">
           <CurrencySelect data={data.rates} value={leftCurrency} onChange={setLeftCurrency} />
           <Input
             placeholder="Wpisz kwotę"
-            disabled={!leftCurrency}
+            disabled={!leftCurrency || !rightCurrency}
             value={leftValue}
             onChange={(e) => setLeftValue(e.target.value)}
           />
         </div>
-        <ArrowsRightLeftIcon className="h-8 w-8 self-center text-indigo-500" />
-        <div className="flex grow flex-col gap-2">
+        <ArrowsRightLeftIcon className="h-8 w-8 self-center text-zinc-500" />
+        <div className="flex w-80 flex-col gap-4">
           <CurrencySelect data={data.rates} value={rightCurrency} onChange={setRightCurrency} />
-          <span>{formatPrice(rightValue, rightCurrency.code)}</span>
+          <div className="flex flex-col">
+            <span className="text-sm text-zinc-500">Kwota po przeliczeniu</span>
+            <span className="text-xl font-bold text-indigo-500">
+              {rightValue ? formatPrice(rightValue, rightCurrency.code) : '-'}
+            </span>
+          </div>
         </div>
       </div>
     </>
