@@ -18,6 +18,13 @@
     justify-content: space-around;
     margin-top: 1em;
     padding: .5em 0;
+    p{
+      text-align: center;
+      width: 120px;
+      &:last-child{
+        width: 133px;
+      }
+    }
     &__growth{
       color: $growth-pos;
       &--neg{

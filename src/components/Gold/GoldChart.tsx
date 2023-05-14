@@ -74,7 +74,7 @@ const GoldChart = ({chartType}:ChartProps) => {
         label: chartType === "bar" ? 'Price' : 'Growth',
         // @ts-expect-error label is not used here
         data: chartType ==="bar" ? labels.map((label, idx) => filteredData[idx].cena) : labels.map((label, idx) => filteredData[idx].growth) ,
-        borderColor: chartType === "bar" ? '' : 'rgb(20, 48, 102)',
+        borderColor: chartType === "bar" ? '' : 'rgb(50, 104, 205)',
         backgroundColor: chartType ==="bar" ? 'rgb(208, 173, 57)' : 'rgb(50, 104, 205)',
       },
     ],

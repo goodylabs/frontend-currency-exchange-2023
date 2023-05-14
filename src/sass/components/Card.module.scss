@@ -10,5 +10,6 @@
   border-radius: 8px;
   @include respond-to('l'){
     width: 50%;
+    max-width: 700px;
   }
 }
