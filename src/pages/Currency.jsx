@@ -8,23 +8,26 @@ import Chart from '../components/Chart';
 import api from '../services/api';
 import getHistoricalDates from '../utils/getHistoricalDates';
 
-const Currency = () => {
-  const { code } = useParams();
+const useCurrency = (code) => {
   const date = dayjs();
   const [startDate, endDate] = getHistoricalDates(date);
-  const { isLoading, error, data } = useQuery({
+
+  return useQuery({
     queryKey: ['currency'],
     queryFn: async () => {
       const res = await api.get(`/exchangerates/rates/A/${code}/${startDate}/${endDate}`);
       return res.data;
     },
   });
+};
 
+const Currency = () => {
+  const { code } = useParams();
+  const { isLoading, error, data } = useCurrency(code);
   const rates = data?.rates.map(({ effectiveDate, mid }) => ({
     primary: dayjs(effectiveDate).toDate(),
     secondary: mid,
   }));
-
   const chartData = useMemo(() => (rates ? [{ data: rates }] : undefined), [rates]);
 
   if (isLoading) return 'Ładowanie...';

@@ -1,29 +1,26 @@
+import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import { useEffect, useState } from 'react';
 import CurrenciesTable from '../components/CurrenciesTable';
 import api from '../services/api';
 
+const useCurrencies = () => {
+  return useQuery({
+    queryKey: ['currencies'],
+    queryFn: async () => {
+      const res = await api.get('/exchangerates/tables/A');
+      return res.data[0];
+    },
+  });
+};
+
 const Currencies = () => {
-  const [tableData, setTableData] = useState();
-  const [loading, setLoading] = useState(false);
-  const date = tableData ? dayjs(tableData.effectiveDate).format('DD.MM.YYYY') : null;
+  const { isLoading, error, data } = useCurrencies();
 
-  useEffect(() => {
-    const getTableData = async () => {
-      try {
-        setLoading(true);
-        const res = await api.get('/exchangerates/tables/A');
-        setLoading(false);
-        setTableData(res.data[0]);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getTableData();
-  }, []);
+  if (isLoading) return 'Ładowanie...';
 
-  if (loading) return <p>Ładowanie...</p>;
-  if (!loading && !tableData) return <p>Coś poszło nie tak</p>;
+  if (error) return 'Wystąpił błąd: ' + error.message;
+
+  const date = dayjs(data.effectiveDate).format('DD.MM.YYYY');
 
   return (
     <>
@@ -31,7 +28,7 @@ const Currencies = () => {
       <span className="mt-12 text-xl font-semibold text-zinc-900">Data publikacji</span>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-indigo-500">{date}</h2>
       <div className="mt-12 rounded-2xl bg-zinc-100 p-8">
-        <CurrenciesTable data={tableData} />
+        <CurrenciesTable data={data} />
       </div>
     </>
   );
