@@ -12,7 +12,7 @@ export const GoldPrice = () => {
   const { data: lastDaysData } = useGetLastGoldPrices(lastDays.value);
 
   return (
-    <Card className="h-fit gap-5">
+    <Card className="h-fit gap-5" data-test="gold-price-card">
       <h2 className="text-xl font-bold">Gold Price</h2>
       <div className="flex flex-wrap justify-between gap-3">
         <div className="flex items-end gap-5 text-sm font-semibold text-text-light-100">
@@ -21,7 +21,10 @@ export const GoldPrice = () => {
             <p>{data && data[0].data}</p>
           </div>
           <p className="h-fit">
-            <span className="mr-1 text-lg font-bold leading-5 text-text-light-900">
+            <span
+              className="mr-1 text-lg font-bold leading-5 text-text-light-900"
+              data-test="current-gold-price"
+            >
               {data && data[0].cena}
             </span>
             PLN/G

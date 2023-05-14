@@ -8,7 +8,7 @@ export const HistoricalExchangeRates = () => {
   const [currency, setCurrency] = useState(currencies[1]);
 
   return (
-    <Card className="h-fit gap-4">
+    <Card className="h-fit gap-4" data-test="historical-exchange-rates-card">
       <div className="flex items-center justify-between gap-6">
         <h2 className="text-xl font-bold">Historical Exchange Rate</h2>
         <CurrencyCombobox

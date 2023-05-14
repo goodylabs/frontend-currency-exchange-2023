@@ -8,7 +8,7 @@ export const CurrencyExchangeRates = () => {
     useGetExchangeRates();
 
   return (
-    <Card className="h-fit">
+    <Card className="h-fit" data-test="exchange-rates-card">
       <div className="flex justify-between">
         <div>
           <h2 className="text-xl font-bold">Currency Exchange Rate</h2>
@@ -23,7 +23,10 @@ export const CurrencyExchangeRates = () => {
           <ArrowPathIcon className="w-5" />
         </Button>
       </div>
-      <table className="mt-3 text-left text-sm">
+      <table
+        className="mt-3 text-left text-sm"
+        data-test="avg-exchange-rates-table"
+      >
         <thead className="font-bold text-text-light-100">
           <tr>
             <th className="pu-4 pr-5 pt-4">Currency</th>
@@ -45,9 +48,13 @@ export const CurrencyExchangeRates = () => {
             ))}
         </tbody>
       </table>
-      {isLoading && <p className="w-full p-6 text-center">Loading data...</p>}
+      {isLoading && (
+        <p className="w-full p-6 text-center" data-test="loading-message">
+          Loading data...
+        </p>
+      )}
       {isError && (
-        <p className="w-full p-6 text-center">
+        <p className="w-full p-6 text-center" data-test="error-message">
           Unable to load data. Wait a while and try to use the refresh button.
         </p>
       )}

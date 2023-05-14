@@ -17,12 +17,12 @@ export const CurrencyConverter = () => {
     useCurrencyConverter(currencyData?.rates[0].mid);
 
   return (
-    <Card className="h-fit gap-4">
+    <Card className="h-fit gap-4" data-test="currency-converter-card">
       <h2 className="text-xl font-bold">Currency Converter</h2>
       <div className="flex flex-col gap-5 ">
         <div className="flex gap-3">
           <input
-            className="grow rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
+            className="min-w-[180px] grow rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
             type="number"
             min={0}
             value={valuePLN}
@@ -31,6 +31,7 @@ export const CurrencyConverter = () => {
               setReversed(false);
               setValuePLN(e.target.value);
             }}
+            data-test="currency-converter-pln-input"
           />
           <CurrencyCombobox
             options={[]}
@@ -44,7 +45,7 @@ export const CurrencyConverter = () => {
         </div>
         <div className="flex gap-3">
           <input
-            className="grow rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
+            className="min-w-[180px] grow rounded-lg bg-bg-light-200 px-3 py-2 text-sm font-semibold"
             type="number"
             min={0}
             value={value}
@@ -52,6 +53,7 @@ export const CurrencyConverter = () => {
               setReversed(true);
               setValue(e.target.value);
             }}
+            data-test="currency-converter-currency-input"
           />
           <CurrencyCombobox
             options={currencies}
