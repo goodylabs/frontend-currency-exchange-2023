@@ -1,4 +1,4 @@
-import { Alert, Box } from "@mui/material";
+import { Alert, Box, Paper, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import CurrencySelect from "./CurrencySelect";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
@@ -38,31 +38,66 @@ const CurrencyConverter = () => {
   };
 
   return (
-    <Box sx={{ padding: "2rem" }}>
+    <Paper
+      variant="outlined"
+      sx={{
+        display: "flex",
+        justifyContent: "space-evenly",
+        padding: "2rem",
+        boxShadow: "3",
+        borderRadius: "1rem",
+      }}
+    >
       {currencyContext.currencyGetError ? (
         <Alert variant="outlined" severity="error">
           Something went wrong. Please try again later.
         </Alert>
       ) : (
-        <Box sx={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-          <CurrencySelect
-            actualCurrency={baseCurrency}
-            setActualCurrency={setBaseCurrency}
-            currencyAmount={baseCurrencyAmount}
-            setCurrencyAmount={setBaseCurrencyAmount}
-            resultCurrencySelect={false}
-          />
-          <CurrencyExchangeIcon sx={{ fontSize: "2rem" }} />
-          <CurrencySelect
-            actualCurrency={targetCurrency}
-            setActualCurrency={setTargetCurrency}
-            currencyAmount={targetCurrencyAmount}
-            setCurrencyAmount={setTargetCurrencyAmount}
-            resultCurrencySelect={true}
-          />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly",
+          }}
+        >
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{
+              margin: "0 auto",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+            }}
+          >
+            CONVERT CURRENCY
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              gap: "2rem",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <CurrencySelect
+              actualCurrency={baseCurrency}
+              setActualCurrency={setBaseCurrency}
+              currencyAmount={baseCurrencyAmount}
+              setCurrencyAmount={setBaseCurrencyAmount}
+              resultCurrencySelect={false}
+            />
+            <CurrencyExchangeIcon color="primary" sx={{ fontSize: "2rem" }} />
+            <CurrencySelect
+              actualCurrency={targetCurrency}
+              setActualCurrency={setTargetCurrency}
+              currencyAmount={targetCurrencyAmount}
+              setCurrencyAmount={setTargetCurrencyAmount}
+              resultCurrencySelect={true}
+            />
+          </Box>
         </Box>
       )}
-    </Box>
+    </Paper>
   );
 };
 

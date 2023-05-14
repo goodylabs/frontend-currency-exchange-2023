@@ -39,8 +39,8 @@ const GoldChart = ({
           .slice(END_INDEX - arrayDaysAmount, END_INDEX)
           .map((day) => day.cena),
         fill: false,
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgba(255, 99, 132, 0.2)",
+        backgroundColor: "rgb(255, 255, 59, 0.9)",
+        borderColor: "rgba(255, 255, 59, 0.9)",
         pointRadius: 4,
         pointHoverRadius: 3,
       },
@@ -53,26 +53,46 @@ const GoldChart = ({
 
     scales: {
       x: {
+        grid: {
+          color: "rgba(234, 232, 228, 0.2)",
+        },
         ticks: {
           maxTicksLimit: 7,
+          color: "rgb(234, 232, 228)",
+          font: {
+            family: "monospace",
+          },
         },
         display: true,
+      },
+      y: {
+        grid: {
+          color: "rgba(234, 232, 228, 0.2)",
+        },
+        ticks: {
+          color: "rgb(234, 232, 228)",
+          font: {
+            family: "monospace",
+          },
+        },
       },
     },
 
     plugins: {
       title: {
         display: true,
+        color: "rgb(234, 232, 228)",
         text: `Gold prices of last ${arrayDaysAmount} days`,
         font: {
           size: 20,
+          family: "monospace",
         },
       },
     },
   };
 
   return (
-    <Box sx={{ margin: "2rem" }}>
+    <Box sx={{ margin: "2rem", width: "60rem" }}>
       <Line data={chartData} options={options}></Line>
     </Box>
   );

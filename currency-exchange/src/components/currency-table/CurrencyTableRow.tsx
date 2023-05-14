@@ -58,7 +58,11 @@ const CurrencyTableRow = ({
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton size="small" onClick={handleOpenRow}>
-            {isOpenRow ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {isOpenRow ? (
+              <KeyboardArrowUpIcon color="primary" />
+            ) : (
+              <KeyboardArrowDownIcon color="primary" />
+            )}
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">

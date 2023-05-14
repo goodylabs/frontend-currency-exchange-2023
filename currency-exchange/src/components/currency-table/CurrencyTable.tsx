@@ -1,4 +1,5 @@
 import {
+  Paper,
   Table,
   TableBody,
   TableCell,
@@ -18,24 +19,34 @@ const CurrencyTable = () => {
   }
 
   return (
-    <TableContainer>
-      <Table sx={{ minWidth: 650 }}>
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>Code</TableCell>
-            <TableCell align="center">Currency</TableCell>
-            <TableCell align="center">{`Mid Value (${currencyContext.currencyTableDate})`}</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {currencyContext.currencyData &&
-            currencyContext.currencyData.map((row) => (
-              <CurrencyTableRow key={row.code} {...row} />
-            ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Paper
+      sx={{
+        maxWidth: "100%",
+        margin: "2rem",
+        boxShadow: "3",
+        borderRadius: "1rem",
+      }}
+      variant="outlined"
+    >
+      <TableContainer sx={{ maxHeight: "70vh" }}>
+        <Table sx={{ minWidth: 650 }}>
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              <TableCell>Code</TableCell>
+              <TableCell align="center">Currency</TableCell>
+              <TableCell align="center">{`Mid Value (${currencyContext.currencyTableDate})`}</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {currencyContext.currencyData &&
+              currencyContext.currencyData.map((row) => (
+                <CurrencyTableRow key={row.code} {...row} />
+              ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 };
 

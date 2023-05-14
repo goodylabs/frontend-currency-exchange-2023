@@ -37,7 +37,7 @@ const CurrencySelect = ({
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-      <FormControl fullWidth sx={{ maxWidth: "15rem" }}>
+      <FormControl fullWidth>
         <InputLabel id="currency-label">Currency</InputLabel>
         <Select
           value={actualCurrency}

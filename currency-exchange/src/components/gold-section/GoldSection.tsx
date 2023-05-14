@@ -1,4 +1,4 @@
-import { Alert, Box, IconButton } from "@mui/material";
+import { Alert, Box, IconButton, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { GoldDataType } from "./GoldTypes";
@@ -65,6 +65,14 @@ const GoldSection = () => {
         </Alert>
       </Box>
     );
+  } else if (goldDataError) {
+    return (
+      <Box>
+        <Alert variant="outlined" severity="error">
+          Error while loading gold data
+        </Alert>
+      </Box>
+    );
   }
 
   return (
@@ -80,13 +88,32 @@ const GoldSection = () => {
           flexDirection: "column",
         }}
       >
-        <p>Change days span</p>
+        <Typography
+          variant="h5"
+          align="center"
+          sx={{
+            maxWidth: "70rem",
+            margin: "2rem auto",
+            fontWeight: 700,
+            letterSpacing: ".3rem",
+          }}
+        >
+          CHANGE AMOUNT OF DAYS
+        </Typography>
         <Box sx={{ display: "flex", gap: "1rem" }}>
-          <IconButton size="large" onClick={handleDecreaseDayAmount}>
-            <RemoveIcon />
+          <IconButton
+            color="primary"
+            size="large"
+            onClick={handleDecreaseDayAmount}
+          >
+            <RemoveIcon sx={{ fontSize: "2.2rem" }} />
           </IconButton>
-          <IconButton size="large" onClick={handleIncreaseDayAmount}>
-            <AddIcon />
+          <IconButton
+            color="primary"
+            size="large"
+            onClick={handleIncreaseDayAmount}
+          >
+            <AddIcon sx={{ fontSize: "2.2rem" }} />
           </IconButton>
         </Box>
       </Box>

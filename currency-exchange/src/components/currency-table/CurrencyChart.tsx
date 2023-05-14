@@ -34,8 +34,8 @@ const CurrencyChart = ({
         label: `${currencyCode} mid value`,
         data: currencyDaysData.map((day) => day.mid),
         fill: false,
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgba(255, 99, 132, 0.2)",
+        backgroundColor: "rgb(255, 255, 59, 0.9)",
+        borderColor: "rgba(255, 255, 59, 0.9)",
         pointRadius: 6,
         pointHoverRadius: 5,
       },
@@ -48,26 +48,54 @@ const CurrencyChart = ({
 
     scales: {
       x: {
+        grid: {
+          color: "rgba(234, 232, 228, 0.2)",
+        },
         ticks: {
           maxTicksLimit: 7,
+          color: "rgb(234, 232, 228)",
+          font: {
+            family: "monospace",
+          },
         },
         display: true,
+      },
+      y: {
+        grid: {
+          color: "rgba(234, 232, 228, 0.2)",
+        },
+        ticks: {
+          color: "rgb(234, 232, 228)",
+          font: {
+            family: "monospace",
+          },
+        },
       },
     },
 
     plugins: {
       title: {
         display: true,
+        color: "rgb(234, 232, 228)",
         text: `${currencyCode} mid values of last 14 days`,
         font: {
           size: 20,
+          family: "monospace",
         },
       },
     },
   };
 
   return (
-    <Box sx={{ margin: "2rem" }}>
+    <Box
+      sx={{
+        margin: "2rem",
+        maxHeight: "50vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Line data={chartData} options={options}></Line>
     </Box>
   );
