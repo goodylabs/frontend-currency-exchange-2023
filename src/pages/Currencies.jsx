@@ -1,17 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
 import CurrenciesTable from '../components/CurrenciesTable';
-import api from '../services/api';
-
-const useCurrencies = () => {
-  return useQuery({
-    queryKey: ['currencies'],
-    queryFn: async () => {
-      const res = await api.get('/exchangerates/tables/A');
-      return res.data[0];
-    },
-  });
-};
+import useCurrencies from '../hooks/useCurrencies';
 
 const Currencies = () => {
   const { isLoading, error, data } = useCurrencies();
