@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import api from '../services/api';
 import getHistoricalDates from '../utils/getHistoricalDates';
+import priceFormatter from '../utils/priceFormatter';
 
 const getCurrentGoldPrice = async () => {
   try {
@@ -45,7 +46,7 @@ const Gold = () => {
       <h1 className="text-5xl font-semibold tracking-wide text-zinc-900">Złoto</h1>
       <span className="mt-12 text-xl font-semibold text-zinc-900">Aktualna cena złota</span>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-indigo-500">
-        {currentGoldData.cena}
+        {priceFormatter.format(currentGoldData.cena)}
       </h2>
       <div className="mt-12 rounded-2xl bg-zinc-100 p-8"></div>
     </>
