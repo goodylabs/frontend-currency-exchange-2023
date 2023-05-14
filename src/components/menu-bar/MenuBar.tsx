@@ -5,7 +5,11 @@ import "./MenuBar.css";
 
 const MenuBar = () => {
   return (
-    <AppBar position="fixed" color="primary">
+    <AppBar
+      position="fixed"
+      color="primary"
+      sx={{ height: "5rem", justifyContent: "center" }}
+    >
       <Container maxWidth="lg">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", gap: "1rem" }}>
@@ -30,6 +34,7 @@ const MenuBar = () => {
               component="a"
               sx={{
                 fontWeight: 700,
+                fontSize: "1.2rem",
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "inherit",
@@ -45,6 +50,7 @@ const MenuBar = () => {
               component="a"
               sx={{
                 fontWeight: 700,
+                fontSize: "1.2rem",
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "inherit",
@@ -60,6 +66,7 @@ const MenuBar = () => {
               component="a"
               sx={{
                 fontWeight: 700,
+                fontSize: "1.2rem",
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "inherit",
