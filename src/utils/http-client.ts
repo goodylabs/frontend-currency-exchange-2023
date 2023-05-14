@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 const client = axios.create({
-  baseURL: "http://api.nbp.pl/api",
+  baseURL: "https://api.nbp.pl/api",
   headers: {
     Accept: "application/json",
   },
