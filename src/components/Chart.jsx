@@ -1,18 +1,25 @@
+import dayjs from 'dayjs';
 import { useMemo } from 'react';
 import { Chart as ReactChart } from 'react-charts';
 import colors from 'tailwindcss/colors';
 
 const Chart = ({ title, data, color = colors.indigo[500] }) => {
   const firstSeries = data[0].data;
-  const minSecondary = Math.min(...firstSeries.map((item) => item.secondary));
-  const maxSecondary = Math.max(...firstSeries.map((item) => item.secondary));
+
+  const minPrimary = dayjs.min(...firstSeries.map(({ primary }) => dayjs(primary))).toDate();
+  const maxPrimary = dayjs.max(...firstSeries.map(({ primary }) => dayjs(primary))).toDate();
+
+  const minSecondary = Math.min(...firstSeries.map(({ secondary }) => secondary));
+  const maxSecondary = Math.max(...firstSeries.map(({ secondary }) => secondary));
 
   const primaryAxis = useMemo(
     () => ({
       getValue: (datum) => datum.primary,
       scaleType: 'localTime',
+      hardMin: minPrimary,
+      hardMax: maxPrimary,
     }),
-    [],
+    [maxPrimary, minPrimary],
   );
 
   const secondaryAxes = useMemo(
