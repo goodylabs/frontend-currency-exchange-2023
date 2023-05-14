@@ -1,6 +1,7 @@
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
+import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import routes from '../common/routes';
 import Chart from '../components/Chart';
@@ -18,6 +19,13 @@ const Currency = () => {
       return res.data;
     },
   });
+
+  const rates = data?.rates.map(({ effectiveDate, mid }) => ({
+    primary: dayjs(effectiveDate).toDate(),
+    secondary: mid,
+  }));
+
+  const chartData = useMemo(() => (rates ? [{ data: rates }] : undefined), [rates]);
 
   if (isLoading) return 'Ładowanie...';
 
@@ -39,7 +47,9 @@ const Currency = () => {
         {data.currency}
       </h1>
       <div className="mt-12 w-full rounded-2xl bg-zinc-100 p-8">
-        <Chart title="Kurs waluty w ciągu ostatnich dwóch tygodni" data={data} />
+        {!!chartData && (
+          <Chart title="Kurs waluty w ciągu ostatnich dwóch tygodni" data={chartData} />
+        )}
       </div>
     </>
   );
