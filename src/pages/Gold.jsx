@@ -78,7 +78,7 @@ const Gold = () => {
       <span className="mt-12 text-xl font-semibold text-zinc-900">Aktualna cena złota</span>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-yellow-500">
         {formatPrice(currentData.cena)}
-      </h2>{' '}
+      </h2>
       <div className="mt-12 flex flex-col gap-8 rounded-2xl bg-zinc-100 p-8">
         {!!chartsData[0] && (
           <Chart

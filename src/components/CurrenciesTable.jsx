@@ -5,7 +5,7 @@ import routes from '../common/routes';
 const headers = ['Waluta', 'Kod', 'Średni kurs (PLN)', ''];
 
 const CurrenciesTable = ({ data }) => (
-  <table className="text-md w-full overflow-hidden rounded-xl text-left text-zinc-500 dark:text-gray-400">
+  <table className="text-md w-full overflow-hidden rounded-xl text-left text-zinc-500 shadow-2xl shadow-zinc-900/10 dark:text-gray-400">
     <thead className="bg-indigo-500 tracking-wide text-white">
       <tr>
         {headers.map((header) => (

@@ -35,7 +35,12 @@ const Converter = () => {
   return (
     <>
       <h1 className="text-5xl font-semibold tracking-wide text-zinc-900">Konwerter</h1>
-      <h2 className="mt-3 text-4xl font-bold tracking-wide text-indigo-500"></h2>
+      <span className="mt-12 text-xl font-semibold text-zinc-900">Instrukcja</span>
+      <span className="mt-2 text-zinc-500">
+        Wybierz walutę z lewej i prawej strony, a potem podaj kwotę, którą chcesz przeliczyć.
+        <br />
+        Możesz również zamienić waluty przyciskiem na środku.
+      </span>
       <div className="mt-12 flex gap-6 self-start rounded-2xl bg-zinc-100 p-8">
         <div className="flex w-80 flex-col gap-4">
           <CurrencySelect data={data.rates} value={leftCurrency} onChange={setLeftCurrency} />

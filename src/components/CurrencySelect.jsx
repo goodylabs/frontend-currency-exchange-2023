@@ -25,7 +25,7 @@ const CurrencySelect = ({ data, value, onChange }) => (
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-xl bg-white py-1 text-base shadow-2xl shadow-zinc-900/10 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+        <Listbox.Options className="nc-900/10 absolute mt-1 max-h-60 w-full overflow-auto rounded-xl bg-white py-1 text-base shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
           {data.map((rate) => (
             <Listbox.Option
               key={rate.code}

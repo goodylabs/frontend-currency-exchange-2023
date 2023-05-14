@@ -35,7 +35,7 @@ const Chart = ({ title, data, color = colors.indigo[500] }) => {
   );
 
   return (
-    <div className="rounded-xl bg-white pt-8 shadow-2xl shadow-zinc-900/10">
+    <div className="nc-900/10 rounded-xl bg-white pt-8 shadow-2xl">
       <span className="px-8 text-lg font-medium text-zinc-900">{title}</span>
       <div className="h-[500px]">
         <ReactChart
