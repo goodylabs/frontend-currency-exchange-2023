@@ -14,14 +14,14 @@ interface CurrencyItemProps {
 }
 const CurrencyItem = ({currency, code, mid, converterItem = false}:CurrencyItemProps) => {
     const converterCtx = useContext<ConverterContext>(converterContext);
-    const flagFile = flags.find(flag => flag.code === code)!.filename;
+    const flagFile = flags.find(flag => flag.code === code)!;
     const[modalOpen, setModalOpen] = useState<boolean>(false);
   return (
       <>
           <li onClick={() => setModalOpen(true)} className={classes.currencies__list__item}>
 
               <div className={classes.currencies__list__item__ellipsis}>
-                  <img src={flagFile}/>
+                  <img src={flagFile.filename} alt={flagFile.alt} width={32} height={32}/>
                   <p>{code}</p>
                   <p className={classes.currencies__list__item__name}>{currency}</p>
               </div>
@@ -29,7 +29,7 @@ const CurrencyItem = ({currency, code, mid, converterItem = false}:CurrencyItemP
                   <p className={classes.currencies__list__item__rate}>{converterItem ? (converterCtx.plnValue * mid).toFixed(5): mid} {converterItem ? code : 'PLN'}</p>
               </div>
           </li>
-          {(modalOpen && !converterItem) && <Modal><CurrencyView currency={currency} code={code} mid={mid} flag={flagFile} closeModalFn={setModalOpen}/></Modal>}
+          {(modalOpen && !converterItem) && <Modal><CurrencyView currency={currency} code={code} mid={mid} flag={flagFile.filename} flagAlt={flagFile.alt} closeModalFn={setModalOpen}/></Modal>}
           {(modalOpen && converterItem) && <Modal><ConverterView closeModalFn={setModalOpen} code={code} mid={mid}/></Modal>}
       </>
 
