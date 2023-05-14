@@ -1,6 +1,8 @@
+import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import { useQuery } from '@tanstack/react-query';
 import dayjs from 'dayjs';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import routes from '../common/routes';
 import Chart from '../components/Chart';
 import api from '../services/api';
 import getHistoricalDates from '../utils/getHistoricalDates';
@@ -23,7 +25,16 @@ const Currency = () => {
 
   return (
     <>
-      <span className="text-3xl font-semibold tracking-wide text-indigo-500">{data.code}</span>
+      <Link
+        className="flex items-center gap-2 self-start rounded-2xl font-medium text-zinc-500 hover:text-indigo-500"
+        to={routes.currencies}
+      >
+        <ChevronLeftIcon className="h-4 w-4" />
+        Wszystkie waluty
+      </Link>
+      <span className="mt-12 text-3xl font-semibold tracking-wide text-indigo-500">
+        {data.code}
+      </span>
       <h1 className="mt-3 text-5xl font-semibold tracking-wide text-zinc-900 first-letter:uppercase">
         {data.currency}
       </h1>
