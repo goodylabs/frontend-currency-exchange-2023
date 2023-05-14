@@ -32,7 +32,7 @@ const Currency = () => {
 
   if (isLoading) return 'Ładowanie...';
 
-  if (error) return 'Wystąpił błąd: ' + error.message;
+  if (error) return `Wystąpił błąd: ${error.message}`;
 
   return (
     <>

@@ -7,7 +7,7 @@ const Currencies = () => {
 
   if (isLoading) return 'Ładowanie...';
 
-  if (error) return 'Wystąpił błąd: ' + error.message;
+  if (error) return `Wystąpił błąd: ${error.message}`;
 
   const date = dayjs(data.effectiveDate).format('DD.MM.YYYY');
 
