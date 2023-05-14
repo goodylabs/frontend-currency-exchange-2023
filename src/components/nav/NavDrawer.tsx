@@ -9,7 +9,7 @@ interface NavDrawerProps {
 const NavDrawer = ({setDrawerOpen}:NavDrawerProps) => {
   return(
       <div className={classes.nav__drawer}>
-          <button id={"open_navigation_button"} onClick={() => setDrawerOpen(false)} className={classes.nav__drawer__close}><FontAwesomeIcon icon={faXmark} inverse/></button>
+          <button id={"al"} aria-label={"Close navigation"} onClick={() => setDrawerOpen(false)} className={classes.nav__drawer__close}><FontAwesomeIcon icon={faXmark} inverse/></button>
           <div className={classes.nav__drawer__items}>
               <NavItem path={'/'}><FontAwesomeIcon icon={faEuroSign}/> Exchanges</NavItem>
               <NavItem path={'/gold'}><FontAwesomeIcon icon={faCoins}/> Gold prices</NavItem>

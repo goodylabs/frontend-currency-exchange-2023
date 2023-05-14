@@ -20,7 +20,7 @@ const Navbar = () => {
             <NavItem path={'/gold'}><FontAwesomeIcon icon={faCoins}/> Gold prices</NavItem>
             <NavItem path={'/converter'}><FontAwesomeIcon icon={faRotate}/>  Converter</NavItem>
           </div>
-          <button id={"open_navigation_button"} onClick={() => setDrawerOpen(true)} className={classes.nav__bars}><FontAwesomeIcon icon={faBars} inverse/></button>
+          <button id={"al"} aria-label={"Open navigation"} onClick={() => setDrawerOpen(true)} className={classes.nav__bars}><FontAwesomeIcon icon={faBars} inverse/></button>
           {drawerOpen && <NavDrawer setDrawerOpen={setDrawerOpen}/> }
       </nav>
   )
