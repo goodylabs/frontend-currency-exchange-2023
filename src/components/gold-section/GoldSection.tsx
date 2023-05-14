@@ -29,7 +29,7 @@ const GoldSection = () => {
     setIsGoldDataLoading(true);
     axios
       .get(
-        `http://api.nbp.pl/api/cenyzlota/last/${GOLD_DATA_TIME_SPAN}/?format=json`
+        `https://api.nbp.pl/api/cenyzlota/last/${GOLD_DATA_TIME_SPAN}/?format=json`
       )
       .then((response) => {
         setGoldData(response.data);

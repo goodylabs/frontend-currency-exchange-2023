@@ -41,7 +41,7 @@ const CurrencyTableRow = ({
   const getPreviousCurrencyRates = async () => {
     axios
       .get(
-        `http://api.nbp.pl/api/exchangerates/rates/${TABLE}/${code}/last/${TIME_SPAN}/`
+        `https://api.nbp.pl/api/exchangerates/rates/${TABLE}/${code}/last/${TIME_SPAN}/`
       )
       .then((response) => {
         response.status === 200 && setCurrencyData(response.data.rates);
