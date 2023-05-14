@@ -1,0 +1,19 @@
+@use "../utils" as *;
+.input{
+  margin: 1.5em 0;
+  padding: 1em 2em;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  background-color: $page-bg;
+  border: 1px solid transparent;
+  font-family: $family;
+  color: $text-color-primary;
+  font-size: $normal;
+  &::placeholder{
+    font-size: calc($normal - .2rem);
+  }
+  &--err{
+    border-color: $growth-neg;
+  }
+}

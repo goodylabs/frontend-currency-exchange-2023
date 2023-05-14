@@ -1,0 +1,48 @@
+@use "../utils" as *;
+.currencies{
+  margin: 2em 0;
+  width: 90%;
+  max-width: 900px;
+  background-color: $vd-desaturated-blue;
+  border-radius: 8px;
+  &__header{
+    padding: 1em;
+  }
+  &__hr{
+    border: 1px solid $currency-border;
+  }
+  &__list{
+    list-style-type: none;
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em .75em;
+      border-bottom: 1px solid $currency-border;
+      cursor: pointer;
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.09);
+      }
+      &:last-child{
+        border-bottom: none;
+      }
+      &__ellipsis{
+        overflow: hidden;
+      }
+      &__name{
+        font-size: calc($normal - .35rem);
+        color: $text-color-secondary;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      &__rate{
+        padding: .3em;
+        color: $bright-blue;
+        background-color: $bright-blue-bg;
+        border-radius: 8px;
+        font-weight: $bold;
+      }
+    }
+  }
+}
