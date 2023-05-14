@@ -15,7 +15,7 @@ const CurrencyConverter = () => {
 
   useEffect(() => {
     setTargetCurrencyValue();
-  }, [baseCurrencyAmount]);
+  }, [baseCurrencyAmount, baseCurrency, targetCurrency]);
 
   if (currencyContext.isCurrencyDataLoading) {
     return (
