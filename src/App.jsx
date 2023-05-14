@@ -5,6 +5,7 @@ import Converter from './pages/Converter';
 import Currencies from './pages/Currencies';
 import Currency from './pages/Currency';
 import Gold from './pages/Gold';
+import NotFound from './pages/NotFound';
 import MainTemplate from './templates/MainTemplate';
 
 export const App = () => {
@@ -13,9 +14,10 @@ export const App = () => {
       <MainTemplate>
         <Routes>
           <Route path={routes.currencies} element={<Currencies />} />
-          <Route path={routes.currency} element={<Currency />} />
+          <Route path={`${routes.currency}/:code`} element={<Currency />} />
           <Route path={routes.gold} element={<Gold />} />
           <Route path={routes.converter} element={<Converter />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </MainTemplate>
     </BrowserRouter>
