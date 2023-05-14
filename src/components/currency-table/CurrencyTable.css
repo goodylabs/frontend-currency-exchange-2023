@@ -1,0 +1,18 @@
+.currency-table-container {
+  max-width: 100%;
+  margin: 2rem;
+  box-shadow: 3;
+  border-radius: 1rem;
+}
+
+.error-info-container {
+  width: 100%;
+}
+
+.currency-chart-container {
+  margin: 2rem;
+  max-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

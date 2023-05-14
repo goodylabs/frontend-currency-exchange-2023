@@ -1,0 +1,25 @@
+.currency-converter-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  box-shadow: 3;
+  border-radius: 1rem;
+}
+
+.currency-converter-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.currency-select-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.currency-converter-title {
+  font-weight: 700;
+  margin: 0 auto;
+}
