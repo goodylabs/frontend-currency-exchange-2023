@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import CurrencySelect from '../components/CurrencySelect';
 import Input from '../components/Input';
 import useCurrencies from '../hooks/useCurrencies';
+import formatPrice from '../utils/formatPrice';
 
 const Converter = () => {
   const { isLoading, error, data } = useCurrencies();
@@ -38,8 +39,9 @@ const Converter = () => {
         <ArrowsRightLeftIcon className="h-8 w-8 text-indigo-500" />
         <div className="flex grow flex-col gap-2">
           <CurrencySelect data={data.rates} value={rightCurrency} onChange={setRightCurrency} />
-          <Input disabled placeholder="Wartość po przeliczeniu" value={rightValue} />
         </div>
+        <span>Kwota po przeliczeniu</span>
+        <span>{formatPrice(rightValue, rightCurrency.code)}</span>
       </div>
     </>
   );

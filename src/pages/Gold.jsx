@@ -4,8 +4,8 @@ import { useMemo } from 'react';
 import colors from 'tailwindcss/colors';
 import Chart from '../components/Chart';
 import api from '../services/api';
+import formatPrice from '../utils/formatPrice';
 import getHistoricalDates from '../utils/getHistoricalDates';
-import priceFormatter from '../utils/priceFormatter';
 
 const useCurrentGoldPrice = () => {
   return useQuery({
@@ -77,7 +77,7 @@ const Gold = () => {
       <h1 className="text-5xl font-semibold tracking-wide text-zinc-900">Złoto</h1>
       <span className="mt-12 text-xl font-semibold text-zinc-900">Aktualna cena złota</span>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-yellow-500">
-        {priceFormatter.format(currentData.cena)}
+        {formatPrice(currentData.cena)}
       </h2>{' '}
       <div className="mt-12 flex flex-col gap-8 rounded-2xl bg-zinc-100 p-8">
         {!!chartsData[0] && (
