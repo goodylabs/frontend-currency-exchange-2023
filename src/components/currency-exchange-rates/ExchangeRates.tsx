@@ -3,19 +3,22 @@ import { Button } from "@components/button";
 import { Card } from "@components/card";
 import { ArrowPathIcon } from "@heroicons/react/20/solid";
 
-export const ExchangeRates = () => {
-  const { data, isError, refetch } = useGetExchangeRates();
+export const CurrencyExchangeRates = () => {
+  const { data, isError, refetch, isLoading, isSuccess } =
+    useGetExchangeRates();
 
   return (
     <Card>
       <div className="flex justify-between">
         <div>
           <h2 className="text-xl font-bold">Currency Exchange Rate</h2>
-          <p className="font-semibold text-text-light-100">
-            as of {data && data[0].effectiveDate}
-          </p>
+          {isSuccess && (
+            <p className="font-semibold text-text-light-100">
+              as of {data[0].effectiveDate}
+            </p>
+          )}
         </div>
-        <Button onClick={() => refetch()}>
+        <Button onClick={() => refetch()} disabled={isLoading}>
           Refresh
           <ArrowPathIcon className="w-5" />
         </Button>
@@ -29,7 +32,7 @@ export const ExchangeRates = () => {
           </tr>
         </thead>
         <tbody>
-          {!isError && data ? (
+          {isSuccess &&
             data[0].rates.map(({ code, currency, mid }) => (
               <tr
                 className="border-b border-bg-light-200 last-of-type:border-0"
@@ -39,15 +42,15 @@ export const ExchangeRates = () => {
                 <td className="py-4 pr-5">{code}</td>
                 <td className="py-4">{mid.toFixed(5)}</td>
               </tr>
-            ))
-          ) : (
-            <p className="p-6 text-center">
-              Unable to load data. Wait a while and try to use the refresh
-              button.
-            </p>
-          )}
+            ))}
         </tbody>
       </table>
+      {isLoading && <p className="w-full p-6 text-center">Loading data...</p>}
+      {isError && (
+        <p className="w-full p-6 text-center">
+          Unable to load data. Wait a while and try to use the refresh button.
+        </p>
+      )}
     </Card>
   );
 };

@@ -1,5 +1,5 @@
 import { CurrencyConverter } from "@components/currency-converter";
-import { ExchangeRates } from "@components/exchange-rates";
+import { CurrencyExchangeRates } from "@components/currency-exchange-rates";
 import { GoldPrice } from "@components/gold-price";
 import { HistoricalExchangeRates } from "@components/historical-exchange-rates";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -37,7 +37,7 @@ function App() {
           Front-End Currency Exchange 2023
         </h1>
         <div className="flex flex-col gap-9 lg:w-4/5 lg:flex-row">
-          <ExchangeRates />
+          <CurrencyExchangeRates />
           <div className="flex h-fit w-full flex-col gap-9">
             <GoldPrice />
             <HistoricalExchangeRates />
