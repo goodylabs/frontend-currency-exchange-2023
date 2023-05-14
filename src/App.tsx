@@ -1,9 +1,11 @@
+import { CurrencyConverter } from "@components/currency-converter";
 import { ExchangeRates } from "@components/exchange-rates";
 import { GoldPrice } from "@components/gold-price";
 import { HistoricalExchangeRates } from "@components/historical-exchange-rates";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
+  BarElement,
   CategoryScale,
   Chart,
   Legend,
@@ -15,6 +17,7 @@ import {
 } from "chart.js";
 
 Chart.register(
+  BarElement,
   CategoryScale,
   LinearScale,
   PointElement,
@@ -38,6 +41,7 @@ function App() {
           <div className="flex h-fit w-full flex-col gap-9">
             <GoldPrice />
             <HistoricalExchangeRates />
+            <CurrencyConverter />
           </div>
         </div>
       </div>
