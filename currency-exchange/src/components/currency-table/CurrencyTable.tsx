@@ -1,4 +1,6 @@
 import {
+  Box,
+  CircularProgress,
   Paper,
   Table,
   TableBody,
@@ -15,7 +17,11 @@ const CurrencyTable = () => {
   const currencyContext = useContext(CurrencyContext);
 
   if (currencyContext.isCurrencyDataLoading) {
-    return <div>loading...</div>;
+    return (
+      <Box>
+        <CircularProgress color="primary" />
+      </Box>
+    );
   }
 
   return (

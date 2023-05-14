@@ -1,4 +1,4 @@
-import { Alert, Box, Paper, Typography } from "@mui/material";
+import { Alert, Box, CircularProgress, Paper, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import CurrencySelect from "./CurrencySelect";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
@@ -18,7 +18,11 @@ const CurrencyConverter = () => {
   }, [baseCurrencyAmount]);
 
   if (currencyContext.isCurrencyDataLoading) {
-    return <div>loading...</div>;
+    return (
+      <Box>
+        <CircularProgress color="primary" />
+      </Box>
+    );
   }
 
   const setTargetCurrencyValue = () => {

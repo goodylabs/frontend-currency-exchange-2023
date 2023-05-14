@@ -1,4 +1,10 @@
-import { Alert, Box, IconButton, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  CircularProgress,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { GoldDataType } from "./GoldTypes";
@@ -62,9 +68,7 @@ const GoldSection = () => {
   if (isGoldDataLoading) {
     return (
       <Box>
-        <Alert variant="outlined" severity="info">
-          Loading gold data...
-        </Alert>
+        <CircularProgress color="primary" />
       </Box>
     );
   } else if (goldDataError) {

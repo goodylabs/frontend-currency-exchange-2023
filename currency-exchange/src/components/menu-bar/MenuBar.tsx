@@ -17,7 +17,6 @@ const MenuBar = () => {
               sx={{
                 fontWeight: 700,
                 fontSize: "1.8rem",
-                // letterSpacing: ".3rem",
               }}
             >
               GOODY CONVERTER
@@ -31,7 +30,6 @@ const MenuBar = () => {
               component="a"
               sx={{
                 fontWeight: 700,
-                // letterSpacing: ".3rem",
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "inherit",
@@ -47,7 +45,6 @@ const MenuBar = () => {
               component="a"
               sx={{
                 fontWeight: 700,
-                // letterSpacing: ".3rem",
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "inherit",
@@ -63,7 +60,6 @@ const MenuBar = () => {
               component="a"
               sx={{
                 fontWeight: 700,
-                // letterSpacing: ".3rem",
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 color: "inherit",

@@ -11,12 +11,12 @@ import {
 import { Line } from "react-chartjs-2";
 import { Box } from "@mui/material";
 import "./GoldSection.css";
-import { BACKGROUND_COLOR } from "../../chartConstants";
-import { BORDER_COLOR } from "../../chartConstants";
-import { GRID_COLOR } from "../../chartConstants";
-import { TEXT_COLOR } from "../../chartConstants";
-import { FONT_FAMILY } from "../../chartConstants";
-import { FONT_SIZE } from "../../chartConstants";
+import { BACKGROUND_COLOR } from "../../ChartConstants";
+import { BORDER_COLOR } from "../../ChartConstants";
+import { GRID_COLOR } from "../../ChartConstants";
+import { TEXT_COLOR } from "../../ChartConstants";
+import { FONT_FAMILY } from "../../ChartConstants";
+import { FONT_SIZE } from "../../ChartConstants";
 
 Chart.register(
   LineElement,

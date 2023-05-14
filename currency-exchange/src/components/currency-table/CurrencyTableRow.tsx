@@ -3,6 +3,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import {
   Alert,
   Box,
+  CircularProgress,
   Collapse,
   IconButton,
   TableCell,
@@ -82,7 +83,7 @@ const CurrencyTableRow = ({
             )}
             {isCurrencyDataLoading && (
               <Box className="error-info-container">
-                <Alert severity="info">Loading</Alert>
+                <CircularProgress color="primary" />
               </Box>
             )}
             {currencyData && (
