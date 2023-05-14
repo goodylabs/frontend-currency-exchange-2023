@@ -26,7 +26,7 @@ const Converter = () => {
     <>
       <h1 className="text-5xl font-semibold tracking-wide text-zinc-900">Konwerter</h1>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-indigo-500"></h2>
-      <div className="mt-12 flex items-center gap-8 rounded-2xl bg-zinc-100 p-8">
+      <div className="mt-12 flex gap-8 rounded-2xl bg-zinc-100 p-8">
         <div className="flex grow flex-col gap-2">
           <CurrencySelect data={data.rates} value={leftCurrency} onChange={setLeftCurrency} />
           <Input
@@ -36,12 +36,11 @@ const Converter = () => {
             onChange={(e) => setLeftValue(e.target.value)}
           />
         </div>
-        <ArrowsRightLeftIcon className="h-8 w-8 text-indigo-500" />
+        <ArrowsRightLeftIcon className="h-8 w-8 self-center text-indigo-500" />
         <div className="flex grow flex-col gap-2">
           <CurrencySelect data={data.rates} value={rightCurrency} onChange={setRightCurrency} />
+          <span>{formatPrice(rightValue, rightCurrency.code)}</span>
         </div>
-        <span>Kwota po przeliczeniu</span>
-        <span>{formatPrice(rightValue, rightCurrency.code)}</span>
       </div>
     </>
   );
