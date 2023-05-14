@@ -1,6 +1,7 @@
 import {BarElement, CategoryScale, Chart as ChartJS, ChartData, ChartOptions, LinearScale, Tooltip,} from 'chart.js';
 import {Bar} from 'react-chartjs-2';
 import {LastExchangeData} from "../../types/types";
+import classes from "../../sass/components/CurrencyChart.module.scss";
 
 ChartJS.register(
     CategoryScale,
@@ -26,7 +27,7 @@ export function CurrencyChart({data, loading}:ChartProps) {
         maintainAspectRatio: false,
         scales:{
             y:{
-                max: findMinMaxExchange("max") + 0.001,
+                suggestedMax: findMinMaxExchange("max") + 0.001,
                 min: findMinMaxExchange("min") - 0.01 < 0 ? 0 : findMinMaxExchange("min") - 0.01
             }
         }
@@ -48,7 +49,7 @@ export function CurrencyChart({data, loading}:ChartProps) {
     return (
         <>
             {!loading && <Bar options={options} data={chartData}/>}
-            {loading && <p>Acquiring data...</p>}
+            {loading && <p className={classes.message}>Acquiring data...</p>}
         </>
 
     );

@@ -10,7 +10,7 @@ const Converter = () => {
 
   return (
       <Card>
-          <h2 className={classes.converter__heading}>Active currencies</h2>
+        <h2 className={classes.converter__heading}>Active currencies</h2>
         <ul className={classes.converter__list}>
             <CurrencyItem currency={"Polski złoty"} code={"PLN"} mid={1.0} converterItem/>
             {converterCtx.selectedCurrencies.length === 0 && <li className={classes.converter__list__message}>Selected currencies will show up here</li>}
