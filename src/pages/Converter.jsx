@@ -1,5 +1,5 @@
 import { ArrowsRightLeftIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CurrencySelect from '../components/CurrencySelect';
 import Input from '../components/Input';
 import useCurrencies from '../hooks/useCurrencies';
@@ -8,8 +8,14 @@ const Converter = () => {
   const { isLoading, error, data } = useCurrencies();
   const [leftCurrency, setLeftCurrency] = useState('');
   const [rightCurrency, setRightCurrency] = useState('');
-  const [leftValue, setLeftValue] = useState();
-  const [rightValue, setRightValue] = useState();
+  const [leftValue, setLeftValue] = useState('');
+  const [rightValue, setRightValue] = useState('');
+
+  useEffect(() => {
+    if (!leftCurrency || !rightCurrency || !leftValue) return;
+    const newRightValue = (leftCurrency.mid / rightCurrency.mid) * leftValue;
+    setRightValue(newRightValue);
+  }, [leftCurrency, leftValue, rightCurrency]);
 
   if (isLoading) return 'Ładowanie...';
 
@@ -32,12 +38,7 @@ const Converter = () => {
         <ArrowsRightLeftIcon className="h-8 w-8 text-indigo-500" />
         <div className="flex grow flex-col gap-2">
           <CurrencySelect data={data.rates} value={rightCurrency} onChange={setRightCurrency} />
-          <Input
-            placeholder="Wpisz kwotę"
-            disabled={!rightCurrency}
-            value={rightValue}
-            onChange={(e) => setRightValue(e.target.value)}
-          />
+          <Input disabled placeholder="Wartość po przeliczeniu" value={rightValue} />
         </div>
       </div>
     </>
