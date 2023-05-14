@@ -3,9 +3,9 @@ import routes from '../common/routes';
 import NavbarItem from './NavbarItem';
 
 const items = [
-  { name: 'Currencies', link: routes.currencies, icon: BanknotesIcon },
-  { name: 'Gold', link: routes.gold, icon: TrophyIcon },
-  { name: 'Converter', link: routes.converter, icon: ArrowsRightLeftIcon },
+  { name: 'Waluty', link: routes.currencies, icon: BanknotesIcon },
+  { name: 'Złoto', link: routes.gold, icon: TrophyIcon },
+  { name: 'Konwerter', link: routes.converter, icon: ArrowsRightLeftIcon },
 ];
 
 const Navbar = () => {
