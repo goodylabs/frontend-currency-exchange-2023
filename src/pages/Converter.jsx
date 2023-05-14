@@ -12,6 +12,12 @@ const Converter = () => {
   const [leftValue, setLeftValue] = useState('');
   const [rightValue, setRightValue] = useState('');
 
+  const switchCurrencies = () => {
+    const temp = leftCurrency;
+    setLeftCurrency(rightCurrency);
+    setRightCurrency(temp);
+  };
+
   useEffect(() => {
     if (leftValue === '') setRightValue('');
 
@@ -30,7 +36,7 @@ const Converter = () => {
     <>
       <h1 className="text-5xl font-semibold tracking-wide text-zinc-900">Konwerter</h1>
       <h2 className="mt-3 text-4xl font-bold tracking-wide text-indigo-500"></h2>
-      <div className="mt-12 flex gap-8 self-start rounded-2xl bg-zinc-100 p-8">
+      <div className="mt-12 flex gap-6 self-start rounded-2xl bg-zinc-100 p-8">
         <div className="flex w-80 flex-col gap-4">
           <CurrencySelect data={data.rates} value={leftCurrency} onChange={setLeftCurrency} />
           <Input
@@ -40,7 +46,12 @@ const Converter = () => {
             onChange={(e) => setLeftValue(e.target.value)}
           />
         </div>
-        <ArrowsRightLeftIcon className="h-8 w-8 self-center text-zinc-500" />
+        <button
+          className="flex h-14 w-14 items-center justify-center self-center rounded-full bg-white/0 text-zinc-500 transition hover:bg-indigo-500 hover:text-white"
+          onClick={switchCurrencies}
+        >
+          <ArrowsRightLeftIcon className="h-8 w-8" />
+        </button>
         <div className="flex w-80 flex-col gap-4">
           <CurrencySelect data={data.rates} value={rightCurrency} onChange={setRightCurrency} />
           <div className="flex flex-col">
