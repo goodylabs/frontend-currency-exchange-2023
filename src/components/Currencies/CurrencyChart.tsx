@@ -2,6 +2,7 @@ import {BarElement, CategoryScale, Chart as ChartJS, ChartData, ChartOptions, Li
 import {Bar} from 'react-chartjs-2';
 import {LastExchangeData} from "../../types/types";
 import classes from "../../sass/components/CurrencyChart.module.scss";
+import {GridLoader} from "react-spinners";
 
 ChartJS.register(
     CategoryScale,
@@ -49,7 +50,7 @@ export function CurrencyChart({data, loading}:ChartProps) {
     return (
         <>
             {!loading && <Bar options={options} data={chartData}/>}
-            {loading && <p className={classes.message}>Acquiring data...</p>}
+            {loading && <GridLoader className={classes.loader} color="#3268CDFF"/>}
         </>
 
     );
