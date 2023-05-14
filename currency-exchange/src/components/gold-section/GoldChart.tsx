@@ -10,6 +10,13 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Box } from "@mui/material";
+import "./GoldSection.css";
+import { BACKGROUND_COLOR } from "../../chartConstants";
+import { BORDER_COLOR } from "../../chartConstants";
+import { GRID_COLOR } from "../../chartConstants";
+import { TEXT_COLOR } from "../../chartConstants";
+import { FONT_FAMILY } from "../../chartConstants";
+import { FONT_SIZE } from "../../chartConstants";
 
 Chart.register(
   LineElement,
@@ -39,8 +46,8 @@ const GoldChart = ({
           .slice(END_INDEX - arrayDaysAmount, END_INDEX)
           .map((day) => day.cena),
         fill: false,
-        backgroundColor: "rgb(255, 255, 59, 0.9)",
-        borderColor: "rgba(255, 255, 59, 0.9)",
+        backgroundColor: BACKGROUND_COLOR,
+        borderColor: BORDER_COLOR,
         pointRadius: 4,
         pointHoverRadius: 3,
       },
@@ -54,25 +61,25 @@ const GoldChart = ({
     scales: {
       x: {
         grid: {
-          color: "rgba(234, 232, 228, 0.2)",
+          color: GRID_COLOR,
         },
         ticks: {
           maxTicksLimit: 7,
-          color: "rgb(234, 232, 228)",
+          color: TEXT_COLOR,
           font: {
-            family: "monospace",
+            family: FONT_FAMILY,
           },
         },
         display: true,
       },
       y: {
         grid: {
-          color: "rgba(234, 232, 228, 0.2)",
+          color: GRID_COLOR,
         },
         ticks: {
-          color: "rgb(234, 232, 228)",
+          color: TEXT_COLOR,
           font: {
-            family: "monospace",
+            family: FONT_FAMILY,
           },
         },
       },
@@ -81,18 +88,18 @@ const GoldChart = ({
     plugins: {
       title: {
         display: true,
-        color: "rgb(234, 232, 228)",
+        color: TEXT_COLOR,
         text: `Gold prices of last ${arrayDaysAmount} days`,
         font: {
-          size: 20,
-          family: "monospace",
+          size: FONT_SIZE,
+          family: FONT_FAMILY,
         },
       },
     },
   };
 
   return (
-    <Box sx={{ margin: "2rem", width: "60rem" }}>
+    <Box className="gold-section-chart-container">
       <Line data={chartData} options={options}></Line>
     </Box>
   );

@@ -19,15 +19,7 @@ const CurrencyTable = () => {
   }
 
   return (
-    <Paper
-      sx={{
-        maxWidth: "100%",
-        margin: "2rem",
-        boxShadow: "3",
-        borderRadius: "1rem",
-      }}
-      variant="outlined"
-    >
+    <Paper className="currency-table-container" variant="outlined">
       <TableContainer sx={{ maxHeight: "70vh" }}>
         <Table sx={{ minWidth: 650 }}>
           <TableHead>

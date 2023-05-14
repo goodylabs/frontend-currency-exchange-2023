@@ -12,6 +12,7 @@ import axios from "axios";
 import { useState } from "react";
 import { CurrencyDayData } from "../home-page/CurrencyContext";
 import CurrencyChart from "./CurrencyChart";
+import "./CurrencyTable.css";
 
 const CurrencyTableRow = ({
   currency,
@@ -75,12 +76,12 @@ const CurrencyTableRow = ({
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={isOpenRow} timeout="auto" unmountOnExit>
             {currencyIsError && (
-              <Box sx={{ width: "100%" }}>
+              <Box className="error-info-container">
                 <Alert severity="error">Error while fetching data</Alert>
               </Box>
             )}
             {isCurrencyDataLoading && (
-              <Box sx={{ width: "100%" }}>
+              <Box className="error-info-container">
                 <Alert severity="info">Loading</Alert>
               </Box>
             )}

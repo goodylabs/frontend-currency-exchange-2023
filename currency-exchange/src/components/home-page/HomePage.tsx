@@ -88,15 +88,17 @@ const HomePage = () => {
               sx={{
                 maxWidth: "70rem",
                 margin: "8rem auto",
+                fontSize: "5rem",
                 fontWeight: 700,
-                letterSpacing: ".3rem",
+                // letterSpacing: ".3rem",
+                lineHeight: "0.9",
               }}
             >
               CHECK THE LATEST CURRENCY EXCHANGE RATES, GOLD PRICES AND EASILY
               CONVERT YOUR MONEY WITH GOODY CONVERTER
             </Typography>
           </Box>
-          <Box className="currency-converter-container">
+          <Box className="currency-converter-container" id="converter">
             <CurrencyConverter />
             <img
               src={CurrencyImg}
@@ -104,7 +106,7 @@ const HomePage = () => {
               className="currency-img"
             />
           </Box>
-          <Box className="gold-section-container">
+          <Box className="gold-section-container" id="gold-section">
             <Typography
               variant="h5"
               align="center"
@@ -112,14 +114,14 @@ const HomePage = () => {
                 maxWidth: "70rem",
                 margin: "4rem auto",
                 fontWeight: 700,
-                letterSpacing: ".3rem",
+                // letterSpacing: ".3rem",
               }}
             >
               CHECK THE LATEST GOLD PRICES UP TO 90 DAYS
             </Typography>
             <GoldSection />
           </Box>
-          <Box className="currency-table-container">
+          <Box className="currency-table-container" id="currencies-section">
             <Typography
               variant="h5"
               align="center"
@@ -127,7 +129,7 @@ const HomePage = () => {
                 maxWidth: "70rem",
                 margin: "4rem auto",
                 fontWeight: 700,
-                letterSpacing: ".3rem",
+                // letterSpacing: ".3rem",
               }}
             >
               CHECK THE LATEST CURRENCY EXCHANGE RATES

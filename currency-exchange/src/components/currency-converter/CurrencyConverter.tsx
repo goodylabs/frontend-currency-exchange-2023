@@ -4,6 +4,7 @@ import CurrencySelect from "./CurrencySelect";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import { CurrencyContext } from "../home-page/CurrencyContext";
 import { CurrencyContextInterface } from "../home-page/CurrencyContext";
+import "./CurrencyConverter.css";
 
 const CurrencyConverter = () => {
   const [baseCurrency, setBaseCurrency] = useState("");
@@ -38,47 +39,21 @@ const CurrencyConverter = () => {
   };
 
   return (
-    <Paper
-      variant="outlined"
-      sx={{
-        display: "flex",
-        justifyContent: "space-evenly",
-        padding: "2rem",
-        boxShadow: "3",
-        borderRadius: "1rem",
-      }}
-    >
+    <Paper variant="outlined" className="currency-converter-container">
       {currencyContext.currencyGetError ? (
         <Alert variant="outlined" severity="error">
           Something went wrong. Please try again later.
         </Alert>
       ) : (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-evenly",
-          }}
-        >
+        <Box className="currency-converter-box">
           <Typography
+            className="currency-converter-title"
             variant="h5"
             align="center"
-            sx={{
-              margin: "0 auto",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-            }}
           >
             CONVERT CURRENCY
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              gap: "2rem",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <Box className="currency-select-container">
             <CurrencySelect
               actualCurrency={baseCurrency}
               setActualCurrency={setBaseCurrency}

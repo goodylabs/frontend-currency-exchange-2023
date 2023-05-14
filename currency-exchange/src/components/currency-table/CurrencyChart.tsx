@@ -10,6 +10,15 @@ import {
 import { Line } from "react-chartjs-2";
 import { CurrencyDayData } from "../home-page/CurrencyContext";
 import { Box } from "@mui/material";
+import "./CurrencyTable.css";
+import {
+  BACKGROUND_COLOR,
+  BORDER_COLOR,
+  FONT_FAMILY,
+  FONT_SIZE,
+  GRID_COLOR,
+  TEXT_COLOR,
+} from "../../ChartConstants.ts";
 
 Chart.register(
   LineElement,
@@ -34,8 +43,8 @@ const CurrencyChart = ({
         label: `${currencyCode} mid value`,
         data: currencyDaysData.map((day) => day.mid),
         fill: false,
-        backgroundColor: "rgb(255, 255, 59, 0.9)",
-        borderColor: "rgba(255, 255, 59, 0.9)",
+        backgroundColor: BACKGROUND_COLOR,
+        borderColor: BORDER_COLOR,
         pointRadius: 6,
         pointHoverRadius: 5,
       },
@@ -49,25 +58,25 @@ const CurrencyChart = ({
     scales: {
       x: {
         grid: {
-          color: "rgba(234, 232, 228, 0.2)",
+          color: GRID_COLOR,
         },
         ticks: {
           maxTicksLimit: 7,
-          color: "rgb(234, 232, 228)",
+          color: TEXT_COLOR,
           font: {
-            family: "monospace",
+            family: FONT_FAMILY,
           },
         },
         display: true,
       },
       y: {
         grid: {
-          color: "rgba(234, 232, 228, 0.2)",
+          color: GRID_COLOR,
         },
         ticks: {
-          color: "rgb(234, 232, 228)",
+          color: TEXT_COLOR,
           font: {
-            family: "monospace",
+            family: FONT_FAMILY,
           },
         },
       },
@@ -76,26 +85,18 @@ const CurrencyChart = ({
     plugins: {
       title: {
         display: true,
-        color: "rgb(234, 232, 228)",
+        color: TEXT_COLOR,
         text: `${currencyCode} mid values of last 14 days`,
         font: {
-          size: 20,
-          family: "monospace",
+          size: FONT_SIZE,
+          family: FONT_FAMILY,
         },
       },
     },
   };
 
   return (
-    <Box
-      sx={{
-        margin: "2rem",
-        maxHeight: "50vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <Box className="currency-chart-container">
       <Line data={chartData} options={options}></Line>
     </Box>
   );
