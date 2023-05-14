@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container, Typography } from "@mui/material";
+import { AppBar, Box, Container, Typography } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import "./MenuBar.css";
