@@ -66,7 +66,6 @@ const CurrencyTableRow = ({
             )}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row"></TableCell>
         <TableCell component="th" scope="row">
           {code}
         </TableCell>

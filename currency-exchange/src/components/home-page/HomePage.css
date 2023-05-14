@@ -12,8 +12,8 @@
 }
 
 .currency-img {
-  width: 25rem;
-  height: 25rem;
+  width: 22rem;
+  height: 22rem;
 }
 
 .gold-section-container {
@@ -22,4 +22,19 @@
 
 .currency-table-container {
   width: 70rem;
+}
+
+.home-page-img {
+  margin-top: 5rem;
+  width: 20rem;
+  height: 20rem;
+}
+
+.pull-quote {
+  background-color: rgb(224, 255, 59);
+  padding: 0 0.5rem;
+  margin: 0 0.5rem;
+  height: 0;
+  border-radius: 3rem;
+  color: #051531;
 }

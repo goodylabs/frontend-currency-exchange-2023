@@ -8,8 +8,10 @@ import { Box, Typography } from "@mui/material";
 import "./HomePage.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import CurrencyImg from "../../assets/Currency-bro.png";
+import CurrencyImg from "../../assets/Coins-amico.svg";
 import MenuBar from "../menu-bar/MenuBar";
+import HomePageImage from "../../assets/business-plan-amico.svg";
+import darkScrollbar from "@mui/material/darkScrollbar";
 
 const darkTheme = createTheme({
   typography: {
@@ -37,6 +39,11 @@ const darkTheme = createTheme({
           backgroundImage: "none",
         },
       },
+    },
+    MuiCssBaseline: {
+      styleOverrides: (themeParam) => ({
+        body: themeParam.palette.mode === "dark" ? darkScrollbar() : null,
+      }),
     },
   },
 });
@@ -82,7 +89,19 @@ const HomePage = () => {
       >
         <MenuBar />
         <Box className="home-page-container">
-          <Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <img
+              src={HomePageImage}
+              alt="home-page-img"
+              className="home-page-img"
+            />
             <Typography
               variant="h2"
               align="center"
@@ -91,12 +110,14 @@ const HomePage = () => {
                 margin: "8rem auto",
                 fontSize: "5rem",
                 fontWeight: 700,
-                // letterSpacing: ".3rem",
-                lineHeight: "0.9",
+                marginTop: "2rem",
+                lineHeight: "1",
               }}
             >
-              CHECK THE LATEST CURRENCY EXCHANGE RATES, GOLD PRICES AND EASILY
-              CONVERT YOUR MONEY WITH GOODY CONVERTER
+              <span className="pull-quote">CHECK</span>THE LATEST CURRENCY
+              EXCHANGE RATES, GOLD PRICES &
+              <span className="pull-quote">EASILY</span>CONVERT YOUR MONEY WITH
+              GOODY CONVERTER
             </Typography>
           </Box>
           <Box className="currency-converter-container" id="converter">
@@ -115,7 +136,6 @@ const HomePage = () => {
                 maxWidth: "70rem",
                 margin: "0 auto",
                 fontWeight: 700,
-                // letterSpacing: ".3rem",
               }}
             >
               CHECK THE LATEST GOLD PRICES UP TO 90 DAYS
@@ -130,7 +150,6 @@ const HomePage = () => {
                 maxWidth: "70rem",
                 margin: "4rem auto",
                 fontWeight: 700,
-                // letterSpacing: ".3rem",
               }}
             >
               CHECK THE LATEST CURRENCY EXCHANGE RATES
