@@ -12,9 +12,9 @@ const Currency = () => {
     },
   });
 
-  if (isLoading) return 'Loading...';
+  if (isLoading) return 'Ładowanie...';
 
-  if (error) return 'An error has occurred: ' + error.message;
+  if (error) return 'Wystąpił błąd: ' + error.message;
 
   return (
     <>
