@@ -18,13 +18,17 @@ const Converter = () => {
     setRightCurrency(temp);
   };
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value.length === 0) setLeftValue('');
+    if (isNaN(+value)) return;
+    setLeftValue(value);
+  };
+
   useEffect(() => {
     if (leftValue === '') setRightValue('');
-
     if (!leftCurrency || !rightCurrency || !leftValue) return;
-
     const newRightValue = (leftCurrency.mid / rightCurrency.mid) * leftValue;
-
     setRightValue(newRightValue);
   }, [leftCurrency, leftValue, rightCurrency]);
 
@@ -48,7 +52,9 @@ const Converter = () => {
             placeholder="Wpisz kwotę"
             disabled={!leftCurrency || !rightCurrency}
             value={leftValue}
-            onChange={(e) => setLeftValue(e.target.value)}
+            onChange={handleChange}
+            inputMode="numeric"
+            pattern="[0-9]*"
           />
         </div>
         <button
