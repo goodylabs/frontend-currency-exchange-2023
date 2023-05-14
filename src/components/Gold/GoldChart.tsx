@@ -50,7 +50,7 @@ const GoldChart = ({chartType}:ChartProps) => {
   },[filterType, filterData])
 
 
-  const labels = filteredData.map(entry => entry.data);
+  const labels = filteredData.map(entry => entry.data).reverse();
   const findMinMaxExchange = (type: "min" | "max") => {
     const allPrices = chartType === "bar" ? filteredData.map(entry => entry.cena) : filteredData.map(entry => entry.growth) as unknown as number[];
     return type === "min" ? Math.round(Math.min(...allPrices)) : Math.round(Math.max(...allPrices));
@@ -62,7 +62,7 @@ const GoldChart = ({chartType}:ChartProps) => {
     maintainAspectRatio: false,
     scales:{
       y:{
-        max: findMinMaxExchange("max") + 2,
+        suggestedMax: findMinMaxExchange("max") + 2,
         min: chartType === "bar" ? (findMinMaxExchange("min") - 2 < 0 ? 0 : findMinMaxExchange("min") - 2) : findMinMaxExchange("min") - 1
       }
     }
@@ -73,7 +73,7 @@ const GoldChart = ({chartType}:ChartProps) => {
       {
         label: chartType === "bar" ? 'Price' : 'Growth',
         // @ts-expect-error label is not used here
-        data: chartType ==="bar" ? labels.map((label, idx) => filteredData[idx].cena) : labels.map((label, idx) => filteredData[idx].growth) ,
+        data: chartType ==="bar" ? labels.map((label, idx) => filteredData[idx].cena).reverse() : labels.map((label, idx) => filteredData[idx].growth).reverse() ,
         borderColor: chartType === "bar" ? '' : 'rgb(50, 104, 205)',
         backgroundColor: chartType ==="bar" ? 'rgb(208, 173, 57)' : 'rgb(50, 104, 205)',
       },
