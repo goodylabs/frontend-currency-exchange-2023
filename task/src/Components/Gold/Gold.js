@@ -12,11 +12,10 @@ const CurrencyTable = () => {
         chart: {
             id: 'realtime',
             easing: 'linear',
-            height: 150
+            height: 150,
+            toolbar: false
           },
-          toolbar: {
-            show: false
-          },
+          
           zoom: {
             enabled: false
           },
@@ -48,7 +47,8 @@ const CurrencyTable = () => {
                 height: 350,
                 zoom: {
                   autoScaleYaxis: true
-                }
+                },
+                toolbar: false
               },
               annotations: {
                 yaxis: [{

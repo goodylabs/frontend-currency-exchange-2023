@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
 
-const URL = "https://api.nbp.pl/api/cenyzlota?format=json";
 
 const CurrencyTable = () => {
   const [Prices, setPrices] = useState([]);
@@ -9,7 +8,9 @@ const CurrencyTable = () => {
     chart: {
       id: 'realtime',
       easing: 'linear',
-      height: 150
+      height: 150,
+      toolbar: false
+
     },
     toolbar: {
       show: false
@@ -17,6 +18,7 @@ const CurrencyTable = () => {
     zoom: {
       enabled: false
     },
+    
     title: {
       text: 'Historical Dollar Price (last 14 days)',
       align: 'center'
