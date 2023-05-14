@@ -1,5 +1,5 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
 import routes from './common/routes';
 import Converter from './pages/Converter';
 import Currencies from './pages/Currencies';
@@ -8,8 +8,10 @@ import Gold from './pages/Gold';
 import NotFound from './pages/NotFound';
 import MainTemplate from './templates/MainTemplate';
 
-export const App = () => {
-  return (
+const queryClient = new QueryClient();
+
+export const App = () => (
+  <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <MainTemplate>
         <Routes>
@@ -21,7 +23,7 @@ export const App = () => {
         </Routes>
       </MainTemplate>
     </BrowserRouter>
-  );
-};
+  </QueryClientProvider>
+);
 
 export default App;
