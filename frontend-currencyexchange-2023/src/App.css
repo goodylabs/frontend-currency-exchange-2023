@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.spacer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 80px;
+}
+
+.lowest-price {
+  color: green;
+}
+
+.highest-price {
+  color: red;
+}
