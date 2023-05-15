@@ -152,7 +152,7 @@ const CurrencyTable = () => {
      <div className="mx-60 mt-20 ">
       <div className="text-center text-5xl  text-white mb-1 stroke-black">Current Gold Price</div>
       <table className="w-full text-black">
-      <tr className=" text-2xl bg-white h-16 max-h-16 text-center leading-16  items-center grid grid-cols-2 justify-center rounded-lg">
+      <tr className=" text-2xl bg-yellow h-16 max-h-16 text-center leading-16  items-center grid grid-cols-2 justify-center rounded-lg">
                   <th className="font-heading font-medium text-black">Date</th>
                   <th className="font-medium text-black">Price (PLN)</th>
         </tr>
@@ -163,8 +163,8 @@ const CurrencyTable = () => {
                   </tr>
       </table>
       <div className="text-center text-5xl  text-white mb-1 stroke-black my-20">Historical Gold Price (last 30 days)</div>
-      <tr className=" text-2xl bg-white h-16 max-h-16 text-center leading-16  items-center grid grid-cols-2 justify-center rounded-lg">
-                  <th className="font-heading font-medium text-black">Date</th>
+      <tr className=" text-2xl bg-yellow h-16 max-h-16 text-center leading-16  items-center grid grid-cols-2 justify-center rounded-lg">
+                  <th className="font-heading font-medium ">Date</th>
                   <th className="font-medium text-black">Price (PLN)</th>
         </tr>
       {goldPricesHistory.map((gold) => (

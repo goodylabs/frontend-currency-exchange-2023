@@ -60,7 +60,7 @@ const CurrencyTable = () => {
       
       <div className="mx-60 mt-20">
       <div className="text-center text-5xl  text-white mb-1 stroke-black">Historical Dollar Price</div>
-      <div className="text-white bg-white  rounded-lg">
+      <div className="text-black bg-white  rounded-lg mb-0">
         <Chart options={goldPricesChartOptions} series={series} height={350} type="line" />
       </div>
       </div>

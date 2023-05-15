@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap');
 .App {
   text-align: center;
-  background-image: linear-gradient( rgb(90, 48, 112),rgb(28, 132, 202));
+  background-image: linear-gradient( #3b2f8b,#3109aa);
   font-family: 'Lexend', sans-serif;
 }
 .App-logo {

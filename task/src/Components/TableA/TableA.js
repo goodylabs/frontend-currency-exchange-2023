@@ -19,13 +19,13 @@ const CurrencyTable = () => {
   return (
     <>
       <div>
-        <div className="mx-60 ">
+        <div className="mx-60">
           {currencyData && publishDate && (
             <div>
                 <div className="text-center text-5xl  text-white mb-1 stroke-black	">Current Currency Table A</div>
                 <div className="text-center text-1xl text-slate-400 mb-1">Published: {publishDate}</div>
               <table className="w-full text-black">
-                <tr className=" text-2xl bg-white h-16 max-h-16 text-center leading-16  items-center grid grid-cols-3 justify-center rounded-lg">
+                <tr className=" text-2xl bg-yellow h-16 max-h-16 text-center leading-16  items-center grid grid-cols-3 justify-center rounded-lg">
                   <th className="font-heading font-medium">Currency name</th>
                   <th className="font-medium">Currency code</th>
                   <th className="font-medium">Average exchange rate</th>
