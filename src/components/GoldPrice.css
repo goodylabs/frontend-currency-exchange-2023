@@ -1,0 +1,36 @@
+.gold-price-container {
+  margin-top: 20px;
+}
+
+.gold-price-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.current-price {
+  margin-top: 10px;
+}
+
+.historical-prices {
+  margin-top: 20px;
+}
+
+.historical-prices-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.historical-prices-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.historical-price-item {
+  margin-bottom: 5px;
+}
+
+.gold-price-chart {
+  margin-top: 20px;
+}

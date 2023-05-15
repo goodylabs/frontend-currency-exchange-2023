@@ -1,0 +1,19 @@
+.CurrencyChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.CurrencyChart select {
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.CurrencyChart canvas {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+}
