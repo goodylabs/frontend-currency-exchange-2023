@@ -1,0 +1,38 @@
+.c-historical-chart__header {
+  font-size: 26px;
+}
+
+.c-historical-chart__current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 50px 0;
+}
+
+.c-historical-chart__subheader {
+  font-size: 20px;
+}
+
+.c-historical-chart__select {
+  font-size: 18px;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+}
+
+.c-historical-chart__select:hover,
+.c-historical-chart__select:focus {
+  border-color: #000;
+}
+
+.c-historical-chart__select option {
+  background-color: #fff;
+  color: #333;
+}
+
+.c-historical-chart__chart {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

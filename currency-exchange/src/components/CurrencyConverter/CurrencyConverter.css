@@ -1,0 +1,73 @@
+.c-currency__header {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.c-currency__content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.c-currency__select-container {
+  display: flex;
+  align-items: center;
+}
+
+.c-currency__exchange-icon {
+  font-size: 40px;
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+.c-currency__select-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-currency__select {
+  font-size: 18px;
+  border-radius: 4px;
+  outline: none;
+  padding: 5px;
+  min-width: 318px;
+}
+
+.c-currency__label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.c-currency__price {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-currency__button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-image: linear-gradient(to bottom, #0c8051, #129b34);
+  box-shadow: 2px 2px 5px black;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.c-currency__button:active {
+  background-image: linear-gradient(to bottom, #16c559, #129b34);
+}
+
+.c-currency__result {
+  font-size: 25px;
+  font-weight: bold;
+  align-self: center;
+}
+
+@media screen and (max-width: 750px) {
+  .c-currency__select-container {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,81 @@
+/* App.css */
+
+body {
+  font-family: Montserrat, "sans-serif";
+}
+
+.c-main {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #d9e4f5;
+  background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+  display: flex;
+}
+
+.c-main__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-main__left-top {
+  flex: 1;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #23e9ae, #04be71);
+  box-shadow: 2px 2px 10px black;
+}
+
+.c-main__left-bottom {
+  flex: 4;
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-main__left-bottom-left {
+  flex: 1;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #d4af37, #ac8a2c);
+  box-shadow: 2px 2px 10px black;
+}
+
+.c-main__left-bottom-right {
+  flex: 1;
+  background: linear-gradient(135deg, #ff4e50, #ffa07a);
+  box-shadow: 2px 2px 10px black;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.c-main__right {
+  min-width: 500px;
+  max-width: 500px;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 1800px) {
+  .c-main {
+    flex-direction: column;
+  }
+
+  .c-main__left,
+  .c-main__right {
+    flex-basis: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .c-main__right {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .c-main__left-bottom {
+    flex-direction: column;
+  }
+}
