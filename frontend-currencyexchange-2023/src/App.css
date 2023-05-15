@@ -7,13 +7,8 @@
   margin-bottom: 20px;
 }
 
-.navbar .navbar-brand.mx-auto.margin-left {
-  margin-left: 20px;
-}
-
-
 .margin-bottom {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 
 .lowest-price {
@@ -22,8 +17,4 @@
 
 .highest-price {
   color: red;
-}
-
-.justify-content-center {
-  justify-content: center;
 }

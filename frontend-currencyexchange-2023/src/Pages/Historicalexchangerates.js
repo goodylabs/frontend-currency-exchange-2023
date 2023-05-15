@@ -61,7 +61,7 @@ function HistoricalExchangeRates () {
                     loader={<div>Loading Chart...</div>}
                     data={data}
                     options={{
-                      chartArea: { width: "80%", height: "65%" },
+                      chartArea: { width: "75%", height: "70%" },
                       hAxis: {
                         title: "Date",
                         format: "dd/MM/yy",
