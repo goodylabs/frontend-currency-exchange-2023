@@ -28,6 +28,8 @@ If you have an idea for other features, feel free to introduce them.
 # GOOD LUCK :)
 ---
 
+# [Live preview - Currency Stalker](https://currency-stalker.netlify.app/)
+
 ## Built with
 
 - `Node v18.15.0`
