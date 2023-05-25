@@ -18,7 +18,7 @@ const ConverterProvider = ({children}:ProviderProps) => {
     const [selectedCurrencies, setSelectedCurrencies] = useState<RatesObject[]>([]);
     const [plnValue , setPlnValue] = useState<number>(1.0);
     const convertValue = (value: number, mid:number) => {
-        const newPlnValue = value / mid;
+        const newPlnValue =  value * mid;
         setPlnValue(newPlnValue);
     }
 

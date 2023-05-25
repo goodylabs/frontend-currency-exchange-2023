@@ -26,7 +26,7 @@ const CurrencyItem = ({currency, code, mid, converterItem = false}:CurrencyItemP
                   <p className={classes.currencies__list__item__name}>{currency}</p>
               </div>
               <div>
-                  <p className={classes.currencies__list__item__rate}>{converterItem ? (converterCtx.plnValue * mid).toFixed(5): mid} {converterItem ? code : 'PLN'}</p>
+                  <p className={classes.currencies__list__item__rate}>{converterItem ? (converterCtx.plnValue / mid).toFixed(5): mid} {converterItem ? code : 'PLN'}</p>
               </div>
           </li>
           {(modalOpen && !converterItem) && <Modal><CurrencyView currency={currency} code={code} mid={mid} flag={flagFile.filename} flagAlt={flagFile.alt} closeModalFn={setModalOpen}/></Modal>}
