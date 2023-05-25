@@ -1,0 +1,103 @@
+@use '../utils' as *;
+.nav{
+  padding: 1.1em .25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $vd-desaturated-blue;
+  z-index: 2;
+  &__logo{
+    margin-left: 1em;
+    font-weight: $bold;
+  }
+  &__drawer{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1.5em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0, 0.85);
+    z-index: 0;
+    animation: slide-to-left .1s ease-in forwards;
+    @include respond-to('m'){
+      display: none;
+    }
+    &__close{
+      padding: .9em;
+      align-self: flex-end;
+      background: none;
+      border: 1px solid transparent;
+      font-size: calc($normal + .2rem);
+      cursor: pointer;
+    }
+    &__items{
+      display: flex;
+      height: 100%;
+      margin: 7em 0 10em;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      font-size: calc($normal + .5rem);
+      a{
+        opacity: 0;
+        animation: slide-left-link .3s linear forwards;
+        &:first-child{
+          animation-delay: .3s;
+        }
+        &:nth-child(2){
+          animation-delay: .5s;
+        }
+        &:last-child{
+          animation-delay: .7s;
+        }
+        &:hover{
+          color: $bright-blue;
+        }
+      }
+
+    }
+  }
+  &__items{
+    display: none;
+  @include respond-to('m'){
+    display: block;
+    margin: 0 .5em;
+  }
+  }
+  &__bars{
+    padding: .8em;
+    background: none;
+    border: 1px solid transparent;
+    font-size: calc($normal + .2rem);
+    cursor: pointer;
+    @include respond-to('m'){
+      display: none;
+    }
+  }
+}
+@keyframes slide-to-left {
+  from{
+    transform: translateX(100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+@keyframes slide-left-link  {
+  from{
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

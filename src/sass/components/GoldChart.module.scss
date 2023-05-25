@@ -1,0 +1,49 @@
+@use "../utils" as *;
+.gold-chart{
+  position: relative;
+  z-index: 1;
+  margin-top: 2em;
+  padding: 1em;
+  padding-bottom: 6em;
+  width: 90%;
+  max-width: 900px;
+  background-color: $vd-desaturated-blue;
+  border-radius: 8px;
+  height: 450px;
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+
+    &__actions{
+      display: flex;
+      &__action{
+        padding: 1em;
+        cursor: pointer;
+        background: none;
+        color: $text-color-primary;
+        transition: background-color .2s;
+        &:hover, &--active{
+          background-color: $bright-blue;
+          border-color: $bright-blue;
+        }
+        &:first-child{
+          border: 1px solid $currency-border;
+          border-right: none;
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+        &:nth-child(2){
+          border: 1px solid $currency-border;
+        }
+        &:last-child{
+          border: 1px solid $currency-border;
+          border-left: none;
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+      }
+    }
+  }
+}

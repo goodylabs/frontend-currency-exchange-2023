@@ -1,0 +1,15 @@
+@use "../utils" as *;
+.card{
+  margin: 2em 0;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $vd-desaturated-blue;
+  border-radius: 8px;
+  @include respond-to('l'){
+    width: 50%;
+    max-width: 700px;
+  }
+}

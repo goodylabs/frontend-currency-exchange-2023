@@ -1,0 +1,16 @@
+@use "../utils" as *;
+.btn{
+  margin: .5em 0;
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color-primary;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: $bright-blue;
+  @include respond-to('s'){
+    margin: 1.8em 1em;
+  }
+}
